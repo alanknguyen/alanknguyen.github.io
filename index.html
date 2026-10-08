@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alan Nguyen</title>
+  <meta name="description" content="Alan Nguyen is a master's student in Electrical and Computer Engineering at Boston University working on embodied AI, with earlier research in computational optics.">
+  <meta property="og:title" content="Alan Nguyen">
+  <meta property="og:description" content="Embodied AI and computational optics at Boston University. Reports, course notes, and paper reviews.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alanknguyen.com/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script>
+    // Apply a saved theme before first paint so the page does not flash.
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<main id="main" class="page">
+
+  <header class="masthead">
+    <div>
+      <h1>Alan Nguyen</h1>
+      <p class="role">M.S. student, Electrical &amp; Computer Engineering, Boston University</p>
+      <nav class="links" aria-label="Contact and profiles">
+        <a href="mailto:nknguyen@bu.edu">Email</a>
+        <a href="files/cv.pdf">CV</a>
+        <a href="https://github.com/alanknguyen">GitHub</a>
+        <a href="https://linkedin.com/in/nguyendesu">LinkedIn</a>
+      </nav>
+    </div>
+    <img class="portrait" src="img/photo.svg" alt="Portrait of Alan Nguyen" width="168" height="168">
+  </header>
+
+  <section class="bio">
+    <p>
+      I am a master's student in Electrical and Computer Engineering (Systems Robotics) at Boston University,
+      where I work on embodied AI in the Dependable Computing Lab. My current work is a perception-to-action
+      stack for a 7-DoF Sawyer arm: vision-language models for grounding, ROS 2 for execution, and Isaac Sim
+      for sim-to-real transfer.
+    </p>
+    <p>
+      Before this I completed a B.A. in Physics and Computer Science at BU (2025), with research in
+      computational optics: quantum states of light in cavity QED with Luca Dal Negro, intensity diffraction
+      tomography with Lei Tian, and finite-element simulation of metasurfaces. I co-founded the BU AI Society
+      and taught its Systems-First Machine Vision course.
+    </p>
+    <p>This site collects my reports, course notes, and paper reviews. Project write-ups will follow.</p>
+  </section>
+
+  <section class="section" id="news" aria-labelledby="news-h">
+    <h2 id="news-h">News</h2>
+    <dl class="news collapsible" id="news-list" data-show="5">
+      <div><dt>Sep 2026</dt><dd>Started the M.S. in Electrical and Computer Engineering (Systems Robotics) at Boston University.</dd></div>
+      <div><dt>Spring 2026</dt><dd>Taught CS 185, Systems-First Machine Vision, through the BU AI Society.</dd></div>
+      <div><dt>Dec 2025</dt><dd>Completed the B.A. in Physics and Computer Science at BU.</dd></div>
+      <div><dt>Sep 2025</dt><dd>Joined the Dependable Computing Lab as an embodied AI researcher.</dd></div>
+      <div><dt>Apr 2025</dt><dd>Began an ML internship at Scale AI on computational physics and code reasoning (through Aug 2025).</dd></div>
+      <div><dt>Feb 2025</dt><dd>Launched <a href="https://greenmetric.ai">GreenMetric.ai</a>.</dd></div>
+      <div><dt>Oct 2023</dt><dd>Co-founded the BU AI Society.</dd></div>
+    </dl>
+    <button class="more" type="button" data-toggle="news-list" aria-controls="news-list" aria-expanded="false">Show all</button>
+  </section>
+
+  <section class="section" id="research" aria-labelledby="research-h">
+    <h2 id="research-h">Research</h2>
+    <ol class="entries">
+
+      <li class="entry">
+        <a class="thumb" href="files/cqed-report.pdf" tabindex="-1" aria-hidden="true">
+          <video muted loop playsinline preload="metadata" poster="img/thumbs/cqed.jpg" width="480" height="300">
+            <source src="img/thumbs/cqed.mp4" type="video/mp4">
+          </video>
+        </a>
+        <div class="entry-body">
+          <h3><a href="files/cqed-report.pdf">Theory and Applications of Quantum States of Light in Cavity QED Systems</a></h3>
+          <p class="authors"><span class="me">Nguyen K. Nguyen</span>. Advised by Luca Dal Negro.</p>
+          <p class="venue">Technical report · Boston University · 2025</p>
+          <p class="entry-links"><a href="files/cqed-report.pdf">PDF</a></p>
+          <p class="summary">
+            Operator-based formulations of cavity-mediated light–matter interaction, developed over a year of
+            non-thesis research on quantum states of light in cavity QED systems.
+          </p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <a class="thumb" href="files/idt-report.pdf" tabindex="-1" aria-hidden="true">
+          <video muted loop playsinline preload="metadata" poster="img/thumbs/idt.jpg" width="480" height="300">
+            <source src="img/thumbs/idt.mp4" type="video/mp4">
+          </video>
+        </a>
+        <div class="entry-body">
+          <h3><a href="files/idt-report.pdf">Intensity Diffraction Tomography: Forward Models and Imaging</a></h3>
+          <p class="authors"><span class="me">Nguyen K. Nguyen</span>. Advised by Lei Tian.</p>
+          <p class="venue">Research report · Boston University · 2025</p>
+          <p class="entry-links"><a href="files/idt-report.pdf">PDF</a></p>
+          <p class="summary">
+            Complex transfer functions and forward models for intensity diffraction tomography, with Python
+            implementations and processing of reconstructed image and video data.
+          </p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <a class="thumb" href="files/fem-metasurfaces.pdf" tabindex="-1" aria-hidden="true">
+          <video muted loop playsinline preload="metadata" poster="img/thumbs/fem.jpg" width="480" height="300">
+            <source src="img/thumbs/fem.mp4" type="video/mp4">
+          </video>
+        </a>
+        <div class="entry-body">
+          <h3><a href="files/fem-metasurfaces.pdf">Computational Electromagnetics for Metasurfaces and Plasmonics</a></h3>
+          <p class="authors"><span class="me">Nguyen K. Nguyen</span>. Advised by Luca Dal Negro.</p>
+          <p class="venue">Research report · Boston University ECE · 2024</p>
+          <p class="entry-links"><a href="files/fem-metasurfaces.pdf">PDF</a></p>
+          <p class="summary">
+            A finite-element implementation for computational electromagnetics, applied to simulations of
+            metasurfaces and plasmonic devices in MATLAB and C++.
+          </p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <section class="section" id="projects" aria-labelledby="projects-h">
+    <h2 id="projects-h">Projects</h2>
+    <p class="placeholder">Project pages are in progress (CNN inference on an FPGA, computational optics simulators, a Sawyer manipulation stack). Coming soon.</p>
+  </section>
+
+  <section class="section" id="notes" aria-labelledby="notes-h">
+    <h2 id="notes-h">Notes</h2>
+    <p class="section-note">Course notes and discussion notes from graduate courses at BU, written up as I go.</p>
+    <!-- Placeholder rows: replace with the courses you actually have notes for. -->
+    <ul class="courses">
+      <li>
+        <div><span class="course-code">EC574 / EC575</span><span class="course-title">Semiconductor Physics and Devices</span></div>
+        <span class="tag">in progress</span>
+        <p class="course-desc">Discussion notes from the recitations I ran as a TA: carrier transport, PN junctions, MOS structures, device modeling.</p>
+      </li>
+      <li>
+        <div><span class="course-title">Optimal and Robust Control</span></div>
+        <span class="tag">in progress</span>
+        <p class="course-desc">Course notes.</p>
+      </li>
+      <li>
+        <div><span class="course-title">Image and Video Computing</span></div>
+        <span class="tag">in progress</span>
+        <p class="course-desc">Course notes.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section" id="reviews" aria-labelledby="reviews-h">
+    <h2 id="reviews-h">Paper reviews</h2>
+    <p class="placeholder">Close readings of papers, grouped into short series. The first series is in progress.</p>
+  </section>
+
+  <section class="section" id="teaching" aria-labelledby="teaching-h">
+    <h2 id="teaching-h">Teaching</h2>
+    <ul class="roles">
+      <li>
+        <h3>CS 185: Systems-First Machine Vision</h3>
+        <p class="venue">Instructor · BU AI Society · Spring 2026</p>
+        <p>A course on machine vision built from the systems up: ML and deep learning methods for vision with hands-on projects.</p>
+      </li>
+      <li>
+        <h3>EC574 and EC575: Semiconductor Physics and Devices</h3>
+        <p class="venue">Graduate teaching assistant (Prof. Bellotti) · BU College of Engineering · 2024 to present</p>
+        <p>Recitations and office hours on carrier transport, PN junctions, MOS structures, and device modeling. Simulation-lab curriculum in Python and MATLAB.</p>
+      </li>
+      <li>
+        <h3>ML and Deep Learning Lecture Series</h3>
+        <p class="venue">Founder and lecturer · BU AI Society · 2023 to present</p>
+        <p>Regular lectures on ML and deep learning methods for machine vision at weekly meetings, plus workshops and speaker events.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section" id="service" aria-labelledby="service-h">
+    <h2 id="service-h">Service</h2>
+    <ul class="roles">
+      <li>
+        <h3>Boston University AI Society</h3>
+        <p class="venue">Co-founder and president · 2023 to present</p>
+        <p>Built a student community around AI at BU, raised funding for compute and robotics hardware, and founded its Computer Vision group in 2025.</p>
+      </li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <span>© 2026 Alan Nguyen</span>
+    <span>Updated October 2026</span>
+    <button type="button" data-theme-toggle>Dark mode</button>
+  </footer>
+
+</main>
+
+<script src="js/site.js"></script>
+</body>
+</html>

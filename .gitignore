@@ -1,0 +1,7 @@
+.DS_Store
+*.log
+
+# build output, once the site moves to a generator
+node_modules/
+dist/
+.astro/
