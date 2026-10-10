@@ -4,7 +4,12 @@
   // theme: light unless the visitor picked dark
   const toggle = document.querySelector('[data-theme-toggle]');
   const theme = () => root.dataset.theme || 'light';
-  const relabel = () => { if (toggle) toggle.textContent = theme() === 'dark' ? 'Light mode' : 'Dark mode'; };
+  const relabel = () => {
+    if (!toggle) return;
+    const label = theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+    toggle.setAttribute('aria-label', label);
+    toggle.title = label;
+  };
   toggle?.addEventListener('click', () => {
     const next = theme() === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
