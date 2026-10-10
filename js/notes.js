@@ -16,6 +16,8 @@
   const zoomIn = bar.querySelector('.notes-zoom-in');
   const zoomOut = bar.querySelector('.notes-zoom-out');
   const spreadBtn = bar.querySelector('.notes-spread');
+  const errata = bar.querySelector('.notes-errata');
+  let labels = null;
   const wide = matchMedia('(min-width: 1001px)');
 
   const ACTUAL = rw * 96 / 72; // 100% = the page at its printed size
@@ -188,6 +190,7 @@
       a.addEventListener('click', (e) => { e.preventDefault(); closeToc(); visit(page); scroller.focus({ preventScroll: true }); });
       tocList.appendChild(a);
     });
+    labels = meta.labels;
     tocLinks = [...tocList.querySelectorAll('a')];
     const here = markToc(current());
     if (wide.matches) reveal(here, true);
@@ -241,6 +244,15 @@
   addEventListener('popstate', () => {
     const m = location.hash.match(/^#p(\d+)$/);
     go(m ? Number(m[1]) : 1);
+  });
+
+  // erratum email names the page being read, printed number first
+  errata?.addEventListener('click', () => {
+    const n = current();
+    const printed = labels ? labels[n - 1] : String(n);
+    const subject = `Erratum: ${errata.dataset.title}, page ${printed}`;
+    const body = `Page ${printed} (page ${n} of ${count} in the online reader)\n\nWhat is wrong:\n\n\nSuggested correction:\n`;
+    errata.href = `mailto:${errata.dataset.mailUser}@${errata.dataset.mailDomain}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 
   // no save-as or drag from the page images

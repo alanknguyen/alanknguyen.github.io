@@ -18,6 +18,12 @@
   });
   relabel();
 
+  // mail links are assembled here so the address isn't sitting in the page source
+  document.querySelectorAll('a[data-mail-user]:not(.notes-errata)').forEach((a) => {
+    const subject = a.dataset.mailSubject ? `?subject=${encodeURIComponent(a.dataset.mailSubject)}` : '';
+    a.href = `mailto:${a.dataset.mailUser}@${a.dataset.mailDomain}${subject}`;
+  });
+
   // touch screens can't hover, so a tap flips "(Alan)" instead
   if (!matchMedia('(hover: hover)').matches) {
     document.querySelectorAll('.flip').forEach((el) => el.addEventListener('click', () => el.classList.toggle('flipped')));

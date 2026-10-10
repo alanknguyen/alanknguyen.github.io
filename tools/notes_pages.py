@@ -19,7 +19,7 @@ from PIL import Image, ImageDraw, ImageFont
 FONT = '/System/Library/Fonts/Supplemental/Verdana.ttf'
 MARK = 'alanknguyen.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
-VERSIONS = {'css_v': '39', 'js_v': '15', 'notes_v': '8'}
+VERSIONS = {'css_v': '40', 'js_v': '16', 'notes_v': '9'}
 CONTENT_DEST = re.compile(r'^(chapter|section|subsection|appendix)\.')
 
 

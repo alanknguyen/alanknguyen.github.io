@@ -106,6 +106,21 @@
   cursor: pointer;
 }
 .notes-spread { display: inline-flex; align-items: center; justify-content: center; }
+.nb-errata { padding-left: 10px; border-left: 1px solid var(--rule); }
+.notes-errata {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  text-decoration: none;
+}
+.notes-errata:hover { border-color: var(--muted); color: var(--accent); text-decoration: none; }
+.notes-errata svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linejoin: round; }
 .notes-spread svg { fill: none; stroke: currentColor; stroke-width: 1.4; }
 .notes-spread[aria-pressed="true"] { border-color: var(--accent); background: var(--tag-bg); color: var(--accent); }
 .notes-bar button:disabled { opacity: 0.35; cursor: default; }
@@ -146,6 +161,9 @@
   .notes-pages { left: 0; padding: 12px 10px 80px; }
   .notes-sheet { gap: 10px; }
   .nb-view { display: none; }
+  .nb-errata { padding-left: 8px; }
+  .notes-errata { padding: 0 7px; }
+  .notes-errata span { display: none; }
   .notes-bar { left: 50%; }
 }
 
