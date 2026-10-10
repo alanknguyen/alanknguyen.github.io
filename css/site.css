@@ -58,6 +58,10 @@ a:hover {
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
+/* names below the bio read as plain text and only show as links on hover */
+a.plain { color: inherit; }
+a.plain:hover { color: var(--accent); }
+
 .skip { position: absolute; left: -999px; top: 12px; }
 .skip:focus {
   left: 20px;
