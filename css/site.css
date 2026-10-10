@@ -1,16 +1,16 @@
 /* alanknguyen.com */
 
 :root {
-  --bg: #f7f7f7;
-  --bg-elev: #fdfdfd;
+  --bg: #f3f3f3;
+  --bg-elev: #fafafa;
   --text: #1c1c1c;
   --text-2: #4a4a4a;
   --muted: #6e6e6e;
-  --rule: #e2e2e2;
-  --accent: #1a5fb4;
-  --accent-hover: #0f4a93;
-  --thumb-bg: #ececec;
-  --tag-bg: #ededed;
+  --rule: #dcdcdc;
+  --accent: #1a72a8;
+  --accent-hover: #135a86;
+  --thumb-bg: #e7e7e7;
+  --tag-bg: #e8e8e8;
   --font-text: Verdana, Geneva, Tahoma, sans-serif;
   --font-mono: "Courier New", Courier, monospace;
   --col: 760px;
@@ -24,8 +24,8 @@
   --text-2: #b8b8b8;
   --muted: #929292;
   --rule: #363636;
-  --accent: #8ab8ff;
-  --accent-hover: #a9caff;
+  --accent: #7cc7f5;
+  --accent-hover: #a6dafa;
   --thumb-bg: #2c2c2c;
   --tag-bg: #303030;
   color-scheme: dark;
@@ -58,7 +58,7 @@ a:hover {
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-/* names below the bio read as plain text and only show as links on hover */
+/* quiet links (footer credits) read as plain text until hovered */
 a.plain { color: inherit; }
 a.plain:hover { color: var(--accent); }
 

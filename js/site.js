@@ -1,9 +1,9 @@
 (() => {
   const root = document.documentElement;
 
-  // theme: light unless the visitor picked dark
+  // theme: dark unless the visitor picked light
   const toggle = document.querySelector('[data-theme-toggle]');
-  const theme = () => root.dataset.theme || 'light';
+  const theme = () => root.dataset.theme || 'dark';
   const relabel = () => {
     if (!toggle) return;
     const label = theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
