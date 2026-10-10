@@ -1,0 +1,10 @@
+{
+  "ec562": {
+    "title": "Fourier Optics: Graduate Lecture Notes",
+    "course": "EC 562 Fourier Optics in Engineering",
+    "term": "Boston University, Fall 2023",
+    "lecturer": "Luca Dal Negro",
+    "lecturer_url": "https://www.bu.edu/eng/profile/luca-dal-negro/",
+    "summary": "Lecture notes by NK Nguyen, part of Elements of Fourier Optics: A Computational Approach (submitted to Springer). Begun from Luca Dal Negro's EC 562 lectures at Boston University and expanded with derivations, figures and Python code."
+  }
+}

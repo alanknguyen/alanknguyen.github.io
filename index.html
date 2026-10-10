@@ -3,16 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nguyen Khoi Nguyen (Alan)</title>
-  <meta name="description" content="Nguyen Khoi Nguyen (Alan) is a junior research engineer at Boston University working on robot learning, robot perception, and machine vision systems.">
-  <meta property="og:title" content="Nguyen Khoi Nguyen (Alan)">
+  <title>Nguyễn Khôi Nguyên (Alan)</title>
+  <meta name="description" content="Nguyễn Khôi Nguyên (Alan) is a junior research engineer at Boston University working on robot learning, robot perception, and machine vision systems.">
+  <meta property="og:title" content="Nguyễn Khôi Nguyên (Alan)">
   <meta property="og:description" content="Robot learning, robot perception, and machine vision at Boston University. Papers, course notes, and paper reviews.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://alanknguyen.com/">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="css/site.css?v=12">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&amp;text=%E9%98%AE%E9%AD%81%E5%85%83&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css?v=24">
   <script>
     // Apply a saved theme before first paint so the page does not flash.
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -25,7 +28,7 @@
 
   <header class="masthead">
     <div>
-      <h1>Nguyen Khoi Nguyen <span class="aka">(Alan)</span></h1>
+      <h1>Nguyễn Khôi Nguyên <span class="aka flip" tabindex="0"><span class="flip-inner"><span class="flip-front">(Alan)</span><span class="flip-back" lang="vi-Hani">阮魁元</span></span></span></h1>
       <p class="role">Junior Research Engineer, Boston University</p>
       <p class="email">nknguyen [at] bu [dot] edu</p>
       <nav class="links" aria-label="Profiles">
@@ -35,7 +38,7 @@
         <a href="https://x.com/alanknguyen">Twitter</a>
       </nav>
     </div>
-    <img class="portrait" src="img/portrait.jpg" alt="Portrait of Nguyen Khoi Nguyen (Alan)" width="168" height="168">
+    <img class="portrait" src="img/portrait.jpg" alt="Portrait of Nguyễn Khôi Nguyên (Alan)" width="168" height="168">
   </header>
 
   <section class="bio">
@@ -116,22 +119,27 @@
   <section class="section" id="notes" aria-labelledby="notes-h">
     <h2 id="notes-h">Notes</h2>
     <p class="section-note">Course notes and discussion notes from graduate courses at BU, written up as I go.</p>
+    <ol class="entries">
+      <li class="entry">
+        <a class="thumb wide fill" href="notes/ec562/" tabindex="-1" aria-hidden="true">
+          <img src="img/thumbs/fourier-optics-thumbnail.webp?v=3" data-gif="img/thumbs/fourier-optics-anim.gif?v=3" alt="Bright diffraction fringes; on hover, the Arago spot and Talbot self-imaging as the propagation distance grows" width="1200" height="630">
+        </a>
+        <div class="entry-body">
+          <h3><a href="notes/ec562/">Fourier Optics: Graduate Lecture Notes</a></h3>
+          <p class="authors"><span class="me">NK Nguyen</span>. Based on lectures by <a href="https://www.bu.edu/eng/profile/luca-dal-negro/">Luca Dal Negro</a>.</p>
+          <p class="venue">Draft, 202 pages · Part of <i>Elements of Fourier Optics: A Computational Approach</i>, submitted to Springer</p>
+          <p class="entry-links"><a href="notes/ec562/">Read the notes</a></p>
+          <p class="summary">
+            Linear systems, the angular spectrum and free-space propagation, Fresnel and Fraunhofer diffraction,
+            sampling and numerical propagation, arrays, gratings, Talbot self-imaging, zone plates and scalar
+            diffraction theory, with extensive Python code.
+          </p>
+        </div>
+      </li>
+    </ol>
     <ul class="courses">
-      <li><div><span class="course-code">EC 562</span> <span class="course-title">Fourier Optics in Engineering</span></div><span class="tag">coming soon</span></li>
       <li><div><span class="course-code">EC 701</span> <span class="course-title">Optimal and Robust Control</span></div><span class="tag">coming soon</span></li>
       <li><div><span class="course-code">EC 710</span> <span class="course-title">Dynamic Programming and Reinforcement Learning</span></div><span class="tag">coming soon</span></li>
-    </ul>
-  </section>
-
-  <section class="section" id="reviews" aria-labelledby="reviews-h">
-    <h2 id="reviews-h">Paper reviews</h2>
-    <p class="placeholder">Close readings of papers, grouped into short series. The first series is in progress.</p>
-  </section>
-
-  <section class="section" id="education" aria-labelledby="education-h">
-    <h2 id="education-h">Education</h2>
-    <ul class="cv">
-      <li><span class="cv-when">2025</span><div class="cv-what"><b>Bachelor of Arts in Physics and Computer Science</b>, Dual Degree, Boston University</div></li>
     </ul>
   </section>
 
@@ -167,13 +175,13 @@
   </section>
 
   <footer class="footer">
-    <span>© 2026 Nguyen Khoi Nguyen</span>
+    <span>© 2026 Nguyễn Khôi Nguyên</span>
     <span>Updated October 2026</span>
     <button type="button" data-theme-toggle>Dark mode</button>
   </footer>
 
 </main>
 
-<script src="js/site.js?v=6"></script>
+<script src="js/site.js?v=13"></script>
 </body>
 </html>

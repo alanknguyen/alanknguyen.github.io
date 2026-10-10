@@ -12,3 +12,9 @@ profile.JPG
 # kept locally, not published
 PLAN.md
 legacy/
+
+# original of img/thumbs/fourier-optics-anim.gif, not published
+img/thumbs/fourier-optics-pair.gif
+
+# notes sources: only the rendered page images are published
+notes-src/

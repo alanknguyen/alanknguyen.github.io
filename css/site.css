@@ -17,22 +17,6 @@
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #111317;
-    --bg-elev: #181b21;
-    --text: #e8e6e1;
-    --text-2: #b9b6ae;
-    --muted: #8a8780;
-    --rule: #2a2d34;
-    --accent: #8ab8ff;
-    --accent-hover: #a9caff;
-    --thumb-bg: #1f232b;
-    --tag-bg: #22262e;
-    color-scheme: dark;
-  }
-}
-
 :root[data-theme="dark"] {
   --bg: #111317;
   --bg-elev: #181b21;
@@ -99,6 +83,38 @@ a:hover {
 }
 
 .masthead h1 .aka { color: var(--text-2); white-space: nowrap; }
+/* "(Alan)" flips to the Han-Nôm name on hover, focus or tap.
+   The faces swap at the halfway point (card edge-on), so the two names never show together. */
+.flip { --flip: 0.5s; display: inline-block; perspective: 600px; cursor: default; outline: none; }
+.flip-inner {
+  display: inline-grid;
+  transition: transform var(--flip) cubic-bezier(0.45, 0, 0.55, 1);
+  transform-style: preserve-3d;
+}
+.flip-front, .flip-back {
+  grid-area: 1 / 1;
+  justify-self: center;
+  align-self: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: opacity 0s linear calc(var(--flip) / 2);
+}
+.flip-front { transform: rotateY(0deg); }
+.flip-back {
+  opacity: 0;
+  transform: rotateY(180deg);
+  font-family: "Noto Serif TC", "Songti TC", "Source Han Serif TC", "Noto Serif CJK TC", serif;
+  font-size: 0.8em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.flip:hover .flip-inner, .flip:focus-visible .flip-inner, .flip.flipped .flip-inner { transform: rotateY(180deg); }
+.flip:hover .flip-front, .flip:focus-visible .flip-front, .flip.flipped .flip-front { opacity: 0; }
+.flip:hover .flip-back, .flip:focus-visible .flip-back, .flip.flipped .flip-back { opacity: 1; }
+.flip:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  .flip { --flip: 0s; }
+}
 
 .role { margin: 0 0 4px; color: var(--text-2); }
 
@@ -299,6 +315,8 @@ a:hover {
 
 .thumb.wide { aspect-ratio: 2 / 1; background: #fff; }
 .thumb.wide img { object-fit: contain; }
+.thumb.fill { background: #081424; }
+.thumb.fill img { object-fit: cover; }
 
 .entry-links button {
   padding: 0;
@@ -348,3 +366,7 @@ a:hover {
 .dated { list-style: none; margin: 0; padding: 0; }
 .dated li { padding: 1px 0; line-height: 1.55; }
 .dated b { font-variant-numeric: tabular-nums; }
+
+/* Notes list on the home page */
+
+.entries + .courses { margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--rule); }

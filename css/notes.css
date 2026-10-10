@@ -1,0 +1,126 @@
+/* Notes reader: a fixed frame (contents on the left, page bar at the bottom); only the pages scroll */
+
+.notes-body { --toc-w: 270px; }
+
+.notes-toc {
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--toc-w);
+  overflow-y: auto;
+  padding: 22px 14px 28px 18px;
+  border-right: 1px solid var(--rule);
+  background: var(--bg);
+  font-size: 0.8rem;
+}
+.notes-toc-title { margin: 0 0 10px 8px; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.notes-toc a { display: block; padding: 3px 8px; border-radius: 4px; color: var(--text-2); line-height: 1.4; }
+.notes-toc a:hover { background: var(--tag-bg); color: var(--accent); text-decoration: none; }
+.notes-toc .toc-1 { margin-top: 8px; color: var(--text); font-weight: 700; }
+.notes-toc .toc-1:first-child { margin-top: 0; }
+.notes-toc .toc-2 { padding-left: 20px; }
+.notes-toc .current { background: var(--tag-bg); color: var(--accent); }
+
+.notes-pages {
+  margin-left: var(--toc-w);
+  padding: 28px 32px 96px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.notes-pages:focus { outline: none; }
+.notes-pages .page {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto 18px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
+  scroll-margin-top: 12px;
+}
+.notes-pages img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+.notes-pages .pl { position: absolute; border-radius: 2px; cursor: pointer; }
+.notes-pages .pl:hover { background: rgba(26, 95, 180, 0.12); box-shadow: inset 0 0 0 1px rgba(26, 95, 180, 0.35); }
+
+.notes-bar {
+  position: fixed;
+  z-index: 5;
+  left: calc(50% + var(--toc-w) / 2);
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--bg-elev);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  color: var(--text-2);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.notes-bar button {
+  height: 28px;
+  min-width: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+.notes-bar button:hover { border-color: var(--muted); }
+.notes-bar button:disabled { opacity: 0.35; cursor: default; }
+.notes-prev, .notes-next { font-size: 1rem !important; line-height: 1; }
+.notes-toc-btn { display: none; }
+.notes-page {
+  width: 3.4em;
+  padding: 3px 4px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  text-align: center;
+}
+
+/* narrow screens: pages take the width, contents opens as a sheet from the bar */
+@media (max-width: 1000px) {
+  .notes-toc {
+    top: auto;
+    left: 12px;
+    right: 12px;
+    bottom: 64px;
+    width: auto;
+    max-height: 62vh;
+    padding: 12px 8px;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--bg-elev);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  }
+  .notes-toc.open { visibility: visible; opacity: 1; transform: none; }
+  .notes-toc-btn { display: inline-block; }
+  .notes-pages { margin-left: 0; padding: 12px 10px 88px; }
+  .notes-pages .page { margin-bottom: 10px; }
+  .notes-bar { left: 50%; }
+}
+
+/* printing (and print-to-PDF) shows a notice instead of the pages */
+@media print {
+  .notes-bar, .notes-toc, .notes-pages { display: none !important; }
+  .notes-reader::after { content: "These notes can be read at alanknguyen.com and are not available for printing."; }
+}

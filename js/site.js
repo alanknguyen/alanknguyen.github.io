@@ -1,10 +1,9 @@
 (() => {
   const root = document.documentElement;
 
-  // theme: stored choice wins, otherwise follow the OS
+  // theme: light unless the visitor picked dark
   const toggle = document.querySelector('[data-theme-toggle]');
-  const prefersDark = matchMedia('(prefers-color-scheme: dark)');
-  const theme = () => root.dataset.theme || (prefersDark.matches ? 'dark' : 'light');
+  const theme = () => root.dataset.theme || 'light';
   const relabel = () => { if (toggle) toggle.textContent = theme() === 'dark' ? 'Light mode' : 'Dark mode'; };
   toggle?.addEventListener('click', () => {
     const next = theme() === 'dark' ? 'light' : 'dark';
@@ -12,8 +11,12 @@
     try { localStorage.setItem('theme', next); } catch {}
     relabel();
   });
-  prefersDark.addEventListener('change', relabel);
   relabel();
+
+  // touch screens can't hover, so a tap flips "(Alan)" instead
+  if (!matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.flip').forEach((el) => el.addEventListener('click', () => el.classList.toggle('flipped')));
+  }
 
   // figure strips and bibtex blocks under an entry
   document.querySelectorAll('[data-reveal]').forEach((btn) => {
