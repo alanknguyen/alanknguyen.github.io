@@ -5,3 +5,10 @@
 node_modules/
 dist/
 .astro/
+
+# original of img/portrait.jpg, not published
+profile.JPG
+
+# kept locally, not published
+PLAN.md
+legacy/

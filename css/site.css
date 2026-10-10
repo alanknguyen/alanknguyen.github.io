@@ -11,8 +11,8 @@
   --accent-hover: #0f4a93;
   --thumb-bg: #ece9e2;
   --tag-bg: #efece5;
-  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-text: Verdana, Geneva, Tahoma, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
   --col: 760px;
   color-scheme: light;
 }
@@ -55,9 +55,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 400 17px/1.6 var(--font-serif);
-  font-feature-settings: "kern", "liga";
-  -webkit-font-smoothing: antialiased;
+  font: 400 15px/1.6 var(--font-text);
 }
 
 .page {
@@ -97,17 +95,24 @@ a:hover {
 
 .masthead h1 {
   margin: 0 0 6px;
-  font: 600 2.25rem/1.15 var(--font-serif);
-  letter-spacing: -0.015em;
+  font: 400 2rem/1.2 var(--font-text);
 }
 
-.role { margin: 0 0 14px; color: var(--text-2); }
+.masthead h1 .aka { color: var(--text-2); white-space: nowrap; }
+
+.role { margin: 0 0 4px; color: var(--text-2); }
+
+.email {
+  margin: 0 0 14px;
+  color: var(--text-2);
+  font: 400 0.95rem/1.5 var(--font-mono);
+}
 
 .links {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 18px;
-  font: 500 0.85rem/1.4 var(--font-sans);
+  font: 400 0.82rem/1.4 var(--font-text);
 }
 .links a {
   color: var(--text-2);
@@ -126,7 +131,7 @@ a:hover {
   background: var(--thumb-bg);
 }
 
-.bio p { margin: 0 0 1em; font-size: 1.02rem; }
+.bio p { margin: 0 0 1em; }
 .bio p:last-child { margin-bottom: 0; }
 
 /* Sections */
@@ -139,41 +144,11 @@ a:hover {
 
 .section h2 {
   margin: 0 0 18px;
-  font: 600 1.45rem/1.3 var(--font-serif);
-  letter-spacing: -0.01em;
+  font: 400 1.45rem/1.3 var(--font-text);
 }
 
 .placeholder { margin: 0; color: var(--text-2); }
 .section-note { margin: 0 0 18px; color: var(--text-2); }
-
-/* News */
-
-.news {
-  display: grid;
-  grid-template-columns: 92px 1fr;
-  gap: 10px 16px;
-  margin: 0;
-}
-.news > div { display: contents; }
-.news dt {
-  color: var(--muted);
-  font: 500 0.82rem/1.75 var(--font-sans);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-.news dd { margin: 0; font-size: 0.98rem; }
-.news.collapsible:not(.expanded) > div:nth-child(n + 6) { display: none; }
-
-.more {
-  margin-top: 12px;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--accent);
-  font: 500 0.85rem/1.4 var(--font-sans);
-  cursor: pointer;
-}
-.more:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Research entries: thumbnail left, text right */
 
@@ -181,7 +156,7 @@ a:hover {
 
 .entry {
   display: grid;
-  grid-template-columns: 210px 1fr;
+  grid-template-columns: 250px 1fr;
   gap: 10px 26px;
   padding: 22px 0;
   border-top: 1px solid var(--rule);
@@ -205,24 +180,24 @@ a:hover {
   object-fit: cover;
 }
 
-.entry-body h3 { margin: 0 0 6px; font: 600 1.08rem/1.35 var(--font-serif); }
+.entry-body h3 { margin: 0 0 6px; font: 700 0.97rem/1.45 var(--font-text); }
 .entry-body h3 a { color: var(--text); }
 .entry-body h3 a:hover { color: var(--accent); text-decoration: none; }
 
-.authors { margin: 0 0 2px; color: var(--text-2); font-size: 0.95rem; }
-.authors .me { color: var(--text); font-weight: 600; }
+.authors { margin: 0 0 2px; color: var(--text-2); font-size: 0.93rem; }
+.authors .me { color: var(--text); font-weight: 700; }
 
-.venue { margin: 0 0 8px; color: var(--muted); font: 400 0.82rem/1.5 var(--font-sans); }
+.venue { margin: 0 0 8px; color: var(--muted); font: 400 0.8rem/1.5 var(--font-text); }
 
 .entry-links {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 14px;
   margin: 0 0 10px;
-  font: 500 0.82rem/1.4 var(--font-sans);
+  font: 400 0.8rem/1.4 var(--font-text);
 }
 
-.summary { margin: 0; color: var(--text-2); font-size: 0.95rem; line-height: 1.55; }
+.summary { margin: 0; color: var(--text-2); font-size: 0.93rem; line-height: 1.6; }
 
 /* Notes: one row per course */
 
@@ -239,11 +214,9 @@ a:hover {
 .course-code {
   margin-right: 8px;
   color: var(--muted);
-  font: 500 0.78rem/1.4 var(--font-sans);
-  letter-spacing: 0.02em;
+  font: 400 0.75rem/1.4 var(--font-text);
 }
-.course-title { font-weight: 600; }
-.course-desc { grid-column: 1; margin: 0; color: var(--text-2); font-size: 0.93rem; }
+.course-title { font-weight: 700; }
 
 .tag {
   grid-row: 1;
@@ -252,18 +225,28 @@ a:hover {
   border-radius: 999px;
   background: var(--tag-bg);
   color: var(--muted);
-  font: 500 0.72rem/1 var(--font-sans);
+  font: 400 0.7rem/1 var(--font-text);
   white-space: nowrap;
 }
 
-/* Teaching and service */
+/* Compact CV rows: date left, one line right */
 
-.roles { list-style: none; margin: 0; padding: 0; }
-.roles li { padding: 12px 0; border-top: 1px solid var(--rule); }
-.roles li:first-child { border-top: 0; padding-top: 0; }
-.roles h3 { margin: 0; font: 600 1rem/1.4 var(--font-serif); }
-.roles .venue { margin: 2px 0 4px; }
-.roles p { margin: 0; color: var(--text-2); font-size: 0.95rem; }
+.cv { list-style: none; margin: 0; padding: 0; }
+.cv li {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 0 16px;
+  padding: 5px 0;
+}
+.cv-when {
+  color: var(--muted);
+  font: 400 0.8rem/1.75 var(--font-text);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.cv-what { font-size: 0.93rem; line-height: 1.55; }
+.cv-what b { font-weight: 700; }
+.cv-note { color: var(--text-2); font-size: 0.87rem; }
 
 /* Footer */
 
@@ -276,7 +259,7 @@ a:hover {
   padding-top: 20px;
   border-top: 1px solid var(--rule);
   color: var(--muted);
-  font: 400 0.8rem/1.5 var(--font-sans);
+  font: 400 0.78rem/1.5 var(--font-text);
 }
 .footer button {
   padding: 0;
@@ -293,11 +276,11 @@ a:hover {
 @media (max-width: 640px) {
   .page { padding-top: 32px; }
   .masthead { gap: 18px; }
-  .masthead h1 { font-size: 1.85rem; }
+  .masthead h1 { font-size: 1.7rem; }
   .portrait { width: 104px; height: 104px; border-radius: 8px; }
   .entry { grid-template-columns: 1fr; gap: 12px; }
-  .thumb { max-width: 340px; }
-  .news { grid-template-columns: 78px 1fr; }
+  .thumb { max-width: 420px; }
+  .cv li { grid-template-columns: 78px 1fr; }
 }
 
 @media (max-width: 400px) {
@@ -309,5 +292,59 @@ a:hover {
 }
 
 @media print {
-  .more, .footer button, .skip { display: none; }
+  .footer button, .skip { display: none; }
 }
+
+/* Per-entry extras: wide thumbs, figure strips, BibTeX */
+
+.thumb.wide { aspect-ratio: 2 / 1; background: #fff; }
+.thumb.wide img { object-fit: contain; }
+
+.entry-links button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+.entry-links button:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 3px; }
+.entry-links button::after { content: "▾"; display: inline-block; margin-left: 3px; font-size: 0.95em; line-height: 1; transition: transform 0.15s ease; }
+.entry-links button[aria-expanded="true"]::after { transform: rotate(180deg); }
+
+.entry-extra { grid-column: 1 / -1; margin: 6px 0 0; }
+.entry-extra[hidden] { display: none; }
+
+.figures figure { margin: 0 0 18px; }
+.figures figure:last-child { margin-bottom: 0; }
+.figures img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: #fff;
+}
+.figures figcaption {
+  margin-top: 6px;
+  color: var(--muted);
+  font: 400 0.78rem/1.5 var(--font-text);
+}
+
+.bibtex {
+  overflow-x: auto;
+  padding: 12px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--bg-elev);
+  color: var(--text-2);
+  font: 400 0.76rem/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: pre;
+}
+
+/* Dated lists (teaching), after jessezhang.net */
+
+.org { margin: 0 0 2px; font-weight: 700; }
+.dated { list-style: none; margin: 0; padding: 0; }
+.dated li { padding: 1px 0; line-height: 1.55; }
+.dated b { font-variant-numeric: tabular-nums; }
