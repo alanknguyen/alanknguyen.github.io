@@ -11,7 +11,7 @@
   <link rel="icon" href="../../favicon.ico?v=3" sizes="any">
   <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=3">
   <link rel="stylesheet" href="../../css/site.css?v=27">
-  <link rel="stylesheet" href="../../css/notes.css?v=4">
+  <link rel="stylesheet" href="../../css/notes.css?v=8">
   <script>
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
@@ -26,17 +26,39 @@
     <nav class="notes-toc-list"></nav>
   </aside>
 
-  <main id="pages" class="notes-pages" tabindex="-1" aria-label="Fourier Optics: Graduate Lecture Notes, 202 pages"></main>
+  <main id="pages" class="notes-pages" tabindex="-1" aria-label="Fourier Optics: Graduate Lecture Notes, 202 pages"><div class="notes-sheet"></div></main>
 </div>
 
-<div class="notes-bar" role="toolbar" aria-label="Page navigation">
+<div class="notes-bar" role="toolbar" aria-label="Page and view controls">
   <button type="button" class="notes-toc-btn" aria-expanded="false">Contents</button>
-  <button type="button" class="notes-prev" aria-label="Previous page">‹</button>
-  <label>Page <input class="notes-page" type="number" min="1" max="202" value="1" inputmode="numeric"> of 202</label>
-  <button type="button" class="notes-next" aria-label="Next page">›</button>
+  <span class="nb-group">
+    <button type="button" class="notes-prev" aria-label="Previous page">‹</button>
+    <label>Page <input class="notes-page" type="number" min="1" max="202" value="1" inputmode="numeric"> of 202</label>
+    <button type="button" class="notes-next" aria-label="Next page">›</button>
+  </span>
+  <span class="nb-group nb-view">
+    <button type="button" class="notes-zoom-out" aria-label="Zoom out" title="Zoom out (−)">−</button>
+    <select class="notes-zoom" aria-label="Zoom">
+      <option value="auto">Automatic</option>
+      <option value="page">Fit page</option>
+      <option value="width">Fit width</option>
+      <option value="0.5">50%</option>
+      <option value="0.75">75%</option>
+      <option value="1">100%</option>
+      <option value="1.25">125%</option>
+      <option value="1.5">150%</option>
+      <option value="2">200%</option>
+      <option value="3">300%</option>
+      <option value="custom" hidden></option>
+    </select>
+    <button type="button" class="notes-zoom-in" aria-label="Zoom in" title="Zoom in (+)">+</button>
+    <button type="button" class="notes-spread" aria-pressed="false" aria-label="Two-page view" title="Two-page view">
+      <svg viewBox="0 0 20 14" width="20" height="14" aria-hidden="true"><rect x="1" y="1" width="8" height="12" rx="1"/><rect x="11" y="1" width="8" height="12" rx="1"/></svg>
+    </button>
+  </span>
 </div>
 
 <script src="../../js/site.js?v=13"></script>
-<script src="../../js/notes.js?v=4"></script>
+<script src="../../js/notes.js?v=8"></script>
 </body>
 </html>

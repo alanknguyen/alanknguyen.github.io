@@ -23,22 +23,36 @@
 .notes-toc .toc-2 { padding-left: 20px; }
 .notes-toc .current { background: var(--tag-bg); color: var(--accent); }
 
+/* the page area is its own scrolling viewport, so zoomed pages scroll sideways inside the frame */
 .notes-pages {
-  margin-left: var(--toc-w);
-  padding: 28px 32px 96px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: var(--toc-w);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 24px 24px 84px;
   -webkit-user-select: none;
   user-select: none;
 }
 .notes-pages:focus { outline: none; }
-.notes-pages .page {
+.notes-sheet {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 1), var(--pw, 816px));
+  gap: 18px;
+  width: max-content;
+  margin: 0 auto;
+}
+/* two-page view reads like a book: the first page sits alone on the right */
+.notes-sheet.spread .sheet-page:first-child { grid-column: 2; }
+.notes-sheet .sheet-page {
   position: relative;
-  max-width: 860px;
-  margin: 0 auto 18px;
+  width: var(--pw, 816px);
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
-  scroll-margin-top: 12px;
 }
-.notes-pages img {
+.notes-sheet img {
   display: block;
   width: 100%;
   height: 100%;
@@ -46,8 +60,8 @@
   -webkit-user-drag: none;
   -webkit-touch-callout: none;
 }
-.notes-pages .pl { position: absolute; border-radius: 2px; cursor: pointer; }
-.notes-pages .pl:hover { background: rgba(26, 95, 180, 0.12); box-shadow: inset 0 0 0 1px rgba(26, 95, 180, 0.35); }
+.notes-sheet .pl { position: absolute; border-radius: 2px; cursor: pointer; }
+.notes-sheet .pl:hover { background: rgba(26, 95, 180, 0.12); box-shadow: inset 0 0 0 1px rgba(26, 95, 180, 0.35); }
 
 .notes-bar {
   position: fixed;
@@ -79,8 +93,23 @@
   cursor: pointer;
 }
 .notes-bar button:hover { border-color: var(--muted); }
+.nb-group { display: inline-flex; align-items: center; gap: 8px; }
+.nb-view { padding-left: 10px; border-left: 1px solid var(--rule); }
+.notes-zoom {
+  height: 28px;
+  padding: 0 6px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+.notes-spread { display: inline-flex; align-items: center; justify-content: center; }
+.notes-spread svg { fill: none; stroke: currentColor; stroke-width: 1.4; }
+.notes-spread[aria-pressed="true"] { border-color: var(--accent); background: var(--tag-bg); color: var(--accent); }
 .notes-bar button:disabled { opacity: 0.35; cursor: default; }
-.notes-prev, .notes-next { font-size: 1rem !important; line-height: 1; }
+.notes-prev, .notes-next, .notes-zoom-in, .notes-zoom-out { font-size: 1rem !important; line-height: 1; }
 .notes-toc-btn { display: none; }
 .notes-page {
   width: 3.4em;
@@ -114,8 +143,9 @@
   }
   .notes-toc.open { visibility: visible; opacity: 1; transform: none; }
   .notes-toc-btn { display: inline-block; }
-  .notes-pages { margin-left: 0; padding: 12px 10px 88px; }
-  .notes-pages .page { margin-bottom: 10px; }
+  .notes-pages { left: 0; padding: 12px 10px 80px; }
+  .notes-sheet { gap: 10px; }
+  .nb-view { display: none; }
   .notes-bar { left: 50%; }
 }
 
