@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&amp;text=%E9%98%AE%E9%AD%81%E5%85%83&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=24">
+  <link rel="stylesheet" href="css/site.css?v=26">
   <script>
     // Apply a saved theme before first paint so the page does not flash.
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -118,17 +118,28 @@
 
   <section class="section" id="notes" aria-labelledby="notes-h">
     <h2 id="notes-h">Notes</h2>
-    <p class="section-note">Course notes and discussion notes from graduate courses at BU, written up as I go.</p>
+    <p class="section-note">Notes on topics from courses I&rsquo;ve taken at BU, combined with other sources.</p>
     <ol class="entries">
       <li class="entry">
         <a class="thumb wide fill" href="notes/ec562/" tabindex="-1" aria-hidden="true">
-          <img src="img/thumbs/fourier-optics-thumbnail.webp?v=3" data-gif="img/thumbs/fourier-optics-anim.gif?v=3" alt="Bright diffraction fringes; on hover, the Arago spot and Talbot self-imaging as the propagation distance grows" width="1200" height="630">
+          <img src="img/thumbs/fourier-optics-thumbnail.webp?v=4" data-gif="img/thumbs/fourier-optics-anim.gif?v=3" alt="Light spreading from a multi-slit aperture as it propagates; on hover, the Arago spot and Talbot self-imaging" width="1200" height="630">
         </a>
         <div class="entry-body">
           <h3><a href="notes/ec562/">Fourier Optics: Graduate Lecture Notes</a></h3>
           <p class="authors"><span class="me">NK Nguyen</span>. Based on lectures by <a href="https://www.bu.edu/eng/profile/luca-dal-negro/">Luca Dal Negro</a>.</p>
-          <p class="venue">Draft, 202 pages · Part of <i>Elements of Fourier Optics: A Computational Approach</i>, submitted to Springer</p>
-          <p class="entry-links"><a href="notes/ec562/">Read the notes</a></p>
+<!-- sources:ec562 -->
+          <p class="venue">Main source: BU ENG EC 562, Fourier Optics in Engineering</p>
+<!-- /sources:ec562 -->
+          <p class="entry-links">
+            <a href="notes/ec562/">Read</a>
+            <button type="button" data-reveal="ec562-info" aria-controls="ec562-info">More info</button>
+          </p>
+          <div class="more-info" id="ec562-info" hidden>
+<!-- info:ec562 -->
+            <dl class="info-list"><div><dt>Pages</dt><dd>202</dd></div><div><dt>Draft</dt><dd>Version 3 (finished)</dd></div></dl>
+            <p>Part of <i>Elements of Fourier Optics: A Computational Approach</i>, submitted to Springer. All text and figures are my own. The draft began as my notes on Luca Dal Negro's EC 562 Fourier Optics in Engineering lectures at Boston University (Fall 2023) and has grown well beyond them, with derivations, worked examples and extensive Python code.</p>
+<!-- /info:ec562 -->
+          </div>
           <p class="summary">
             Linear systems, the angular spectrum and free-space propagation, Fresnel and Fraunhofer diffraction,
             sampling and numerical propagation, arrays, gratings, Talbot self-imaging, zone plates and scalar

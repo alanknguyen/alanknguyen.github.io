@@ -331,6 +331,21 @@ a:hover {
 .entry-links button[aria-expanded="true"]::after { transform: rotate(180deg); }
 
 .entry-extra { grid-column: 1 / -1; margin: 6px 0 0; }
+.more-info {
+  margin: -2px 0 12px;
+  padding: 6px 0 6px 12px;
+  border-left: 2px solid var(--rule);
+  color: var(--text-2);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+.more-info[hidden] { display: none; }
+.info-list { display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; margin: 0 0 8px; }
+.info-list div { display: contents; }
+.info-list dt { color: var(--muted); }
+.info-list dd { margin: 0; }
+.more-info p { margin: 0 0 6px; }
+.more-info p:last-child { margin-bottom: 0; }
 .entry-extra[hidden] { display: none; }
 
 .figures figure { margin: 0 0 18px; }

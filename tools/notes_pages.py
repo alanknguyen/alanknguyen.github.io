@@ -19,7 +19,7 @@ from PIL import Image, ImageDraw, ImageFont
 FONT = '/System/Library/Fonts/Supplemental/Verdana.ttf'
 MARK = 'alanknguyen.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
-VERSIONS = {'css_v': '24', 'js_v': '13', 'notes_v': '4'}
+VERSIONS = {'css_v': '26', 'js_v': '13', 'notes_v': '4'}
 CONTENT_DEST = re.compile(r'^(chapter|section|subsection|appendix)\.')
 
 
@@ -80,12 +80,45 @@ def write_page(out, meta):
     if not info:
         print(f'no entry for "{key}" in tools/notes.json, skipping the page')
         return
-    values = {k: html.escape(v) for k, v in info.items()}
+    values = {k: html.escape(v) for k, v in info.items() if isinstance(v, str)}
     values.update(VERSIONS, count=meta['count'], w=meta['size'][0], h=meta['size'][1])
     page = Template(open(os.path.join(HERE, 'notes_page.tmpl')).read()).substitute(values)
     with open(os.path.join(out, 'index.html'), 'w') as f:
         f.write(page)
     print(f'page -> {os.path.join(out, "index.html")}')
+
+
+def fill_home(key, name, block):
+    home = os.path.join(HERE, '..', 'index.html')
+    start, end = f'<!-- {name}:{key} -->', f'<!-- /{name}:{key} -->'
+    page = open(home).read()
+    if start not in page or end not in page:
+        print(f'no {start} block in index.html, skipping')
+        return
+    a, b = page.index(start) + len(start), page.index(end)
+    with open(home, 'w') as f:
+        f.write(page[:a] + '\n' + block + page[b:])
+    print(f'home {name} -> index.html')
+
+
+def write_home(key, info, count):
+    """Home entry blocks: the source line under the authors, and More info (fields, then one paragraph)."""
+    e = lambda v: html.escape(v, quote=False)
+    sources = info.get('sources', [])
+    if sources:
+        label = 'Main source' if len(sources) == 1 else 'Main sources'
+        fill_home(key, 'sources', f'          <p class="venue">{label}: {"; ".join(e(x) for x in sources)}</p>\n')
+    fields = [('Pages', str(count))] + ([('Draft', info['draft'])] if info.get('draft') else [])
+    rows = ''.join(f'<div><dt>{k}</dt><dd>{e(v)}</dd></div>' for k, v in fields)
+    para = []
+    if info.get('book'):
+        para.append(f"Part of <i>{e(info['book'])}</i>" + (f", {e(info['book_status'])}" if info.get('book_status') else '') + '.')
+    if info.get('about'):
+        para.append(e(info['about']))
+    block = f'            <dl class="info-list">{rows}</dl>\n'
+    if para:
+        block += f'            <p>{" ".join(para)}</p>\n'
+    fill_home(key, 'info', block)
 
 
 def main():
@@ -108,6 +141,10 @@ def main():
     nlinks = sum(len(v) for v in meta['links'].values())
     print(f"index: {len(meta['toc'])} outline entries, {nlinks} contents links")
     write_page(a.out, meta)
+    key = os.path.basename(os.path.normpath(a.out))
+    info = json.load(open(os.path.join(HERE, 'notes.json'))).get(key)
+    if info:
+        write_home(key, info, meta['count'])
 
 
 if __name__ == '__main__':
