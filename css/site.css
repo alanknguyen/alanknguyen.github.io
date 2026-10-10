@@ -116,6 +116,18 @@ a.plain:hover { color: var(--accent); }
 .flip:hover .flip-front, .flip:focus-visible .flip-front, .flip.flipped .flip-front { opacity: 0; }
 .flip:hover .flip-back, .flip:focus-visible .flip-back, .flip.flipped .flip-back { opacity: 1; }
 .flip:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+/* the full name flips to its katakana reading */
+.name-flip { max-width: 100%; }
+/* the back face is mirrored by the 180° turn, so "end" lands on the left */
+.name-flip .flip-front { justify-self: start; }
+.name-flip .flip-back { justify-self: end; }
+.name-flip .flip-back {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  font-size: 0.78em;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
 @media (prefers-reduced-motion: reduce) {
   .flip { --flip: 0s; }
 }
