@@ -1,16 +1,16 @@
 /* alanknguyen.com */
 
 :root {
-  --bg: #fbfaf7;
-  --bg-elev: #ffffff;
+  --bg: #f7f7f7;
+  --bg-elev: #fdfdfd;
   --text: #1c1c1c;
-  --text-2: #4f4f4f;
-  --muted: #7a7a7a;
-  --rule: #e4e1da;
+  --text-2: #4a4a4a;
+  --muted: #6e6e6e;
+  --rule: #e2e2e2;
   --accent: #1a5fb4;
   --accent-hover: #0f4a93;
-  --thumb-bg: #ece9e2;
-  --tag-bg: #efece5;
+  --thumb-bg: #ececec;
+  --tag-bg: #ededed;
   --font-text: Verdana, Geneva, Tahoma, sans-serif;
   --font-mono: "Courier New", Courier, monospace;
   --col: 760px;
@@ -18,16 +18,16 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #111317;
-  --bg-elev: #181b21;
-  --text: #e8e6e1;
-  --text-2: #b9b6ae;
-  --muted: #8a8780;
-  --rule: #2a2d34;
+  --bg: #202020;
+  --bg-elev: #282828;
+  --text: #e4e4e4;
+  --text-2: #b8b8b8;
+  --muted: #929292;
+  --rule: #363636;
   --accent: #8ab8ff;
   --accent-hover: #a9caff;
-  --thumb-bg: #1f232b;
-  --tag-bg: #22262e;
+  --thumb-bg: #2c2c2c;
+  --tag-bg: #303030;
   color-scheme: dark;
 }
 
