@@ -4,6 +4,7 @@ usage: python3 tools/notes_pages.py notes-src/ec562.pdf notes/ec562 [--dpi 175] 
 The page text (title, course, term, lecturer) comes from tools/notes.json, keyed by the output folder name.
 """
 import argparse
+import hashlib
 import html
 import io
 import json
@@ -19,7 +20,7 @@ from PIL import Image, ImageDraw, ImageFont
 FONT = '/System/Library/Fonts/Supplemental/Verdana.ttf'
 MARK = 'alanknguyen.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
-VERSIONS = {'css_v': '40', 'js_v': '16', 'notes_v': '9'}
+VERSIONS = {'css_v': '40', 'js_v': '16', 'notes_v': '10'}
 CONTENT_DEST = re.compile(r'^(chapter|section|subsection|appendix)\.')
 
 
@@ -74,14 +75,14 @@ def index(pdf):
     }
 
 
-def write_page(out, meta):
+def write_page(out, meta, build):
     key = os.path.basename(os.path.normpath(out))
     info = json.load(open(os.path.join(HERE, 'notes.json'))).get(key)
     if not info:
         print(f'no entry for "{key}" in tools/notes.json, skipping the page')
         return
     values = {k: html.escape(v) for k, v in info.items() if isinstance(v, str)}
-    values.update(VERSIONS, count=meta['count'], w=meta['size'][0], h=meta['size'][1])
+    values.update(VERSIONS, build=build, count=meta['count'], w=meta['size'][0], h=meta['size'][1])
     page = Template(open(os.path.join(HERE, 'notes_page.tmpl')).read()).substitute(values)
     with open(os.path.join(out, 'index.html'), 'w') as f:
         f.write(page)
@@ -140,7 +141,9 @@ def main():
         json.dump(meta, f, separators=(',', ':'), ensure_ascii=False)
     nlinks = sum(len(v) for v in meta['links'].values())
     print(f"index: {len(meta['toc'])} outline entries, {nlinks} contents links")
-    write_page(a.out, meta)
+    # build stamp from the PDF, so a rebuild busts cached page images and index.json
+    build = hashlib.sha1(open(a.pdf, 'rb').read()).hexdigest()[:8]
+    write_page(a.out, meta, build)
     key = os.path.basename(os.path.normpath(a.out))
     info = json.load(open(os.path.join(HERE, 'notes.json'))).get(key)
     if info:

@@ -2,6 +2,7 @@
   const reader = document.querySelector('.notes-reader');
   if (!reader) return;
   const count = Number(reader.dataset.count);
+  const bust = reader.dataset.build ? `?v=${reader.dataset.build}` : '';
   const [rw, rh] = reader.dataset.ratio.split('/').map(Number);
   const scroller = reader.querySelector('.notes-pages');
   const sheet = scroller.querySelector('.notes-sheet');
@@ -46,7 +47,7 @@
     img.alt = `Page ${n}`;
     img.draggable = false;
     img.decoding = 'async';
-    img.dataset.src = `p${String(n).padStart(3, '0')}.webp`;
+    img.dataset.src = `p${String(n).padStart(3, '0')}.webp${bust}`;
     page.appendChild(img);
     sheet.appendChild(page);
     load.observe(page);
@@ -180,7 +181,7 @@
   });
   document.addEventListener('click', (e) => { if (toc.classList.contains('open') && !toc.contains(e.target) && !tocBtn.contains(e.target)) closeToc(); });
 
-  fetch('index.json').then((r) => r.json()).then((meta) => {
+  fetch(`index.json${bust}`).then((r) => r.json()).then((meta) => {
     meta.toc.forEach(([level, title, page]) => {
       const a = document.createElement('a');
       a.href = `#p${page}`;
