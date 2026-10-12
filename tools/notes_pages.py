@@ -1,4 +1,4 @@
-"""Render a notes PDF into page images, an index (outline, labels, contents links) and the notes page.
+"""Render a notes PDF into page images, an index (outline, labels, links) and the notes page.
 
 usage: python3 tools/notes_pages.py notes-src/ec562.pdf notes/ec562 [--dpi 175] [--watermark] [--page-only]
 The page text (title, course, term, lecturer) comes from tools/notes.json, keyed by the output folder name.
@@ -9,7 +9,6 @@ import html
 import io
 import json
 import os
-import re
 import sys
 from string import Template
 from multiprocessing import Pool
@@ -21,7 +20,6 @@ FONT = '/System/Library/Fonts/Supplemental/Verdana.ttf'
 MARK = 'alanknguyen.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
 VERSIONS = {'css_v': '40', 'js_v': '16', 'notes_v': '10'}
-CONTENT_DEST = re.compile(r'^(chapter|section|subsection|appendix)\.')
 
 
 def watermark(im, alpha=18):
@@ -53,13 +51,12 @@ def index(pdf):
     w, h = doc[0].rect.width, doc[0].rect.height
     r = lambda v: round(v, 4)
     toc = doc.get_toc(simple=True)
-    first_chapter = min(pg for lvl, _, pg in toc if lvl == 1)
-    # only the contents pages get clickable entries; in-text references stay plain
+    # every internal link (contents, figures, equations, tables, ...) gets a clickable box
     links = {}
-    for i in range(first_chapter - 1):
+    for i, page in enumerate(doc):
         out = []
-        for l in doc[i].get_links():
-            if l.get('page', -1) < 0 or not CONTENT_DEST.match(l.get('nameddest', '')):
+        for l in page.get_links():
+            if l.get('page', -1) < 0:
                 continue
             a, to = l['from'], l.get('to')
             y = r(min(max((h - to.y) / h, 0), 1)) if to is not None else 0
@@ -137,12 +134,13 @@ def main():
             sizes = pool.map(render, [(a.pdf, a.out, a.dpi, a.watermark, i) for i in range(n)])
         print(f'{n} pages -> {a.out} ({sum(sizes) / 1e6:.1f} MB)')
     meta = index(a.pdf)
+    data = json.dumps(meta, separators=(',', ':'), ensure_ascii=False)
     with open(os.path.join(a.out, 'index.json'), 'w') as f:
-        json.dump(meta, f, separators=(',', ':'), ensure_ascii=False)
+        f.write(data)
     nlinks = sum(len(v) for v in meta['links'].values())
-    print(f"index: {len(meta['toc'])} outline entries, {nlinks} contents links")
-    # build stamp from the PDF, so a rebuild busts cached page images and index.json
-    build = hashlib.sha1(open(a.pdf, 'rb').read()).hexdigest()[:8]
+    print(f"index: {len(meta['toc'])} outline entries, {nlinks} links")
+    # build stamp from the PDF and the index, so a rebuild busts cached page images and index.json
+    build = hashlib.sha1(open(a.pdf, 'rb').read() + data.encode()).hexdigest()[:8]
     write_page(a.out, meta, build)
     key = os.path.basename(os.path.normpath(a.out))
     info = json.load(open(os.path.join(HERE, 'notes.json'))).get(key)
