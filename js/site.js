@@ -40,6 +40,21 @@
     });
   });
 
+  // note pickers: one entry, several notes; the choice sets the panel, Read and Errata links
+  document.querySelectorAll('[data-note-picker]').forEach((picker) => {
+    const select = picker.querySelector('select');
+    const entry = picker.closest('.entry');
+    const show = () => {
+      const opt = select.selectedOptions[0];
+      select.querySelectorAll('option').forEach((o) => { document.getElementById(o.value).hidden = o !== opt; });
+      entry.querySelectorAll('[data-note-link]').forEach((a) => { a.href = opt.dataset.href; });
+      const errata = entry.querySelector('[data-note-errata]');
+      if (errata) errata.href = `mailto:${errata.dataset.mailUser}@${errata.dataset.mailDomain}?subject=${encodeURIComponent(`Erratum: ${opt.dataset.title}`)}`;
+    };
+    select.addEventListener('change', show);
+    show();
+  });
+
   // thumbnails: still image, swapped for its gif while the entry is hovered or focused
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.thumb img[data-gif]').forEach((img) => {

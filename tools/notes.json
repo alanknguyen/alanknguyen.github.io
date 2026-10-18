@@ -13,5 +13,50 @@
     "book": "Elements of Fourier Optics: A Computational Approach",
     "book_status": "submitted to Springer",
     "about": "All text and figures are my own. The draft began as my notes on Luca Dal Negro's EC 562 Fourier Optics in Engineering lectures at Boston University (Fall 2023) and has grown well beyond them, with derivations, worked examples and extensive Python code."
+  },
+  "ec701/1": {
+    "title": "EC 701 Notes 1: Introduction and Overview",
+    "course": "EC/ME/SE 701 Optimal and Robust Control",
+    "term": "Boston University, Spring 2026",
+    "lecturer": "Sean Andersson",
+    "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
+    "summary": "What an optimal control problem is made of: the system, the admissible controls and the cost functional (Bolza, Mayer and Lagrange forms). Two ways to steer a nonlinear system to the origin, a Lyapunov feedback law and an open-loop control in finite time, are compared, including how each copes with a disturbance. Ends with the vector spaces, inner products and norms used throughout the course.",
+    "about": "What an optimal control problem is made of: the system, the admissible controls and the cost functional (Bolza, Mayer and Lagrange forms). Two ways to steer a nonlinear system to the origin, a Lyapunov feedback law and an open-loop control in finite time, are compared, including how each copes with a disturbance. Ends with the vector spaces, inner products and norms used throughout the course."
+  },
+  "ec701/2": {
+    "title": "EC 701 Notes 2: Linearization",
+    "course": "EC/ME/SE 701 Optimal and Robust Control",
+    "term": "Boston University, Spring 2026",
+    "lecturer": "Sean Andersson",
+    "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
+    "summary": "Approximating a nonlinear system by a linear one, about an equilibrium or along a nominal trajectory, using Jacobians. The pendulum is worked through hanging and inverted, and with a time-varying nominal motion. Simulations show how small a deviation has to be for the linear model to hold, and Lyapunov's indirect method links the eigenvalues to local stability.",
+    "about": "Approximating a nonlinear system by a linear one, about an equilibrium or along a nominal trajectory, using Jacobians. The pendulum is worked through hanging and inverted, and with a time-varying nominal motion. Simulations show how small a deviation has to be for the linear model to hold, and Lyapunov's indirect method links the eigenvalues to local stability."
+  },
+  "ec701/3a": {
+    "title": "EC 701 Notes 3a: Solving Linear Systems",
+    "course": "EC/ME/SE 701 Optimal and Robust Control",
+    "term": "Boston University, Spring 2026",
+    "lecturer": "Sean Andersson",
+    "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
+    "summary": "The state transition matrix of a linear time-varying system, built from the Peano–Baker series, and its properties. For constant systems this becomes the matrix exponential, computed with similarity transforms, the Cayley–Hamilton theorem and the Laplace transform. Ends with the variation-of-constants formula and its history.",
+    "about": "The state transition matrix of a linear time-varying system, built from the Peano–Baker series, and its properties. For constant systems this becomes the matrix exponential, computed with similarity transforms, the Cayley–Hamilton theorem and the Laplace transform. Ends with the variation-of-constants formula and its history."
+  },
+  "ec701/3b": {
+    "title": "EC 701 Notes 3b: Controllability",
+    "course": "EC/ME/SE 701 Optimal and Robust Control",
+    "term": "Boston University, Spring 2026",
+    "lecturer": "Sean Andersson",
+    "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
+    "summary": "When can an input steer any state to any other? Reachability is posed as a linear equation in the input, solved with the adjoint operator, which leads to the controllability Gramian theorem. A worked double-integrator example, the observability Gramian, and the duality between controllability and observability.",
+    "about": "When can an input steer any state to any other? Reachability is posed as a linear equation in the input, solved with the adjoint operator, which leads to the controllability Gramian theorem. A worked double-integrator example, the observability Gramian, and the duality between controllability and observability."
+  },
+  "ec701/3c": {
+    "title": "EC 701 Notes 3c: LTI Systems and Optimality",
+    "course": "EC/ME/SE 701 Optimal and Robust Control",
+    "term": "Boston University, Spring 2026",
+    "lecturer": "Sean Andersson",
+    "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
+    "summary": "For constant systems, controllability reduces to the Kalman rank condition and the PBH test, with the observability matrix as its dual. The Gramian then gives the minimum-energy control between two states, with cost vᵀW⁻¹v, compared against a bang-bang control on the double integrator.",
+    "about": "For constant systems, controllability reduces to the Kalman rank condition and the PBH test, with the observability matrix as its dual. The Gramian then gives the minimum-energy control between two states, with cost vᵀW⁻¹v, compared against a bang-bang control on the double integrator."
   }
 }

@@ -1,7 +1,8 @@
 """Render a notes PDF into page images, an index (outline, labels, links) and the notes page.
 
 usage: python3 tools/notes_pages.py notes-src/ec562.pdf notes/ec562 [--dpi 175] [--watermark] [--page-only]
-The page text (title, course, term, lecturer) comes from tools/notes.json, keyed by the output folder name.
+The page text (title, course, term, lecturer) comes from tools/notes.json, keyed by the output folder's path
+under notes/ (notes/ec562 -> "ec562", notes/ec701/1 -> "ec701/1").
 """
 import argparse
 import hashlib
@@ -19,7 +20,8 @@ from PIL import Image, ImageDraw, ImageFont
 FONT = '/System/Library/Fonts/Supplemental/Verdana.ttf'
 MARK = 'alanknguyen.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
-VERSIONS = {'css_v': '40', 'js_v': '16', 'notes_v': '10'}
+NOTES = os.path.join(HERE, '..', 'notes')
+VERSIONS = {'css_v': '41', 'js_v': '17', 'notes_v': '10'}
 
 
 def watermark(im, alpha=18):
@@ -72,14 +74,19 @@ def index(pdf):
     }
 
 
+def note_key(out):
+    return os.path.relpath(os.path.abspath(out), os.path.abspath(NOTES)).replace(os.sep, '/')
+
+
 def write_page(out, meta, build):
-    key = os.path.basename(os.path.normpath(out))
+    key = note_key(out)
     info = json.load(open(os.path.join(HERE, 'notes.json'))).get(key)
     if not info:
         print(f'no entry for "{key}" in tools/notes.json, skipping the page')
         return
     values = {k: html.escape(v) for k, v in info.items() if isinstance(v, str)}
-    values.update(VERSIONS, build=build, count=meta['count'], w=meta['size'][0], h=meta['size'][1])
+    root = os.path.relpath(os.path.join(HERE, '..'), os.path.abspath(out)).replace(os.sep, '/') + '/'
+    values.update(VERSIONS, root=root, build=build, count=meta['count'], w=meta['size'][0], h=meta['size'][1])
     page = Template(open(os.path.join(HERE, 'notes_page.tmpl')).read()).substitute(values)
     with open(os.path.join(out, 'index.html'), 'w') as f:
         f.write(page)
@@ -142,7 +149,7 @@ def main():
     # build stamp from the PDF and the index, so a rebuild busts cached page images and index.json
     build = hashlib.sha1(open(a.pdf, 'rb').read() + data.encode()).hexdigest()[:8]
     write_page(a.out, meta, build)
-    key = os.path.basename(os.path.normpath(a.out))
+    key = note_key(a.out)
     info = json.load(open(os.path.join(HERE, 'notes.json'))).get(key)
     if info:
         write_home(key, info, meta['count'])
