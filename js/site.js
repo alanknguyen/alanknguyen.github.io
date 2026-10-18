@@ -29,14 +29,19 @@
     document.querySelectorAll('.flip').forEach((el) => el.addEventListener('click', () => el.classList.toggle('flipped')));
   }
 
-  // figure strips and bibtex blocks under an entry
+  // figure strips, bibtex and more-info blocks under an entry; data-swap hides another block while one is open
   document.querySelectorAll('[data-reveal]').forEach((btn) => {
     const target = document.getElementById(btn.dataset.reveal);
     if (!target) return;
-    btn.setAttribute('aria-expanded', String(!target.hidden));
+    const swap = btn.dataset.swap && document.getElementById(btn.dataset.swap);
+    const sync = () => {
+      btn.setAttribute('aria-expanded', String(!target.hidden));
+      if (swap) swap.hidden = !target.hidden;
+    };
+    sync();
     btn.addEventListener('click', () => {
       target.hidden = !target.hidden;
-      btn.setAttribute('aria-expanded', String(!target.hidden));
+      sync();
     });
   });
 

@@ -420,7 +420,7 @@ a.plain:hover { color: var(--accent); }
 
 /* Note picker: one entry, several notes */
 
-.note-picker { display: flex; align-items: center; gap: 10px; margin: 2px 0 10px; font: 400 0.8rem/1.4 var(--font-text); }
+.note-picker { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font: 400 0.8rem/1.4 var(--font-text); }
 .note-picker label { color: var(--muted); }
 .np-select { position: relative; min-width: 0; flex: 0 1 auto; }
 .np-select::after {
@@ -447,7 +447,6 @@ a.plain:hover { color: var(--accent); }
 }
 .note-picker select:hover { border-color: var(--muted); }
 .note-picker select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-.note-panel { color: var(--text-2); font-size: 0.93rem; line-height: 1.6; }
 .note-panel[hidden] { display: none; }
-.note-panel .info-list { margin: 0 0 4px; font: 400 0.8rem/1.5 var(--font-text); }
-.note-panel p { margin: 0; }
+.note-panel .info-list { margin: 0 0 4px; }
+.summary[hidden] { display: none; }

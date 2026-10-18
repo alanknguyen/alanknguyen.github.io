@@ -1,18 +1,20 @@
 {
   "ec562": {
-    "title": "Fourier Optics: Graduate Lecture Notes",
+    "title": "Engineering Fourier Optics",
     "course": "EC 562 Fourier Optics in Engineering",
     "term": "Boston University, Fall 2023",
     "lecturer": "Luca Dal Negro",
     "lecturer_url": "https://www.bu.edu/eng/profile/luca-dal-negro/",
     "summary": "Lecture notes by NK Nguyen, part of Elements of Fourier Optics: A Computational Approach (submitted to Springer). Begun from Luca Dal Negro's EC 562 lectures at Boston University and expanded with derivations, figures and Python code.",
     "sources": [
-      "BU ENG EC 562, Fourier Optics in Engineering"
+      "BU ENG EC 562, Fourier Optics in Engineering",
+      "BU ENG EC 522, Computational Optical Imaging by Lei Tian"
     ],
     "draft": "Version 3 (finished)",
     "book": "Elements of Fourier Optics: A Computational Approach",
     "book_status": "submitted to Springer",
-    "about": "All text and figures are my own. The draft began as my notes on Luca Dal Negro's EC 562 Fourier Optics in Engineering lectures at Boston University (Fall 2023) and has grown well beyond them, with derivations, worked examples and extensive Python code."
+    "about": "All text and figures are my own. The draft began as my notes on Luca Dal Negro's EC 562 Fourier Optics in Engineering lectures at Boston University (Fall 2023) and has grown well beyond them, with derivations, worked examples and extensive Python code.",
+    "textbook": "J. W. Goodman, Introduction to Fourier Optics, 4th ed. (W. H. Freeman, 2017)"
   },
   "ec701/1": {
     "title": "EC 701 Notes 1: Introduction and Overview",
