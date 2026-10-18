@@ -215,6 +215,7 @@ a.plain:hover { color: var(--accent); }
 .entry-body h3 { margin: 0 0 6px; font: 700 0.97rem/1.45 var(--font-text); }
 .entry-body h3 a { color: var(--text); }
 .entry-body h3 a:hover { color: var(--accent); text-decoration: none; }
+.entry-body h3 .kind { color: var(--muted); font-weight: 400; font-size: 0.85em; }
 
 .authors { margin: 0 0 2px; color: var(--text-2); font-size: 0.93rem; }
 .authors .me { color: var(--text); font-weight: 700; }
