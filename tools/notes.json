@@ -39,7 +39,7 @@
     "about": "Linearization about equilibria and nominal trajectories. Jacobians and Taylor remainder. Pendulum: hanging, inverted and time-varying. Lyapunov's indirect method."
   },
   "ec701/3a": {
-    "title": "EC 701 Notes 3a: Solving Linear Systems",
+    "title": "EC 701 Notes 3a: Linear System Preliminaries: Solving Linear Systems",
     "course": "EC/ME/SE 701 Optimal and Robust Control",
     "term": "Boston University, Spring 2026",
     "lecturer": "Sean Andersson",
@@ -50,7 +50,7 @@
     "about": "State transition matrix. Peano–Baker series. Matrix exponential and similarity transforms. Cayley–Hamilton theorem. Variation of constants."
   },
   "ec701/3b": {
-    "title": "EC 701 Notes 3b: Controllability",
+    "title": "EC 701 Notes 3b: Linear System Preliminaries: Controllability",
     "course": "EC/ME/SE 701 Optimal and Robust Control",
     "term": "Boston University, Spring 2026",
     "lecturer": "Sean Andersson",
@@ -61,7 +61,7 @@
     "about": "Accessibility and controllability. Adjoint operators. Controllability Gramian theorem. Observability Gramian and duality."
   },
   "ec701/3c": {
-    "title": "EC 701 Notes 3c: LTI Systems and Optimality",
+    "title": "EC 701 Notes 3c: Linear System Preliminaries: LTI Systems and Optimality",
     "course": "EC/ME/SE 701 Optimal and Robust Control",
     "term": "Boston University, Spring 2026",
     "lecturer": "Sean Andersson",
