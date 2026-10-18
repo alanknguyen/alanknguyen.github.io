@@ -115,6 +115,8 @@ def write_home(key, info, count):
         label = 'Main source' if len(sources) == 1 else 'Main sources'
         fill_home(key, 'sources', f'          <p class="venue">{label}: {"; ".join(e(x) for x in sources)}</p>\n')
     fields = [('Pages', str(count))] + ([('Draft', info['draft'])] if info.get('draft') else [])
+    if info.get('other_sources'):
+        fields.append(('Also draws on', '; '.join(info['other_sources'])))
     if info.get('textbook'):
         fields.append(('Textbook', info['textbook']))
     rows = ''.join(f'<div><dt>{k}</dt><dd>{e(v)}</dd></div>' for k, v in fields)

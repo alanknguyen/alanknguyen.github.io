@@ -7,7 +7,9 @@
     "lecturer_url": "https://www.bu.edu/eng/profile/luca-dal-negro/",
     "summary": "Lecture notes by NK Nguyen, part of Elements of Fourier Optics: A Computational Approach (submitted to Springer). Begun from Luca Dal Negro's EC 562 lectures at Boston University and expanded with derivations, figures and Python code.",
     "sources": [
-      "BU ENG EC 562, Fourier Optics in Engineering",
+      "BU ENG EC 562, Fourier Optics in Engineering"
+    ],
+    "other_sources": [
       "BU ENG EC 522, Computational Optical Imaging by Lei Tian"
     ],
     "draft": "Version 3 (finished)",
