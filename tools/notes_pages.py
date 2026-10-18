@@ -1,8 +1,9 @@
 """Render a notes PDF into page images, an index (outline, labels, links) and the notes page.
 
-usage: python3 tools/notes_pages.py notes-src/ec562.pdf notes/ec562 [--dpi 175] [--watermark] [--page-only]
+usage: python3 tools/notes_pages.py notes-src/ec562-fourier-optics.pdf notes/engineering-fourier-optics [--dpi 175] [--watermark] [--page-only]
 The page text (title, course, term, lecturer) comes from tools/notes.json, keyed by the output folder's path
-under notes/ (notes/ec562 -> "ec562", notes/ec701/1 -> "ec701/1").
+under notes/ (notes/engineering-fourier-optics -> "engineering-fourier-optics",
+notes/optimal-robust-control/1 -> "optimal-robust-control/1").
 """
 import argparse
 import hashlib
