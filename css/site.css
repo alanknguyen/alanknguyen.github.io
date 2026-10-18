@@ -18,16 +18,16 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #202020;
-  --bg-elev: #282828;
+  --bg: #171717;
+  --bg-elev: #1f1f1f;
   --text: #e4e4e4;
   --text-2: #b8b8b8;
   --muted: #929292;
-  --rule: #363636;
+  --rule: #2c2c2c;
   --accent: #94adff;
   --accent-hover: #b3c4ff;
-  --thumb-bg: #2c2c2c;
-  --tag-bg: #303030;
+  --thumb-bg: #222222;
+  --tag-bg: #262626;
   color-scheme: dark;
 }
 
