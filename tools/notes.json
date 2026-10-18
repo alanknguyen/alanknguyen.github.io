@@ -72,5 +72,38 @@
     "draft": "First draft",
     "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "Kalman rank condition. Observability matrix. PBH test. Minimum-energy control vs. bang-bang."
+  },
+  "optimal-robust-control/4a": {
+    "title": "EC 701 Notes 4a: Linear Quadratic Regulator: The Free End Point",
+    "course": "EC/ME/SE 701 Optimal and Robust Control",
+    "term": "Boston University, Spring 2026",
+    "lecturer": "Sean Andersson",
+    "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
+    "summary": "LQR problem statement. A key lemma. Free end point: Riccati differential equation and optimal feedback. Double-integrator example.",
+    "draft": "First draft",
+    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
+    "about": "LQR problem statement. A key lemma. Free end point: Riccati differential equation and optimal feedback. Double-integrator example."
+  },
+  "optimal-robust-control/4b": {
+    "title": "EC 701 Notes 4b: Linear Quadratic Regulator: Fixed End Point, Fixed End Time",
+    "course": "EC/ME/SE 701 Optimal and Robust Control",
+    "term": "Boston University, Spring 2026",
+    "lecturer": "Sean Andersson",
+    "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
+    "summary": "Fixed end point, fixed end time. Reduction to the free end-point problem. Five-step procedure. Optimal cost. Worked example.",
+    "draft": "First draft",
+    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
+    "about": "Fixed end point, fixed end time. Reduction to the free end-point problem. Five-step procedure. Optimal cost. Worked example."
+  },
+  "optimal-robust-control/4c": {
+    "title": "EC 701 Notes 4c: Linear Quadratic Regulator: Infinite Horizon, Observers and LQG",
+    "course": "EC/ME/SE 701 Optimal and Robust Control",
+    "term": "Boston University, Spring 2026",
+    "lecturer": "Sean Andersson",
+    "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
+    "summary": "LTI infinite horizon and the algebraic Riccati equation. Stability margins of LQR. Observers and the separation principle. LQG. Detectability. Discrete time.",
+    "draft": "First draft",
+    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
+    "about": "LTI infinite horizon and the algebraic Riccati equation. Stability margins of LQR. Observers and the separation principle. LQG. Detectability. Discrete time."
   }
 }
