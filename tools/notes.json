@@ -23,6 +23,8 @@
     "lecturer": "Sean Andersson",
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "Elements of an optimal control problem. Cost functionals: Bolza, Mayer and Lagrange forms. Lyapunov feedback vs. open-loop steering. Vector spaces, inner products and norms.",
+    "draft": "First draft",
+    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "Elements of an optimal control problem. Cost functionals: Bolza, Mayer and Lagrange forms. Lyapunov feedback vs. open-loop steering. Vector spaces, inner products and norms."
   },
   "ec701/2": {
@@ -32,6 +34,8 @@
     "lecturer": "Sean Andersson",
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "Linearization about equilibria and nominal trajectories. Jacobians and Taylor remainder. Pendulum: hanging, inverted and time-varying. Lyapunov's indirect method.",
+    "draft": "First draft",
+    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "Linearization about equilibria and nominal trajectories. Jacobians and Taylor remainder. Pendulum: hanging, inverted and time-varying. Lyapunov's indirect method."
   },
   "ec701/3a": {
@@ -41,6 +45,8 @@
     "lecturer": "Sean Andersson",
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "State transition matrix. Peano–Baker series. Matrix exponential and similarity transforms. Cayley–Hamilton theorem. Variation of constants.",
+    "draft": "First draft",
+    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "State transition matrix. Peano–Baker series. Matrix exponential and similarity transforms. Cayley–Hamilton theorem. Variation of constants."
   },
   "ec701/3b": {
@@ -50,6 +56,8 @@
     "lecturer": "Sean Andersson",
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "Accessibility and controllability. Adjoint operators. Controllability Gramian theorem. Observability Gramian and duality.",
+    "draft": "First draft",
+    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "Accessibility and controllability. Adjoint operators. Controllability Gramian theorem. Observability Gramian and duality."
   },
   "ec701/3c": {
@@ -59,6 +67,8 @@
     "lecturer": "Sean Andersson",
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "Kalman rank condition. Observability matrix. PBH test. Minimum-energy control vs. bang-bang.",
+    "draft": "First draft",
+    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "Kalman rank condition. Observability matrix. PBH test. Minimum-energy control vs. bang-bang."
   }
 }
