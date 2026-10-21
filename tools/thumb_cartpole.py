@@ -296,22 +296,39 @@ def frame(w, h, s, trail, u=0.0, kick=0.0, ss=2, glow=False, ghosts=(), dots=(),
     return out.resize((w, h), Image.LANCZOS)
 
 
+def still(w=1200, h=630, ss=2):
+    """the static thumbnail: two equations of LQR, centred, nothing else"""
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    plt.rcParams['mathtext.fontset'] = 'cm'
+    W, H = w * ss, h * ss
+    fig = plt.figure(figsize=(W / 100, H / 100), dpi=100)
+    fig.patch.set_alpha(0)
+    pt = lambda frac: H * frac * 72 / 100        # font size as a fraction of the height
+    fig.text(0.5, 0.64, r'$\dot{x} = Ax + Bu$', ha='center', va='center', fontsize=pt(0.17), color='#e6f2fa')
+    fig.text(0.5, 0.32, r'$A^{\top}P + PA - PBR^{-1}B^{\top}P + Q = 0$', ha='center', va='center', fontsize=pt(0.105), color='#96f0c8')
+    fig.canvas.draw()
+    text = Image.frombuffer('RGBA', fig.canvas.get_width_height(), fig.canvas.buffer_rgba()).copy()
+    plt.close(fig)
+
+    im = Image.new('RGB', (W, H), BG)
+    v = Image.new('L', (W, H), 0)
+    ImageDraw.Draw(v).ellipse([W * 0.15, H * 0.05, W * 0.85, H * 0.95], fill=40)
+    im = Image.composite(Image.new('RGB', (W, H), (22, 55, 85)), im, v.filter(ImageFilter.GaussianBlur(W * 0.1)))
+    rgb = np.asarray(text, float)[..., :3] * (np.asarray(text, float)[..., 3:] / 255)
+    glow = np.asarray(Image.fromarray(rgb.astype(np.uint8)).filter(ImageFilter.GaussianBlur(W / 200)), float)
+    base = np.clip(np.asarray(im, float) + 0.6 * glow, 0, 255).astype(np.uint8)
+    out = Image.alpha_composite(Image.fromarray(base).convert('RGBA'), text).convert('RGB')
+    out.resize((w, h), Image.LANCZOS).save(os.path.join(OUT, 'ec701-cartpole.webp'), quality=90, method=6)
+
+
 def main():
     times, S, U = simulate()
     i_top = np.searchsorted(times, T + 0.5)
     i0 = np.searchsorted(times, 0.0)
     i_end = np.searchsorted(times, T)
-    # still: spread the past to the side, each pose shifted left by how long ago it was
-    i_f = i_end + 2                        # just upright
-    span = times[i_f] - times[i0]
-    Sp = S.copy()
-    Sp[i0:i_f + 1, 0] += -2.5 * (times[i_f] - times[i0:i_f + 1]) / span + 1.0
-    print(f'still: cart x from {Sp[i0:i_f + 1, 0].min():.2f} to {Sp[i0:i_f + 1, 0].max():.2f} (rail ends at +-1.85)')
-    picks = list(range(i0, i_f - 3, 6))
-    ghosts = [(Sp[i], int(40 + 80 * k / len(picks))) for k, i in enumerate(picks)]
-    dots = [(Sp[i], int(60 + 150 * (i - i0) / (i_f - i0))) for i in range(i0, i_f + 1, 2)]
-
-    frame(1200, 630, Sp[i_f], Sp[i0:i_f + 1], glow=True, ghosts=ghosts, dots=dots).save(os.path.join(OUT, 'ec701-cartpole.webp'), quality=88, method=6)
+    still()
 
     frames = []
     for i, t in enumerate(times):
