@@ -468,8 +468,3 @@ a.plain:hover { color: var(--accent); }
 .note-panel[hidden] { display: none; }
 .note-panel .info-list { margin: 0 0 4px; }
 .summary[hidden] { display: none; }
-
-/* Visitor map, under Service */
-
-.visitor-map { display: flex; justify-content: center; margin: 22px auto 0; max-width: 320px; }
-.visitor-map img, .visitor-map canvas { max-width: 100%; height: auto; border-radius: 6px; }
