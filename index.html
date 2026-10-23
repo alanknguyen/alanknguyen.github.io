@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&amp;family=Noto+Serif+TC:wght@500&amp;text=%E9%98%AE%E9%AD%81%E5%85%83%E3%82%B0%E3%82%A8%E3%83%B3%E3%83%BB%E3%82%B3%E3%82%A4&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=44">
+  <link rel="stylesheet" href="css/site.css?v=45">
   <script>
     // Dark unless the visitor chose light; set before first paint so the page does not flash.
     var t = null; try { t = localStorage.getItem('theme'); } catch (e) {} document.documentElement.dataset.theme = t || 'dark';
@@ -32,13 +32,14 @@
   <header class="masthead">
     <div>
       <h1><span class="flip name-flip" tabindex="0"><span class="flip-inner"><span class="flip-front">Nguyễn Khôi Nguyên</span><span class="flip-back" lang="ja" aria-hidden="true">グエン・コイ・グエン</span></span></span> <span class="aka flip" tabindex="0"><span class="flip-inner"><span class="flip-front">(Alan)</span><span class="flip-back" lang="vi-Hani">阮魁元</span></span></span></h1>
-      <p class="role">Junior Research Engineer, Boston University</p>
+      <p class="role">Junior Researcher, Boston University</p>
       <p class="email">nknguyen [at] bu [dot] edu</p>
       <nav class="links" aria-label="Profiles">
         <a href="https://scholar.google.com/citations?user=8htas7cAAAAJ&amp;hl=en">Google Scholar</a>
         <a href="https://github.com/alanknguyen">GitHub</a>
         <a href="https://linkedin.com/in/nguyendesu">LinkedIn</a>
         <a href="https://x.com/alanknguyen">Twitter</a>
+        <a href="files/alanknguyen-cv.pdf">CV</a>
       </nav>
     </div>
     <img class="portrait" src="img/portrait.jpg" alt="Portrait of Nguyễn Khôi Nguyên (Alan)" width="168" height="168">
@@ -46,7 +47,7 @@
 
   <section class="bio">
     <p>
-      I'm a junior research engineer working on robot learning, robot perception, and machine vision systems.
+      I'm a junior researcher working on robot learning, robot perception, and machine vision systems.
       I'm at Boston University, advised by <a href="https://sites.bu.edu/depend/people/wenchao-li">Wenchao Li</a> in the
       <a href="https://sites.bu.edu/depend/">Dependable Computing Lab</a> and co-advised by <a href="https://www.bu.edu/eng/profile/ohn-bar-eshed/">Eshed Ohn-Bar</a> in the
       <a href="https://eshed1.github.io/">Human-to-Everything (H2X) Lab</a>. I'm most interested in VLMs and VLAs and how to put them to work in robotics,
@@ -150,7 +151,7 @@
       </li>
       <li class="entry">
         <a class="thumb wide fill" href="notes/optimal-robust-control/1/" tabindex="-1" aria-hidden="true" data-note-link>
-          <img src="img/thumbs/ec701-cartpole.webp?v=9" data-gif="img/thumbs/ec701-cartpole.gif?v=7" alt="A cart balancing a double pendulum upright; on hover, it swings the pendulum up with minimum effort, LQR catches a kick, and it lowers it again" width="1200" height="630">
+          <img src="img/thumbs/ec701-cartpole.webp?v=10" data-gif="img/thumbs/ec701-cartpole.gif?v=10" alt="A cart balancing a double pendulum upright; on hover, it swings the pendulum up with minimum effort, LQR catches a kick, and it lowers it again" width="1200" height="630">
         </a>
         <div class="entry-body">
           <h3><a href="notes/optimal-robust-control/1/" data-note-link>Optimal and Robust Control</a></h3>
@@ -250,20 +251,29 @@
   <section class="section" id="experience" aria-labelledby="experience-h">
     <h2 id="experience-h">Experience</h2>
     <ul class="cv">
-      <li><span class="cv-when">2025 –</span><div class="cv-what"><b>Junior Research Engineer</b>, <a href="https://sites.bu.edu/depend/">Dependable Computing Lab</a>, Boston University</div></li>
-      <li><span class="cv-when">2025</span><div class="cv-what"><b>Machine Learning Engineer Intern</b>, <a href="https://scale.com">Scale</a></div></li>
-      <li><span class="cv-when">2023</span><div class="cv-what"><b>Data Science Intern</b>, <a href="https://leuko.com">Leuko</a></div></li>
+      <li><span class="cv-when">2025 – Present</span><div class="cv-what"><b>Junior Researcher</b>, <a href="https://sites.bu.edu/depend/">Dependable Computing Lab</a>, Boston University</div></li>
+      <li><span class="cv-when">Summer 2025</span><div class="cv-what"><b>Summer Intern</b>, Physical Data &amp; Post-Training, <a href="https://scale.com">Scale</a></div></li>
+      <li><span class="cv-when">Summer 2023</span><div class="cv-what"><b>Summer Intern</b>, Data Science and Computer Vision, <a href="https://leuko.com">Leuko</a></div></li>
     </ul>
   </section>
 
   <section class="section" id="teaching" aria-labelledby="teaching-h">
     <h2 id="teaching-h">Teaching</h2>
-    <p class="org">TA at Boston University</p>
+    <p class="org">Teaching Assistant, Boston University</p>
     <ul class="dated">
-      <li><b>09/2026:</b> EC 545: Cyber-Physical Systems (Graduate Level)</li>
-      <li><b>01/2026:</b> EC 575: Semiconductor Devices (Graduate Level)</li>
-      <li><b>09/2025:</b> EC 574: Physics of Semiconductor Materials (Graduate Level)</li>
-      <li><b>01/2025:</b> EC 575: Semiconductor Devices (Graduate Level)</li>
+      <li><b>09/2026:</b> EC 545: Cyber-Physical Systems (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/wenchao-li/">Prof. Wenchao Li</a></span>
+        <button type="button" class="materials-btn" data-reveal="ec545-materials" aria-controls="ec545-materials">Materials</button>
+        <ul class="materials" id="ec545-materials" hidden>
+          <li><a href="files/ec545/EC545_Hardware1.pptx" download>Hardware Lecture 1: The ROSMASTER X3 robot platform</a> <span class="file-kind">PPTX, 4.4 MB</span></li>
+        </ul>
+      </li>
+      <li><b>01/2026:</b> EC 575: Semiconductor Devices (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
+      <li><b>09/2025:</b> EC 574: Physics of Semiconductor Materials (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
+      <li><b>01/2025:</b> EC 575: Semiconductor Devices (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
+    </ul>
+    <p class="org">Learning Assistant, Boston University</p>
+    <ul class="dated">
+      <li><b>01/2023:</b> PY 212: Elementary Physics II, <span class="taught">with <a class="plain" href="https://www.bu.edu/physics/profile/wanzheng-hu/">Prof. Wanzheng Hu</a></span></li>
     </ul>
   </section>
 
