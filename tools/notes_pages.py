@@ -6,6 +6,7 @@ under notes/ (notes/engineering-fourier-optics -> "engineering-fourier-optics",
 notes/optimal-robust-control/1 -> "optimal-robust-control/1").
 """
 import argparse
+import glob
 import hashlib
 import html
 import io
@@ -128,6 +129,19 @@ def write_home(key, info, count):
     if para:
         block += f'            <p>{" ".join(para)}</p>\n'
     fill_home(key, 'info', block)
+    write_stats(key, info, count)
+
+
+def write_stats(key, info, count):
+    """One small line under the authors: a book's pages, draft and status, or a course's number of notes and pages"""
+    if '/' not in key:
+        parts = [f'{count} pages'] + [info[k] for k in ('draft', 'status') if info.get(k)]
+        fill_home(key, 'stats', f'          <p class="venue">{html.escape(" · ".join(parts), quote=False)}</p>\n')
+        return
+    course = key.split('/')[0]
+    pages = [json.load(open(f))['count'] for f in sorted(glob.glob(os.path.join(NOTES, course, '*', 'index.json')))]
+    line = f'{len(pages)} scribe notes · {sum(pages)} pages'
+    fill_home(course, 'stats', f'          <p class="venue">{line}</p>\n')
 
 
 def main():

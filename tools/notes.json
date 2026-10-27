@@ -12,14 +12,15 @@
     "other_sources": [
       "BU ENG EC 522, Computational Optical Imaging by Lei Tian"
     ],
-    "draft": "Version 3 (finished)",
+    "draft": "Third draft",
     "book": "Elements of Fourier Optics: A Computational Approach",
     "book_status": "submitted to Springer",
     "about": "All text and figures are my own. The draft began as my notes on Luca Dal Negro's EC 562 Fourier Optics in Engineering lectures at Boston University (Fall 2023) and has grown well beyond them, with derivations, worked examples and extensive Python code.",
     "primary_sources": [
       "J. W. Goodman, Introduction to Fourier Optics, 4th ed. (W. H. Freeman, 2017)",
       "D. G. Voelz, Computational Fourier Optics: A MATLAB Tutorial (SPIE Press, 2011)"
-    ]
+    ],
+    "status": "Unfinished"
   },
   "optimal-robust-control/1": {
     "title": "EC 701 Notes 1: Introduction and Overview",
