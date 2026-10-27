@@ -212,6 +212,7 @@ a.plain:hover { color: var(--accent); }
   object-fit: cover;
 }
 
+.entry-body { min-width: 0; }   /* a long dropdown option must not widen the column */
 .entry-body h3 { margin: 0 0 6px; font: 700 0.97rem/1.45 var(--font-text); }
 .entry-body h3 a { color: var(--text); }
 .entry-body h3 a:hover { color: var(--accent); text-decoration: none; }
@@ -440,7 +441,7 @@ a.plain:hover { color: var(--accent); }
 
 .note-picker { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font: 400 0.8rem/1.4 var(--font-text); }
 .note-picker label { color: var(--muted); }
-.np-select { position: relative; min-width: 0; flex: 0 1 auto; }
+.np-select { position: relative; min-width: 0; flex: 1 1 auto; }
 .np-select::after {
   content: "▾";
   position: absolute;
@@ -453,6 +454,7 @@ a.plain:hover { color: var(--accent); }
 .note-picker select {
   appearance: none;
   -webkit-appearance: none;
+  width: 100%;
   max-width: 100%;
   padding: 6px 28px 6px 10px;
   border: 1px solid var(--rule);
