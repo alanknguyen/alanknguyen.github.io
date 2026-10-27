@@ -181,5 +181,95 @@
     "summary": "The optimization step. State augmentation for lags, forecasts and autocorrelation. Airline yield management.",
     "draft": "First draft",
     "about": "The optimization step. State augmentation for lags, forecasts and autocorrelation. Airline yield management."
+  },
+  "dynamic-programming-stochastic-control/2a": {
+    "title": "EC 710 Notes 2a: The LQ Problem and Matrix Differentiation",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "The LQ problem definition. Matrix differentiation conventions.",
+    "draft": "First draft",
+    "about": "The LQ problem definition. Matrix differentiation conventions."
+  },
+  "dynamic-programming-stochastic-control/2b": {
+    "title": "EC 710 Notes 2b: Symmetric Matrices and Quadratic Forms",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Properties of symmetric matrices. Numerical examples. Square root of a matrix. Quadratic forms.",
+    "draft": "First draft",
+    "about": "Properties of symmetric matrices. Numerical examples. Square root of a matrix. Quadratic forms."
+  },
+  "dynamic-programming-stochastic-control/2c": {
+    "title": "EC 710 Notes 2c: The Finite-Horizon LQ Solution and the Riccati Equation",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Optimal LQ policies. The DP step at N−1. Induction to all periods. The Riccati equation. Relaxing the assumptions.",
+    "draft": "First draft",
+    "about": "Optimal LQ policies. The DP step at N−1. Induction to all periods. The Riccati equation. Relaxing the assumptions."
+  },
+  "dynamic-programming-stochastic-control/2d": {
+    "title": "EC 710 Notes 2d: The Infinite-Horizon LQ Problem: Stability, Controllability and Observability",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Existence conditions. Stability, controllability and observability. Rank tests. The stationary control law.",
+    "draft": "First draft",
+    "about": "Existence conditions. Stability, controllability and observability. Rank tests. The stationary control law."
+  },
+  "dynamic-programming-stochastic-control/2e": {
+    "title": "EC 710 Notes 2e: Stabilizing a Linear System with LQ Design",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "The stabilization problem. The LQ design procedure.",
+    "draft": "First draft",
+    "about": "The stabilization problem. The LQ design procedure."
+  },
+  "dynamic-programming-stochastic-control/2f": {
+    "title": "EC 710 Notes 2f: Certainty Equivalence and LQ with Random System Matrices",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "The certainty equivalence principle. LQ with random system matrices.",
+    "draft": "First draft",
+    "about": "The certainty equivalence principle. LQ with random system matrices."
+  },
+  "dynamic-programming-stochastic-control/3a": {
+    "title": "EC 710 Notes 3a: Inventory Control: Problem Definition and Convexity",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Inventory control as a regulation problem. General problem definition. Convexity facts. Change of control variable.",
+    "draft": "First draft",
+    "about": "Inventory control as a regulation problem. General problem definition. Convexity facts. Change of control variable."
+  },
+  "dynamic-programming-stochastic-control/3b": {
+    "title": "EC 710 Notes 3b: Inventory Control without Fixed Cost: Base-Stock Policies",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "The DP algorithm with no fixed cost. The last period. Base-stock policies for all periods by induction.",
+    "draft": "First draft",
+    "about": "The DP algorithm with no fixed cost. The last period. Base-stock policies for all periods by induction."
+  },
+  "dynamic-programming-stochastic-control/3c": {
+    "title": "EC 710 Notes 3c: Inventory Control with Fixed Cost: (s, S) Policies and K-Convexity",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Fixed ordering cost. The last period: two thresholds. (s, S) policies and K-convexity. Infinite horizon and simulation. Asset selling.",
+    "draft": "First draft",
+    "about": "Fixed ordering cost. The last period: two thresholds. (s, S) policies and K-convexity. Infinite horizon and simulation. Asset selling."
   }
 }
