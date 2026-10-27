@@ -105,5 +105,85 @@
     "draft": "First draft",
     "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "LTI infinite horizon and the algebraic Riccati equation. Stability margins of LQR. Observers and the separation principle. LQG. Detectability. Discrete time."
+  },
+  "dynamic-programming-reinforcement-learning/1a": {
+    "title": "EC 710 Notes 1a: Introduction: Sequential Decisions and Static Problems",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Background. Stochastic dynamics. Decision-theory trees. Static problems with and without uncertainty.",
+    "draft": "First draft",
+    "about": "Background. Stochastic dynamics. Decision-theory trees. Static problems with and without uncertainty."
+  },
+  "dynamic-programming-reinforcement-learning/1b": {
+    "title": "EC 710 Notes 1b: Sequential Decisions without Uncertainty: the Backward Recursion",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Sequential decisions without uncertainty. Static reformulation and brute force. Backward recursion. Operation counts.",
+    "draft": "First draft",
+    "about": "Sequential decisions without uncertainty. Static reformulation and brute force. Backward recursion. Operation counts."
+  },
+  "dynamic-programming-reinforcement-learning/1c": {
+    "title": "EC 710 Notes 1c: Sequential Decisions under Uncertainty: the DP Algorithm",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Sequential decisions under uncertainty. Information vectors and policies. The DP algorithm. Imperfect state information.",
+    "draft": "First draft",
+    "about": "Sequential decisions under uncertainty. Information vectors and policies. The DP algorithm. Imperfect state information."
+  },
+  "dynamic-programming-reinforcement-learning/1d": {
+    "title": "EC 710 Notes 1d: The Standard Stochastic DP Problem: Definitions and Policies",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "State, control and disturbance spaces. Markov and non-Markov policies. Value functions. Epsilon-optimal policies.",
+    "draft": "First draft",
+    "about": "State, control and disturbance spaces. Markov and non-Markov policies. Value functions. Epsilon-optimal policies."
+  },
+  "dynamic-programming-reinforcement-learning/1e": {
+    "title": "EC 710 Notes 1e: The DP Theorem: Sufficient and Necessary Optimality Conditions",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "The DP theorem: sufficient and necessary optimality conditions. Proofs. The four assumptions. Perfect state information.",
+    "draft": "First draft",
+    "about": "The DP theorem: sufficient and necessary optimality conditions. Proofs. The four assumptions. Perfect state information."
+  },
+  "dynamic-programming-reinforcement-learning/1f": {
+    "title": "EC 710 Notes 1f: Examples of Perfect State Information DP Problems",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "General solution approach. A continuous state and control example. A discrete state and control example.",
+    "draft": "First draft",
+    "about": "General solution approach. A continuous state and control example. A discrete state and control example."
+  },
+  "dynamic-programming-reinforcement-learning/1g": {
+    "title": "EC 710 Notes 1g: Deterministic Problems: Shortest Paths, Critical Paths and Speech Recognition",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Shortest paths on a network. Forward and all-pairs recursions. Critical paths. Speech recognition on a trellis.",
+    "draft": "First draft",
+    "about": "Shortest paths on a network. Forward and all-pairs recursions. Critical paths. Speech recognition on a trellis."
+  },
+  "dynamic-programming-reinforcement-learning/1h": {
+    "title": "EC 710 Notes 1h: The Optimization Step, State Augmentation, and Yield Management",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "The optimization step. State augmentation for lags, forecasts and autocorrelation. Airline yield management.",
+    "draft": "First draft",
+    "about": "The optimization step. State augmentation for lags, forecasts and autocorrelation. Airline yield management."
   }
 }
