@@ -16,7 +16,10 @@
     "book": "Elements of Fourier Optics: A Computational Approach",
     "book_status": "submitted to Springer",
     "about": "All text and figures are my own. The draft began as my notes on Luca Dal Negro's EC 562 Fourier Optics in Engineering lectures at Boston University (Fall 2023) and has grown well beyond them, with derivations, worked examples and extensive Python code.",
-    "textbook": "J. W. Goodman, Introduction to Fourier Optics, 4th ed. (W. H. Freeman, 2017)"
+    "primary_sources": [
+      "J. W. Goodman, Introduction to Fourier Optics, 4th ed. (W. H. Freeman, 2017)",
+      "D. G. Voelz, Computational Fourier Optics: A MATLAB Tutorial (SPIE Press, 2011)"
+    ]
   },
   "optimal-robust-control/1": {
     "title": "EC 701 Notes 1: Introduction and Overview",
@@ -26,7 +29,6 @@
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "Elements of an optimal control problem. Cost functionals: Bolza, Mayer and Lagrange forms. Lyapunov feedback vs. open-loop steering. Vector spaces, inner products and norms.",
     "draft": "First draft",
-    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "Elements of an optimal control problem. Cost functionals: Bolza, Mayer and Lagrange forms. Lyapunov feedback vs. open-loop steering. Vector spaces, inner products and norms."
   },
   "optimal-robust-control/2": {
@@ -37,7 +39,6 @@
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "Linearization about equilibria and nominal trajectories. Jacobians and Taylor remainder. Pendulum: hanging, inverted and time-varying. Lyapunov's indirect method.",
     "draft": "First draft",
-    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "Linearization about equilibria and nominal trajectories. Jacobians and Taylor remainder. Pendulum: hanging, inverted and time-varying. Lyapunov's indirect method."
   },
   "optimal-robust-control/3a": {
@@ -48,7 +49,6 @@
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "State transition matrix. Peano–Baker series. Matrix exponential and similarity transforms. Cayley–Hamilton theorem. Variation of constants.",
     "draft": "First draft",
-    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "State transition matrix. Peano–Baker series. Matrix exponential and similarity transforms. Cayley–Hamilton theorem. Variation of constants."
   },
   "optimal-robust-control/3b": {
@@ -59,7 +59,6 @@
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "Accessibility and controllability. Adjoint operators. Controllability Gramian theorem. Observability Gramian and duality.",
     "draft": "First draft",
-    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "Accessibility and controllability. Adjoint operators. Controllability Gramian theorem. Observability Gramian and duality."
   },
   "optimal-robust-control/3c": {
@@ -70,7 +69,6 @@
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "Kalman rank condition. Observability matrix. PBH test. Minimum-energy control vs. bang-bang.",
     "draft": "First draft",
-    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "Kalman rank condition. Observability matrix. PBH test. Minimum-energy control vs. bang-bang."
   },
   "optimal-robust-control/4a": {
@@ -81,7 +79,6 @@
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "LQR problem statement. A key lemma. Free end point: Riccati differential equation and optimal feedback. Double-integrator example.",
     "draft": "First draft",
-    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "LQR problem statement. A key lemma. Free end point: Riccati differential equation and optimal feedback. Double-integrator example."
   },
   "optimal-robust-control/4b": {
@@ -92,7 +89,6 @@
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "Fixed end point, fixed end time. Reduction to the free end-point problem. Five-step procedure. Optimal cost. Worked example.",
     "draft": "First draft",
-    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "Fixed end point, fixed end time. Reduction to the free end-point problem. Five-step procedure. Optimal cost. Worked example."
   },
   "optimal-robust-control/4c": {
@@ -103,7 +99,6 @@
     "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
     "summary": "LTI infinite horizon and the algebraic Riccati equation. Stability margins of LQR. Observers and the separation principle. LQG. Detectability. Discrete time.",
     "draft": "First draft",
-    "textbook": "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
     "about": "LTI infinite horizon and the algebraic Riccati equation. Stability margins of LQR. Observers and the separation principle. LQG. Detectability. Discrete time."
   },
   "dynamic-programming-stochastic-control/1a": {

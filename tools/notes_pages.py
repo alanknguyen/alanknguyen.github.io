@@ -22,7 +22,7 @@ FONT = '/System/Library/Fonts/Supplemental/Verdana.ttf'
 MARK = 'alanknguyen.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
 NOTES = os.path.join(HERE, '..', 'notes')
-VERSIONS = {'css_v': '47', 'js_v': '18', 'notes_v': '10'}
+VERSIONS = {'css_v': '48', 'js_v': '18', 'notes_v': '10'}
 
 
 def watermark(im, alpha=18):
@@ -108,18 +108,17 @@ def fill_home(key, name, block):
 
 
 def write_home(key, info, count):
-    """Home entry blocks: the source line under the authors, and More info (fields, then one paragraph)."""
+    """Home entry More info block: fields (pages, draft, sources), then one paragraph."""
     e = lambda v: html.escape(v, quote=False)
+    fields = [('Pages', e(str(count)))] + ([('Draft', e(info['draft']))] if info.get('draft') else [])
     sources = info.get('sources', [])
     if sources:
-        label = 'Main source' if len(sources) == 1 else 'Main sources'
-        fill_home(key, 'sources', f'          <p class="venue">{label}: {"; ".join(e(x) for x in sources)}</p>\n')
-    fields = [('Pages', str(count))] + ([('Draft', info['draft'])] if info.get('draft') else [])
+        fields.append(('Main source' if len(sources) == 1 else 'Main sources', '<br>'.join(e(x) for x in sources)))
     if info.get('other_sources'):
-        fields.append(('Also draws on', '; '.join(info['other_sources'])))
-    if info.get('textbook'):
-        fields.append(('Textbook', info['textbook']))
-    rows = ''.join(f'<div><dt>{k}</dt><dd>{e(v)}</dd></div>' for k, v in fields)
+        fields.append(('Also draws on', '<br>'.join(e(x) for x in info['other_sources'])))
+    if info.get('primary_sources'):
+        fields.append(('Primary sources', '<br>'.join(e(x) for x in info['primary_sources'])))
+    rows = ''.join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k, v in fields)
     para = []
     if info.get('book'):
         para.append(f"Part of <i>{e(info['book'])}</i>" + (f", {e(info['book_status'])}" if info.get('book_status') else '') + '.')

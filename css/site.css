@@ -468,3 +468,6 @@ a.plain:hover { color: var(--accent); }
 .note-panel[hidden] { display: none; }
 .note-panel .info-list { margin: 0 0 4px; }
 .summary[hidden] { display: none; }
+
+/* course-level sources above the per-note panel */
+.course-info { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
