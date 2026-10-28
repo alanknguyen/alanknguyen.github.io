@@ -271,5 +271,65 @@
     "summary": "Fixed ordering cost. The last period: two thresholds. (s, S) policies and K-convexity. Infinite horizon and simulation. Asset selling.",
     "draft": "First draft",
     "about": "Fixed ordering cost. The last period: two thresholds. (s, S) policies and K-convexity. Infinite horizon and simulation. Asset selling."
+  },
+  "dynamic-programming-stochastic-control/4a": {
+    "title": "EC 710 Notes 4a: Imperfect State Information: The Sufficient Statistic and the Estimator",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Problem formulation. The sufficient statistic. The estimator and its three terms. Probability facts.",
+    "draft": "First draft",
+    "about": "Problem formulation. The sufficient statistic. The estimator and its three terms. Probability facts."
+  },
+  "dynamic-programming-stochastic-control/4b": {
+    "title": "EC 710 Notes 4b: A Machine Maintenance Example with Imperfect Observations",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "A machine maintenance example. Observer design. The DP algorithm for N = 2. The value of the first observation.",
+    "draft": "First draft",
+    "about": "A machine maintenance example. Observer design. The DP algorithm for N = 2. The value of the first observation."
+  },
+  "dynamic-programming-stochastic-control/4c": {
+    "title": "EC 710 Notes 4c: Finite State and Control: Simplices and Piecewise Linear Cost to Go",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "The finite problem: simplices and piecewise linear cost to go. The optimal instruction stopping problem.",
+    "draft": "First draft",
+    "about": "The finite problem: simplices and piecewise linear cost to go. The optimal instruction stopping problem."
+  },
+  "dynamic-programming-stochastic-control/4d": {
+    "title": "EC 710 Notes 4d: The LQG Problem: Separation of Control and Estimation, and the Kalman Filter",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "The LQG problem. Separation of control and estimation. The Kalman filter. The time-invariant LQG problem.",
+    "draft": "First draft",
+    "about": "The LQG problem. Separation of control and estimation. The Kalman filter. The time-invariant LQG problem."
+  },
+  "dynamic-programming-stochastic-control/4e": {
+    "title": "EC 710 Notes 4e: Systems with Unknown Parameters: System Identification and Dual Control",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Unknown parameters as imperfect state information. An unknown gain. Caution, probing and dual control. Limits of identification.",
+    "draft": "First draft",
+    "about": "Unknown parameters as imperfect state information. An unknown gain. Caution, probing and dual control. Limits of identification."
+  },
+  "dynamic-programming-stochastic-control/4f": {
+    "title": "EC 710 Notes 4f: Appendix: Derived Distributions for the Estimator",
+    "course": "EC/ME/SE 710 Dynamic Programming and Reinforcement Learning",
+    "term": "Boston University, Fall 2026",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "summary": "Derived distributions for the estimator. Continuous variables. Discrete variables.",
+    "draft": "First draft",
+    "about": "Derived distributions for the estimator. Continuous variables. Discrete variables."
   }
 }
