@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&amp;family=Noto+Serif+TC:wght@500&amp;text=%E9%98%AE%E9%AD%81%E5%85%83%E3%82%B0%E3%82%A8%E3%83%B3%E3%83%BB%E3%82%B3%E3%82%A4&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=49">
+  <link rel="stylesheet" href="css/site.css?v=51">
   <script>
     // Dark unless the visitor chose light; set before first paint so the page does not flash.
     var t = null; try { t = localStorage.getItem('theme'); } catch (e) {} document.documentElement.dataset.theme = t || 'dark';
@@ -116,10 +116,39 @@
     <p class="placeholder">Coming soon.</p>
   </section>
 
+  <section class="section" id="experience" aria-labelledby="experience-h">
+    <h2 id="experience-h">Experience</h2>
+    <ul class="cv">
+      <li><span class="cv-when">2025 – Present</span><div class="cv-what"><b>Junior Researcher</b>, <a href="https://sites.bu.edu/depend/">Dependable Computing Lab</a>, Boston University</div></li>
+      <li><span class="cv-when">Summer 2025</span><div class="cv-what"><b>Summer Intern</b>, Physical Data &amp; Post-Training, <a href="https://scale.com">Scale</a></div></li>
+      <li><span class="cv-when">Summer 2023</span><div class="cv-what"><b>Summer Intern</b>, Data Science and Computer Vision, <a href="https://leuko.com">Leuko</a></div></li>
+    </ul>
+  </section>
+
+  <section class="section" id="teaching" aria-labelledby="teaching-h">
+    <h2 id="teaching-h">Teaching</h2>
+    <p class="org">Teaching Assistant, Boston University</p>
+    <ul class="dated">
+      <li><b>09/2026:</b> EC 545: Cyber-Physical Systems (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/wenchao-li/">Prof. Wenchao Li</a></span>
+        <button type="button" class="materials-btn" data-reveal="ec545-materials" aria-controls="ec545-materials">Materials</button>
+        <ul class="materials" id="ec545-materials" hidden>
+          <li><a href="files/ec545/EC545_Hardware1.pptx" download>Hardware Lecture 1: The ROSMASTER X3 robot platform</a> <span class="file-kind">PPTX, 4.4 MB</span></li>
+        </ul>
+      </li>
+      <li><b>01/2026:</b> EC 575: Semiconductor Devices (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
+      <li><b>09/2025:</b> EC 574: Physics of Semiconductor Materials (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
+      <li><b>01/2025:</b> EC 575: Semiconductor Devices (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
+    </ul>
+    <p class="org">Learning Assistant, Boston University</p>
+    <ul class="dated">
+      <li><b>01/2023:</b> PY 212: General Physics II, <span class="taught">with <a class="plain" href="https://www.bu.edu/physics/profile/wanzheng-hu/">Prof. Wanzheng Hu</a></span></li>
+    </ul>
+  </section>
+
   <section class="section" id="books" aria-labelledby="books-h">
     <h2 id="books-h">Book Manuscripts</h2>
     <ol class="entries">
-      <li class="entry">
+      <li class="entry compact">
         <a class="thumb wide fill" href="notes/engineering-fourier-optics/" tabindex="-1" aria-hidden="true">
           <img src="img/thumbs/fourier-optics-thumbnail.webp?v=4" data-gif="img/thumbs/fourier-optics-anim.gif?v=4" alt="Light spreading from a multi-slit aperture as it propagates; on hover, the same field as the wavelength sweeps" width="1200" height="630">
         </a>
@@ -133,15 +162,16 @@
           <p class="entry-links">
             <a href="notes/engineering-fourier-optics/">Read</a>
             <a href="#" data-mail-user="nknguyen" data-mail-domain="bu.edu" data-mail-subject="Erratum: Engineering Fourier Optics">Errata</a>
-            <button type="button" data-reveal="ec562-info" aria-controls="ec562-info">More info</button>
+            <button type="button" data-reveal="ec562-info" data-swap="ec562-summary" aria-controls="ec562-info">More info</button>
           </p>
           <div class="more-info" id="ec562-info" hidden>
+            <p class="info-summary">Linear systems, the angular spectrum and free-space propagation, Fresnel and Fraunhofer diffraction, sampling and numerical propagation, arrays, gratings, Talbot self-imaging, zone plates and scalar diffraction theory, with Python and MATLAB code.</p>
 <!-- info:engineering-fourier-optics -->
             <dl class="info-list"><div><dt>Pages</dt><dd>268</dd></div><div><dt>Draft</dt><dd>Third draft</dd></div><div><dt>Main source</dt><dd>BU ENG EC 562, Fourier Optics in Engineering</dd></div><div><dt>Also draws on</dt><dd>BU ENG EC 522, Computational Optical Imaging by Lei Tian</dd></div><div><dt>Primary sources</dt><dd>J. W. Goodman, Introduction to Fourier Optics, 4th ed. (W. H. Freeman, 2017)<br>D. G. Voelz, Computational Fourier Optics: A MATLAB Tutorial (SPIE Press, 2011)</dd></div></dl>
             <p>Part of <i>Engineering Fourier Optics: Theory, Applications and Computation</i>, a draft soon to be submitted to Springer. All text and figures are my own. The draft began as my notes on Luca Dal Negro's EC 562 Fourier Optics in Engineering (Fall 2023) and Lei Tian's EC 522 Computational Optical Imaging (Spring 2024) at Boston University, and has grown well beyond them, with derivations, worked examples, and Python and MATLAB code for each section. Further application chapters, written by senior researchers and PhD students, are in progress and not yet included.</p>
 <!-- /info:engineering-fourier-optics -->
           </div>
-          <p class="summary">
+          <p class="summary teaser" id="ec562-summary">
             Linear systems, the angular spectrum and free-space propagation, Fresnel and Fraunhofer diffraction,
             sampling and numerical propagation, arrays, gratings, Talbot self-imaging, zone plates and scalar
             diffraction theory, with Python and MATLAB code.
@@ -155,7 +185,7 @@
     <h2 id="notes-h">Notes</h2>
     <p class="section-note">Notes on topics from courses I&rsquo;ve taken at BU, combined with other sources.</p>
     <ol class="entries">
-      <li class="entry">
+      <li class="entry compact">
         <a class="thumb wide fill" href="notes/optimal-robust-control/1/" tabindex="-1" aria-hidden="true" data-note-link>
           <img src="img/thumbs/ec701-cartpole.webp?v=10" data-gif="img/thumbs/ec701-cartpole.gif?v=10" alt="A cart balancing a double pendulum upright; on hover, it swings the pendulum up with minimum effort, LQR catches a kick, and it lowers it again" width="1200" height="630">
         </a>
@@ -191,6 +221,7 @@
             <button type="button" data-reveal="ec701-info" data-swap="ec701-summary" aria-controls="ec701-info">More info</button>
           </p>
           <div class="more-info" id="ec701-info" hidden>
+            <p class="info-summary">A rigorous introduction to optimal and robust control. Robust control: model reduction, H<sub>2</sub> and H<sub>&infin;</sub> control, and feedback control of uncertain systems. Optimal control: the linear quadratic regulator, the calculus of variations, the maximum principle and the Hamilton&ndash;Jacobi&ndash;Bellman equation.</p>
             <dl class="info-list course-info"><div><dt>Main source</dt><dd>BU ENG EC/ME/SE 701, Optimal and Robust Control</dd></div><div><dt>Primary sources</dt><dd>D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012<br>K. Zhou, J. C. Doyle and K. Glover, Robust and Optimal Control, Prentice Hall, 1995<br>G. F. Franklin, J. D. Powell and A. Emami-Naeini, Feedback Control of Dynamic Systems, 6th ed., Prentice Hall, 2009</dd></div></dl>
             <div class="note-panels" id="ec701-panels" aria-live="polite">
               <div class="note-panel" id="ec701-1">
@@ -243,7 +274,7 @@
               </div>
             </div>
           </div>
-          <p class="summary" id="ec701-summary">
+          <p class="summary teaser" id="ec701-summary">
             A rigorous introduction to optimal and robust control. Robust control: model reduction, H<sub>2</sub> and
             H<sub>&infin;</sub> control, and feedback control of uncertain systems. Optimal control: the linear
             quadratic regulator, the calculus of variations, the maximum principle and the Hamilton&ndash;Jacobi&ndash;Bellman
@@ -251,7 +282,7 @@
           </p>
         </div>
       </li>
-      <li class="entry">
+      <li class="entry compact">
         <a class="thumb wide fill" href="notes/dynamic-programming-stochastic-control/1a/" tabindex="-1" aria-hidden="true" data-note-link>
           <img src="img/thumbs/ec710-dp.webp?v=2" data-gif="img/thumbs/ec710-dp.gif?v=2" alt="A maze with an agent at the start; on hover, value iteration spreads the expected cost-to-go back from the goal and the agent follows the optimal policy, slipping now and then" width="1200" height="630">
         </a>
@@ -306,6 +337,7 @@
             <button type="button" data-reveal="ec710-info" data-swap="ec710-summary" aria-controls="ec710-info">More info</button>
           </p>
           <div class="more-info" id="ec710-info" hidden>
+            <p class="info-summary">The theory of dynamic programming for sequential decisions under uncertainty: the DP algorithm and its optimality conditions, linear-quadratic problems, inventory control and asset selling, imperfect state information, and infinite-horizon problems with approximate DP.</p>
             <dl class="info-list course-info"><div><dt>Main source</dt><dd>BU ENG EC/ME/SE 710, Dynamic Programming and Reinforcement Learning</dd></div><div><dt>Primary sources</dt><dd>D. P. Bertsekas, Dynamic Programming and Optimal Control, Vols. I and II (particularly Vol. II)<br>D. P. Bertsekas, A Course in Reinforcement Learning, 2nd ed., 2025</dd></div></dl>
             <div class="note-panels" id="ec710-panels" aria-live="polite">
               <div class="note-panel" id="ec710-1a">
@@ -448,7 +480,7 @@
               </div>
             </div>
           </div>
-          <p class="summary" id="ec710-summary">
+          <p class="summary teaser" id="ec710-summary">
             The theory of dynamic programming for sequential decisions under uncertainty: the DP algorithm and its
             optimality conditions, linear-quadratic problems, inventory control and asset selling, imperfect state
             information, and infinite-horizon problems with approximate DP.
@@ -456,35 +488,6 @@
         </div>
       </li>
     </ol>
-  </section>
-
-  <section class="section" id="experience" aria-labelledby="experience-h">
-    <h2 id="experience-h">Experience</h2>
-    <ul class="cv">
-      <li><span class="cv-when">2025 – Present</span><div class="cv-what"><b>Junior Researcher</b>, <a href="https://sites.bu.edu/depend/">Dependable Computing Lab</a>, Boston University</div></li>
-      <li><span class="cv-when">Summer 2025</span><div class="cv-what"><b>Summer Intern</b>, Physical Data &amp; Post-Training, <a href="https://scale.com">Scale</a></div></li>
-      <li><span class="cv-when">Summer 2023</span><div class="cv-what"><b>Summer Intern</b>, Data Science and Computer Vision, <a href="https://leuko.com">Leuko</a></div></li>
-    </ul>
-  </section>
-
-  <section class="section" id="teaching" aria-labelledby="teaching-h">
-    <h2 id="teaching-h">Teaching</h2>
-    <p class="org">Teaching Assistant, Boston University</p>
-    <ul class="dated">
-      <li><b>09/2026:</b> EC 545: Cyber-Physical Systems (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/wenchao-li/">Prof. Wenchao Li</a></span>
-        <button type="button" class="materials-btn" data-reveal="ec545-materials" aria-controls="ec545-materials">Materials</button>
-        <ul class="materials" id="ec545-materials" hidden>
-          <li><a href="files/ec545/EC545_Hardware1.pptx" download>Hardware Lecture 1: The ROSMASTER X3 robot platform</a> <span class="file-kind">PPTX, 4.4 MB</span></li>
-        </ul>
-      </li>
-      <li><b>01/2026:</b> EC 575: Semiconductor Devices (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
-      <li><b>09/2025:</b> EC 574: Physics of Semiconductor Materials (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
-      <li><b>01/2025:</b> EC 575: Semiconductor Devices (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
-    </ul>
-    <p class="org">Learning Assistant, Boston University</p>
-    <ul class="dated">
-      <li><b>01/2023:</b> PY 212: General Physics II, <span class="taught">with <a class="plain" href="https://www.bu.edu/physics/profile/wanzheng-hu/">Prof. Wanzheng Hu</a></span></li>
-    </ul>
   </section>
 
   <section class="section" id="service" aria-labelledby="service-h">

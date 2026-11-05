@@ -473,3 +473,26 @@ a.plain:hover { color: var(--accent); }
 
 /* course-level sources above the per-note panel */
 .course-info { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+
+/* Book manuscripts and notes: a lighter, compact entry, so they sit below research.
+   A one-line teaser shows by default; More info holds the full summary and details. */
+
+.entry.compact { grid-template-columns: 160px 1fr; gap: 8px 20px; padding: 16px 0; }
+.entry.compact:first-child { padding-top: 4px; }
+.entry.compact .entry-body h3 { margin-bottom: 4px; font-size: 0.9rem; }
+.entry.compact .authors { font-size: 0.86rem; }
+.entry.compact .entry-links { margin-bottom: 6px; }
+.entry.compact .summary.teaser {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+.entry.compact .summary.teaser[hidden] { display: none; }
+.more-info .info-summary { margin: 0 0 10px; color: var(--text-2); }
+@media (max-width: 640px) {   /* after the rules above, so it wins: stack on phones */
+  .entry.compact { grid-template-columns: 1fr; }
+  .entry.compact .thumb { max-width: 280px; }
+}
