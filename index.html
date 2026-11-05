@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&amp;family=Noto+Serif+TC:wght@500&amp;text=%E9%98%AE%E9%AD%81%E5%85%83%E3%82%B0%E3%82%A8%E3%83%B3%E3%83%BB%E3%82%B3%E3%82%A4&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=58">
+  <link rel="stylesheet" href="css/site.css?v=59">
   <script>
     // Dark unless the visitor chose light; set before first paint so the page does not flash.
     var t = null; try { t = localStorage.getItem('theme'); } catch (e) {} document.documentElement.dataset.theme = t || 'dark';
@@ -123,22 +123,29 @@
 
   <section class="section" id="teaching" aria-labelledby="teaching-h">
     <h2 id="teaching-h">Teaching</h2>
-    <p class="org">Teaching Assistant, Boston University</p>
-    <ul class="cv">
-      <li><span class="cv-when">Fall 2026</span><div class="cv-what"><b>EC 545</b>: Cyber-Physical Systems (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/wenchao-li/">Prof. Wenchao Li</a></span>
-        <button type="button" class="materials-btn" data-reveal="ec545-materials" aria-controls="ec545-materials">Materials</button>
-        <ul class="materials" id="ec545-materials" hidden>
-          <li><a href="files/ec545/EC545_Hardware1.pptx" download>Hardware Lecture 1: The ROSMASTER X3 robot platform</a> <span class="file-kind">PPTX, 4.4 MB</span></li>
-        </ul>
-      </div></li>
-      <li><span class="cv-when">Spring 2026</span><div class="cv-what"><b>EC 575</b>: Semiconductor Devices (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></div></li>
-      <li><span class="cv-when">Fall 2025</span><div class="cv-what"><b>EC 574</b>: Physics of Semiconductor Materials (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></div></li>
-      <li><span class="cv-when">Spring 2025</span><div class="cv-what"><b>EC 575</b>: Semiconductor Devices (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></div></li>
+    <ul class="cv" id="teaching-summary">
+      <li><span class="cv-when">2024 – 2026</span><div class="cv-what"><b>Teaching Assistant</b>, Boston University<br><span class="cv-note">Department of Electrical and Computer Engineering</span></div></li>
+      <li><span class="cv-when">2023</span><div class="cv-what"><b>Learning Assistant</b>, Boston University<br><span class="cv-note">Department of Physics</span></div></li>
     </ul>
-    <p class="org">Learning Assistant, Boston University</p>
-    <ul class="cv">
-      <li><span class="cv-when">Spring 2023</span><div class="cv-what"><b>PY 212</b>: General Physics II<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/physics/profile/wanzheng-hu/">Prof. Wanzheng Hu</a></span></div></li>
-    </ul>
+    <div class="teaching-full" id="teaching-full" hidden>
+      <p class="org">Teaching Assistant, Boston University</p>
+      <ul class="cv">
+        <li><span class="cv-when">Fall 2026</span><div class="cv-what"><b>EC 545</b>: Cyber-Physical Systems (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/wenchao-li/">Prof. Wenchao Li</a></span>
+          <button type="button" class="materials-btn" data-reveal="ec545-materials" aria-controls="ec545-materials">Materials</button>
+          <ul class="materials" id="ec545-materials" hidden>
+            <li><a href="files/ec545/EC545_Hardware1.pptx" download>Hardware Lecture 1: The ROSMASTER X3 robot platform</a> <span class="file-kind">PPTX, 4.4 MB</span></li>
+          </ul>
+        </div></li>
+        <li><span class="cv-when">Spring 2026</span><div class="cv-what"><b>EC 575</b>: Semiconductor Devices (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></div></li>
+        <li><span class="cv-when">Fall 2025</span><div class="cv-what"><b>EC 574</b>: Physics of Semiconductor Materials (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></div></li>
+        <li><span class="cv-when">Spring 2025</span><div class="cv-what"><b>EC 575</b>: Semiconductor Devices (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></div></li>
+      </ul>
+      <p class="org">Learning Assistant, Boston University</p>
+      <ul class="cv">
+        <li><span class="cv-when">Spring 2023</span><div class="cv-what"><b>PY 212</b>: General Physics II<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/physics/profile/wanzheng-hu/">Prof. Wanzheng Hu</a></span></div></li>
+      </ul>
+    </div>
+    <button type="button" class="materials-btn teaching-toggle" data-reveal="teaching-full" data-swap="teaching-summary" aria-controls="teaching-full">Courses</button>
   </section>
 
   <section class="section" id="books" aria-labelledby="books-h">

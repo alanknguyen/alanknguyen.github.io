@@ -494,3 +494,8 @@ a.plain:hover { color: var(--accent); }
   .entry.compact { grid-template-columns: 1fr; }
   .entry.compact .thumb { max-width: 280px; }
 }
+
+/* Teaching: a two-line summary by default; the toggle swaps in every course */
+.teaching-toggle { margin: 6px 0 0; padding: 0; }
+.teaching-full[hidden] { display: none; }
+#teaching-summary[hidden] { display: none; }
