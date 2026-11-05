@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&amp;family=Noto+Serif+TC:wght@500&amp;text=%E9%98%AE%E9%AD%81%E5%85%83%E3%82%B0%E3%82%A8%E3%83%B3%E3%83%BB%E3%82%B3%E3%82%A4&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=51">
+  <link rel="stylesheet" href="css/site.css?v=57">
   <script>
     // Dark unless the visitor chose light; set before first paint so the page does not flash.
     var t = null; try { t = localStorage.getItem('theme'); } catch (e) {} document.documentElement.dataset.theme = t || 'dark';
@@ -111,11 +111,6 @@
     </ol>
   </section>
 
-  <section class="section" id="projects" aria-labelledby="projects-h">
-    <h2 id="projects-h">Projects</h2>
-    <p class="placeholder">Coming soon.</p>
-  </section>
-
   <section class="section" id="experience" aria-labelledby="experience-h">
     <h2 id="experience-h">Experience</h2>
     <ul class="cv">
@@ -128,20 +123,20 @@
   <section class="section" id="teaching" aria-labelledby="teaching-h">
     <h2 id="teaching-h">Teaching</h2>
     <p class="org">Teaching Assistant, Boston University</p>
-    <ul class="dated">
-      <li><b>09/2026:</b> EC 545: Cyber-Physical Systems (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/wenchao-li/">Prof. Wenchao Li</a></span>
+    <ul class="cv">
+      <li><span class="cv-when">Fall 2026</span><div class="cv-what"><b>EC 545</b>: Cyber-Physical Systems (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/wenchao-li/">Prof. Wenchao Li</a></span>
         <button type="button" class="materials-btn" data-reveal="ec545-materials" aria-controls="ec545-materials">Materials</button>
         <ul class="materials" id="ec545-materials" hidden>
           <li><a href="files/ec545/EC545_Hardware1.pptx" download>Hardware Lecture 1: The ROSMASTER X3 robot platform</a> <span class="file-kind">PPTX, 4.4 MB</span></li>
         </ul>
-      </li>
-      <li><b>01/2026:</b> EC 575: Semiconductor Devices (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
-      <li><b>09/2025:</b> EC 574: Physics of Semiconductor Materials (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
-      <li><b>01/2025:</b> EC 575: Semiconductor Devices (Graduate Level), <span class="taught">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></li>
+      </div></li>
+      <li><span class="cv-when">Spring 2026</span><div class="cv-what"><b>EC 575</b>: Semiconductor Devices (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></div></li>
+      <li><span class="cv-when">Fall 2025</span><div class="cv-what"><b>EC 574</b>: Physics of Semiconductor Materials (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></div></li>
+      <li><span class="cv-when">Spring 2025</span><div class="cv-what"><b>EC 575</b>: Semiconductor Devices (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></div></li>
     </ul>
     <p class="org">Learning Assistant, Boston University</p>
-    <ul class="dated">
-      <li><b>01/2023:</b> PY 212: General Physics II, <span class="taught">with <a class="plain" href="https://www.bu.edu/physics/profile/wanzheng-hu/">Prof. Wanzheng Hu</a></span></li>
+    <ul class="cv">
+      <li><span class="cv-when">Spring 2023</span><div class="cv-what"><b>PY 212</b>: General Physics II<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/physics/profile/wanzheng-hu/">Prof. Wanzheng Hu</a></span></div></li>
     </ul>
   </section>
 
@@ -159,11 +154,15 @@
 <!-- stats:engineering-fourier-optics -->
           <p class="venue">268 pages · Third draft · Unfinished</p>
 <!-- /stats:engineering-fourier-optics -->
+        </div>
+        <div class="entry-foot">
+          <div class="foot-row">
           <p class="entry-links">
             <a href="notes/engineering-fourier-optics/">Read</a>
             <a href="#" data-mail-user="nknguyen" data-mail-domain="bu.edu" data-mail-subject="Erratum: Engineering Fourier Optics">Errata</a>
-            <button type="button" data-reveal="ec562-info" data-swap="ec562-summary" aria-controls="ec562-info">More info</button>
+            <button type="button" data-reveal="ec562-info" aria-controls="ec562-info">More info</button>
           </p>
+          </div>
           <div class="more-info" id="ec562-info" hidden>
             <p class="info-summary">Linear systems, the angular spectrum and free-space propagation, Fresnel and Fraunhofer diffraction, sampling and numerical propagation, arrays, gratings, Talbot self-imaging, zone plates and scalar diffraction theory, with Python and MATLAB code.</p>
 <!-- info:engineering-fourier-optics -->
@@ -171,11 +170,6 @@
             <p>Part of <i>Engineering Fourier Optics: Theory, Applications and Computation</i>, a draft soon to be submitted to Springer. All text and figures are my own. The draft began as my notes on Luca Dal Negro's EC 562 Fourier Optics in Engineering (Fall 2023) and Lei Tian's EC 522 Computational Optical Imaging (Spring 2024) at Boston University, and has grown well beyond them, with derivations, worked examples, and Python and MATLAB code for each section. Further application chapters, written by senior researchers and PhD students, are in progress and not yet included.</p>
 <!-- /info:engineering-fourier-optics -->
           </div>
-          <p class="summary teaser" id="ec562-summary">
-            Linear systems, the angular spectrum and free-space propagation, Fresnel and Fraunhofer diffraction,
-            sampling and numerical propagation, arrays, gratings, Talbot self-imaging, zone plates and scalar
-            diffraction theory, with Python and MATLAB code.
-          </p>
         </div>
       </li>
     </ol>
@@ -196,6 +190,9 @@
 <!-- stats:optimal-robust-control -->
           <p class="venue">8 scribe notes · 60 pages</p>
 <!-- /stats:optimal-robust-control -->
+        </div>
+        <div class="entry-foot">
+          <div class="foot-row">
           <div class="note-picker" data-note-picker>
             <label for="ec701-pick">Note</label>
             <span class="np-select">
@@ -218,8 +215,9 @@
           <p class="entry-links">
             <a href="notes/optimal-robust-control/1/" data-note-link>Read</a>
             <a href="#" data-mail-user="nknguyen" data-mail-domain="bu.edu" data-mail-subject="Erratum: EC 701 Notes 1: Introduction and Overview" data-note-errata>Errata</a>
-            <button type="button" data-reveal="ec701-info" data-swap="ec701-summary" aria-controls="ec701-info">More info</button>
+            <button type="button" data-reveal="ec701-info" aria-controls="ec701-info">More info</button>
           </p>
+          </div>
           <div class="more-info" id="ec701-info" hidden>
             <p class="info-summary">A rigorous introduction to optimal and robust control. Robust control: model reduction, H<sub>2</sub> and H<sub>&infin;</sub> control, and feedback control of uncertain systems. Optimal control: the linear quadratic regulator, the calculus of variations, the maximum principle and the Hamilton&ndash;Jacobi&ndash;Bellman equation.</p>
             <dl class="info-list course-info"><div><dt>Main source</dt><dd>BU ENG EC/ME/SE 701, Optimal and Robust Control</dd></div><div><dt>Primary sources</dt><dd>D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012<br>K. Zhou, J. C. Doyle and K. Glover, Robust and Optimal Control, Prentice Hall, 1995<br>G. F. Franklin, J. D. Powell and A. Emami-Naeini, Feedback Control of Dynamic Systems, 6th ed., Prentice Hall, 2009</dd></div></dl>
@@ -274,12 +272,6 @@
               </div>
             </div>
           </div>
-          <p class="summary teaser" id="ec701-summary">
-            A rigorous introduction to optimal and robust control. Robust control: model reduction, H<sub>2</sub> and
-            H<sub>&infin;</sub> control, and feedback control of uncertain systems. Optimal control: the linear
-            quadratic regulator, the calculus of variations, the maximum principle and the Hamilton&ndash;Jacobi&ndash;Bellman
-            equation.
-          </p>
         </div>
       </li>
       <li class="entry compact">
@@ -293,6 +285,9 @@
 <!-- stats:dynamic-programming-stochastic-control -->
           <p class="venue">23 scribe notes · 104 pages</p>
 <!-- /stats:dynamic-programming-stochastic-control -->
+        </div>
+        <div class="entry-foot">
+          <div class="foot-row">
           <div class="note-picker" data-note-picker>
             <label for="ec710-pick">Note</label>
             <span class="np-select">
@@ -334,8 +329,9 @@
           <p class="entry-links">
             <a href="notes/dynamic-programming-stochastic-control/1a/" data-note-link>Read</a>
             <a href="#" data-mail-user="nknguyen" data-mail-domain="bu.edu" data-mail-subject="Erratum: EC 710 Notes 1a: Introduction: Sequential Decisions and Static Problems" data-note-errata>Errata</a>
-            <button type="button" data-reveal="ec710-info" data-swap="ec710-summary" aria-controls="ec710-info">More info</button>
+            <button type="button" data-reveal="ec710-info" aria-controls="ec710-info">More info</button>
           </p>
+          </div>
           <div class="more-info" id="ec710-info" hidden>
             <p class="info-summary">The theory of dynamic programming for sequential decisions under uncertainty: the DP algorithm and its optimality conditions, linear-quadratic problems, inventory control and asset selling, imperfect state information, and infinite-horizon problems with approximate DP.</p>
             <dl class="info-list course-info"><div><dt>Main source</dt><dd>BU ENG EC/ME/SE 710, Dynamic Programming and Reinforcement Learning</dd></div><div><dt>Primary sources</dt><dd>D. P. Bertsekas, Dynamic Programming and Optimal Control, Vols. I and II (particularly Vol. II)<br>D. P. Bertsekas, A Course in Reinforcement Learning, 2nd ed., 2025</dd></div></dl>
@@ -480,11 +476,6 @@
               </div>
             </div>
           </div>
-          <p class="summary teaser" id="ec710-summary">
-            The theory of dynamic programming for sequential decisions under uncertainty: the DP algorithm and its
-            optimality conditions, linear-quadratic problems, inventory control and asset selling, imperfect state
-            information, and infinite-horizon problems with approximate DP.
-          </p>
         </div>
       </li>
     </ol>
@@ -493,21 +484,21 @@
   <section class="section" id="service" aria-labelledby="service-h">
     <h2 id="service-h">Service</h2>
     <ul class="cv">
-      <li><span class="cv-when">2023 – 2025</span><div class="cv-what"><b>Co-Founder and President</b>, <a href="https://buaisociety.com">Boston University AI Society</a><br><span class="cv-note">Grew BU's largest student-run AI community, with weekly lectures, workshops and speaker events. Raised $10,000+ for compute hardware.</span></div></li>
-      <li><span class="cv-when">2023 – 2025</span><div class="cv-what"><b>AI Advisor</b>, <a href="https://www.bustudentgov.com/">Boston University Student Government</a><br><span class="cv-note">Served on a committee reporting directly to BU President Melissa Gilliam, and advised on the development and release of <a href="https://www.bu.edu/articles/2025/terriergpt-free-access-to-leading-chatbots">TerrierGPT</a>, BU's AI platform.</span></div></li>
-      <li><span class="cv-when">2023 – 2025</span><div class="cv-what"><b>Committee Member</b>, <a href="https://www.bu.edu/spark/students/ignite/">Boston University Ignite Student Council</a><br><span class="cv-note">Approved funding for student clubs and built connections between CS and Engineering (CE, EE, ME, BE, MSE, SE) clubs for cross-club collaboration.</span></div></li>
+      <li><span class="cv-when">2023 – 2025</span><div class="cv-what"><b>Co-Founder and President</b>, <a href="https://buaisociety.com">Boston University AI Society</a><br><span class="cv-note">Grew BU's largest student-run AI community; raised $10,000+ for compute hardware.</span></div></li>
+      <li><span class="cv-when">2023 – 2025</span><div class="cv-what"><b>AI Advisor</b>, <a href="https://www.bustudentgov.com/">Boston University Student Government</a><br><span class="cv-note">On a committee reporting to BU's President; advised on <a href="https://www.bu.edu/articles/2025/terriergpt-free-access-to-leading-chatbots">TerrierGPT</a>, BU's AI platform.</span></div></li>
+      <li><span class="cv-when">2023 – 2025</span><div class="cv-what"><b>Committee Member</b>, <a href="https://www.bu.edu/spark/students/ignite/">Boston University Ignite Student Council</a><br><span class="cv-note">Approved club funding and connected CS and engineering clubs for joint projects.</span></div></li>
       <li><span class="cv-when">2022</span><div class="cv-what"><b>Founder</b>, <a href="https://www.instagram.com/buchessclub/">Boston University Chess Club</a><br><span class="cv-note">Started BU's student chess club.</span></div></li>
     </ul>
   </section>
 
   <footer class="footer">
     <span>© 2026 Nguyễn Khôi Nguyên</span>
-    <span>Updated October 2026</span>
+    <span id="updated">Updated November 2026</span>
     <span>Website design inspired by <a class="plain" href="https://www.jessezhang.net/">this</a> and <a class="plain" href="https://youliangh.github.io/">this</a>.</span>
   </footer>
 
 </main>
 
-<script src="js/site.js?v=18"></script>
+<script src="js/site.js?v=19"></script>
 </body>
 </html>

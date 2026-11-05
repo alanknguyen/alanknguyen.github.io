@@ -24,6 +24,13 @@
     a.href = `mailto:${a.dataset.mailUser}@${a.dataset.mailDomain}${subject}`;
   });
 
+  // footer date follows the page's last-modified time (GitHub Pages sends it with every deploy)
+  const updated = document.getElementById('updated');
+  const modified = new Date(document.lastModified);
+  if (updated && !Number.isNaN(modified.getTime())) {
+    updated.textContent = `Updated ${modified.toLocaleString('en-US', { month: 'long', year: 'numeric' })}`;
+  }
+
   // touch screens can't hover, so a tap flips "(Alan)" instead
   if (!matchMedia('(hover: hover)').matches) {
     document.querySelectorAll('.flip').forEach((el) => el.addEventListener('click', () => el.classList.toggle('flipped')));
