@@ -331,7 +331,7 @@ a.plain:hover { color: var(--accent); }
   .portrait { width: 104px; height: 104px; border-radius: 8px; }
   .entry { grid-template-columns: 1fr; gap: 12px; }
   .thumb { max-width: 420px; }
-  .cv li { grid-template-columns: 78px 1fr; }
+  .cv li { grid-template-columns: 100px 1fr; gap: 0 12px; }
 }
 
 @media (max-width: 400px) {
@@ -413,6 +413,7 @@ a.plain:hover { color: var(--accent); }
 /* Dated lists (teaching), after jessezhang.net */
 
 .org { margin: 0 0 2px; font-weight: 400; text-decoration: underline; text-underline-offset: 3px; }
+.org .cv-note { display: inline-block; text-decoration: none; }
 .dated { list-style: none; margin: 0; padding: 0; }
 .dated li { padding: 1px 0; line-height: 1.55; }
 .dated b { font-variant-numeric: tabular-nums; }
@@ -495,7 +496,8 @@ a.plain:hover { color: var(--accent); }
   .entry.compact .thumb { max-width: 280px; }
 }
 
-/* Teaching: a two-line summary by default; the toggle swaps in every course */
-.teaching-toggle { margin: 6px 0 0; padding: 0; }
-.teaching-full[hidden] { display: none; }
-#teaching-summary[hidden] { display: none; }
+/* Notes, teaching, service: a short summary by default; the toggle swaps in the full list */
+.collapse-toggle { margin: 6px 0 0; padding: 0; }
+.collapse-full[hidden], .collapse-summary[hidden] { display: none; }
+.topic-list { margin: 0; padding-left: 20px; font-size: var(--fs-body); line-height: 1.55; }
+.topic-list li { padding: 3px 0; }

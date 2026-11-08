@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&amp;family=Noto+Serif+TC:wght@500&amp;text=%E9%98%AE%E9%AD%81%E5%85%83%E3%82%B0%E3%82%A8%E3%83%B3%E3%83%BB%E3%82%B3%E3%82%A4&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=59">
+  <link rel="stylesheet" href="css/site.css?v=62">
   <script>
     // Dark unless the visitor chose light; set before first paint so the page does not flash.
     var t = null; try { t = localStorage.getItem('theme'); } catch (e) {} document.documentElement.dataset.theme = t || 'dark';
@@ -149,8 +149,12 @@
 
   <section class="section" id="notes" aria-labelledby="notes-h">
     <h2 id="notes-h">Notes</h2>
-    <p class="section-note">Notes on topics from courses I&rsquo;ve taken at BU, combined with other sources.</p>
-    <ol class="entries">
+    <p class="section-note">These are my own notes from courses and reading, written mainly for my own reference. They&rsquo;re working drafts, so expect gaps and errors.</p>
+    <ul class="topic-list collapse-summary" id="notes-summary">
+      <li><a href="notes/optimal-robust-control/1/">Theory of Optimal and Robust Control</a></li>
+      <li><a href="notes/dynamic-programming-stochastic-control/1a/">Dynamic Programming and Stochastic Control</a></li>
+    </ul>
+    <ol class="entries collapse-full" id="notes-full" hidden>
       <li class="entry compact">
         <a class="thumb wide fill" href="notes/optimal-robust-control/1/" tabindex="-1" aria-hidden="true" data-note-link>
           <img src="img/thumbs/ec701-cartpole.webp?v=10" data-gif="img/thumbs/ec701-cartpole.gif?v=10" alt="A cart balancing a double pendulum upright; on hover, it swings the pendulum up with minimum effort, LQR catches a kick, and it lowers it again" width="1200" height="630">
@@ -451,6 +455,7 @@
         </div>
       </li>
     </ol>
+    <button type="button" class="materials-btn collapse-toggle" data-reveal="notes-full" data-swap="notes-summary" aria-controls="notes-full">Details</button>
   </section>
 
   <section class="section" id="experience" aria-labelledby="experience-h">
@@ -464,12 +469,12 @@
 
   <section class="section" id="teaching" aria-labelledby="teaching-h">
     <h2 id="teaching-h">Teaching</h2>
-    <ul class="cv" id="teaching-summary">
-      <li><span class="cv-when">2024 – 2026</span><div class="cv-what"><b>Teaching Assistant</b>, Boston University<br><span class="cv-note">Department of Electrical and Computer Engineering</span></div></li>
-      <li><span class="cv-when">2023</span><div class="cv-what"><b>Learning Assistant</b>, Boston University<br><span class="cv-note">Department of Physics</span></div></li>
+    <ul class="cv collapse-summary" id="teaching-summary">
+      <li><span class="cv-when">2024 – 2026</span><div class="cv-what"><b>Teaching Assistant</b>, Boston University</div></li>
+      <li><span class="cv-when">2023</span><div class="cv-what"><b>Learning Assistant</b>, Boston University</div></li>
     </ul>
-    <div class="teaching-full" id="teaching-full" hidden>
-      <p class="org">Teaching Assistant, Boston University</p>
+    <div class="collapse-full" id="teaching-full" hidden>
+      <p class="org">Teaching Assistant, Boston University<br><span class="cv-note">Department of Electrical and Computer Engineering</span></p>
       <ul class="cv">
         <li><span class="cv-when">Fall 2026</span><div class="cv-what"><b>EC 545</b>: Cyber-Physical Systems (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/wenchao-li/">Prof. Wenchao Li</a></span>
           <button type="button" class="materials-btn" data-reveal="ec545-materials" aria-controls="ec545-materials">Materials</button>
@@ -481,22 +486,27 @@
         <li><span class="cv-when">Fall 2025</span><div class="cv-what"><b>EC 574</b>: Physics of Semiconductor Materials (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></div></li>
         <li><span class="cv-when">Spring 2025</span><div class="cv-what"><b>EC 575</b>: Semiconductor Devices (Graduate Level)<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/eng/profile/enrico-bellotti/">Prof. Enrico Bellotti</a></span></div></li>
       </ul>
-      <p class="org">Learning Assistant, Boston University</p>
+      <p class="org">Learning Assistant, Boston University<br><span class="cv-note">Department of Physics</span></p>
       <ul class="cv">
         <li><span class="cv-when">Spring 2023</span><div class="cv-what"><b>PY 212</b>: General Physics II<br><span class="cv-note">with <a class="plain" href="https://www.bu.edu/physics/profile/wanzheng-hu/">Prof. Wanzheng Hu</a></span></div></li>
       </ul>
     </div>
-    <button type="button" class="materials-btn teaching-toggle" data-reveal="teaching-full" data-swap="teaching-summary" aria-controls="teaching-full">Courses</button>
+    <button type="button" class="materials-btn collapse-toggle" data-reveal="teaching-full" data-swap="teaching-summary" aria-controls="teaching-full">Courses</button>
   </section>
 
   <section class="section" id="service" aria-labelledby="service-h">
     <h2 id="service-h">Service</h2>
-    <ul class="cv">
+    <ul class="cv collapse-summary" id="service-summary">
+      <li><span class="cv-when">2023 – 2025</span><div class="cv-what"><b>Co-Founder and President</b>, <a href="https://buaisociety.com">Boston University AI Society</a></div></li>
+      <li><span class="cv-when">2023 – 2025</span><div class="cv-what"><b>AI Advisor</b>, <a href="https://www.bustudentgov.com/">Boston University Student Government</a></div></li>
+    </ul>
+    <ul class="cv collapse-full" id="service-full" hidden>
       <li><span class="cv-when">2023 – 2025</span><div class="cv-what"><b>Co-Founder and President</b>, <a href="https://buaisociety.com">Boston University AI Society</a><br><span class="cv-note">Grew BU's largest student-run AI community; raised $10,000+ for compute hardware.</span></div></li>
       <li><span class="cv-when">2023 – 2025</span><div class="cv-what"><b>AI Advisor</b>, <a href="https://www.bustudentgov.com/">Boston University Student Government</a><br><span class="cv-note">On a committee reporting to BU's President; advised on <a href="https://www.bu.edu/articles/2025/terriergpt-free-access-to-leading-chatbots">TerrierGPT</a>, BU's AI platform.</span></div></li>
       <li><span class="cv-when">2023 – 2025</span><div class="cv-what"><b>Committee Member</b>, <a href="https://www.bu.edu/spark/students/ignite/">Boston University Ignite Student Council</a><br><span class="cv-note">Approved club funding and connected CS and engineering clubs for joint projects.</span></div></li>
       <li><span class="cv-when">2022</span><div class="cv-what"><b>Founder</b>, <a href="https://www.instagram.com/buchessclub/">Boston University Chess Club</a><br><span class="cv-note">Started BU's student chess club.</span></div></li>
     </ul>
+    <button type="button" class="materials-btn collapse-toggle" data-reveal="service-full" data-swap="service-summary" aria-controls="service-full">All roles</button>
   </section>
 
   <footer class="footer">

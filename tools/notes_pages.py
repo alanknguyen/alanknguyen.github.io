@@ -23,7 +23,7 @@ FONT = '/System/Library/Fonts/Supplemental/Verdana.ttf'
 MARK = 'alanknguyen.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
 NOTES = os.path.join(HERE, '..', 'notes')
-VERSIONS = {'css_v': '59', 'js_v': '19', 'notes_v': '10'}
+VERSIONS = {'css_v': '62', 'js_v': '19', 'notes_v': '10'}
 
 
 def watermark(im, alpha=18):
@@ -95,7 +95,7 @@ def write_page(out, meta, build):
     print(f'page -> {os.path.join(out, "index.html")}')
 
 
-def fill_home(key, name, block):
+def fill_home(key, name, block, inline=False):
     home = os.path.join(HERE, '..', 'index.html')
     start, end = f'<!-- {name}:{key} -->', f'<!-- /{name}:{key} -->'
     page = open(home).read()
@@ -104,7 +104,7 @@ def fill_home(key, name, block):
         return
     a, b = page.index(start) + len(start), page.index(end)
     with open(home, 'w') as f:
-        f.write(page[:a] + '\n' + block + page[b:])
+        f.write(page[:a] + ('' if inline else '\n') + block + page[b:])
     print(f'home {name} -> index.html')
 
 
