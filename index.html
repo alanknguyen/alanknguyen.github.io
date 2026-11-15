@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&amp;family=Noto+Serif+TC:wght@500&amp;text=%E9%98%AE%E9%AD%81%E5%85%83%E3%82%B0%E3%82%A8%E3%83%B3%E3%83%BB%E3%82%B3%E3%82%A4&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=62">
+  <link rel="stylesheet" href="css/site.css?v=63">
   <script>
     // Dark unless the visitor chose light; set before first paint so the page does not flash.
     var t = null; try { t = localStorage.getItem('theme'); } catch (e) {} document.documentElement.dataset.theme = t || 'dark';
@@ -66,11 +66,18 @@
     <ol class="entries">
 
       <li class="entry">
-        <a class="thumb wide" href="https://www.researchgate.net/publication/404323301_Quantum_States_of_Light_in_Cavity_QED_A_Computational_Study_of_Wigner_Function_Dynamics_and_Atom-Field_Entanglement_in_the_Jaynes-Cummings_Model" tabindex="-1" aria-hidden="true">
-          <img src="img/thumbs/qsol-cat-survival.webp?v=2" data-gif="img/thumbs/qsol-jc-dynamics.gif?v=2" alt="Cat-state survival diagrams; on hover, the cavity-field Wigner function and atomic inversion evolving" width="500" height="250">
-        </a>
+        <div class="thumb-col">
+          <a class="thumb wide" href="https://www.researchgate.net/publication/404323301_Quantum_States_of_Light_in_Cavity_QED_A_Computational_Study_of_Wigner_Function_Dynamics_and_Atom-Field_Entanglement_in_the_Jaynes-Cummings_Model" tabindex="-1" aria-hidden="true">
+            <img src="img/thumbs/qsol-cat-survival.webp?v=2" data-gif="img/thumbs/qsol-jc-dynamics.gif?v=2" alt="Cat-state survival diagrams; on hover, the cavity-field Wigner function and atomic inversion evolving" width="500" height="250">
+          </a>
+          <ul class="tags" aria-label="Categories">
+            <li class="tag tag-quantum">Quantum Optics</li>
+            <li class="tag tag-cqed">Cavity QED</li>
+            <li class="tag tag-comp">Computational Physics</li>
+          </ul>
+        </div>
         <div class="entry-body">
-          <h3><a href="https://www.researchgate.net/publication/404323301_Quantum_States_of_Light_in_Cavity_QED_A_Computational_Study_of_Wigner_Function_Dynamics_and_Atom-Field_Entanglement_in_the_Jaynes-Cummings_Model">Quantum States of Light in Cavity QED: A Computational Study of Wigner Function Dynamics and Atom–Field Entanglement in the Jaynes–Cummings Model</a></h3>
+          <h3><a href="https://www.researchgate.net/publication/404323301_Quantum_States_of_Light_in_Cavity_QED_A_Computational_Study_of_Wigner_Function_Dynamics_and_Atom-Field_Entanglement_in_the_Jaynes-Cummings_Model">Quantum states of light in cavity QED: A computational study of Wigner function dynamics and atom–field entanglement in the Jaynes–Cummings model</a></h3>
           <p class="authors"><span class="me">NK Nguyen</span>. Advised by <a class="plain" href="https://www.bu.edu/eng/profile/luca-dal-negro/">Luca Dal Negro</a>.</p>
           <p class="venue">Preprint · Under review at the European Journal of Physics · 2026</p>
           <p class="entry-links">
@@ -82,9 +89,10 @@
             <button type="button" data-reveal="qsol-bib" aria-controls="qsol-bib">BibTeX</button>
           </p>
           <p class="summary">
-            A first-principles QuTiP study of the Jaynes–Cummings model. Wigner snapshots show a Schrödinger cat
-            forming in the cavity field at half the revival time (negativity &delta; = 0.85), and atom–field
-            entanglement is compared across coherent, thermal, squeezed and Fock states.
+            A numerical study of the resonant Jaynes–Cummings model (n̄ = 10). Time-resolved Wigner functions show
+            the coherent field becoming a Schrödinger-cat-like state at half the revival time (Wigner negativity
+            &delta; = 0.85, purity 0.96), where the atom and field nearly disentangle; coherent, thermal,
+            squeezed-vacuum and Fock fields are compared through the reduced atomic entropy and the logarithmic negativity.
           </p>
         </div>
         <div class="entry-extra figures" id="qsol-figs" hidden>
@@ -99,9 +107,9 @@
         </div>
 <pre class="entry-extra bibtex" id="qsol-bib" hidden>@misc{nguyen2026qsol,
   author = {Nguyen, Nguyen Khoi},
-  title  = {Quantum States of Light in Cavity {QED}: A Computational Study of
-            {W}igner Function Dynamics and Atom--Field Entanglement in the
-            {J}aynes--{C}ummings Model},
+  title  = {Quantum states of light in cavity {QED}: A computational study of
+            {W}igner function dynamics and atom--field entanglement in the
+            {J}aynes--{C}ummings model},
   year   = {2026},
   note   = {Preprint, under review at European Journal of Physics.
             Code: https://github.com/alanknguyen/QSOL\_CQED,

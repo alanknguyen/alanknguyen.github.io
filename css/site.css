@@ -11,6 +11,9 @@
   --accent-hover: #2a49b8;
   --thumb-bg: #e7e7e7;
   --tag-bg: #e8e8e8;
+  --tag-cqed: #b45309;
+  --tag-quantum: #7c3aed;
+  --tag-comp: #0f766e;
   --font-text: Verdana, Geneva, Tahoma, sans-serif;
   --font-mono: "Courier New", Courier, monospace;
   --col: 760px;
@@ -34,6 +37,9 @@
   --accent-hover: #b3c4ff;
   --thumb-bg: #222222;
   --tag-bg: #262626;
+  --tag-cqed: #f5b73b;
+  --tag-quantum: #b9a4ff;
+  --tag-comp: #4fd1bd;
   color-scheme: dark;
 }
 
@@ -208,6 +214,20 @@ a.plain:hover { color: var(--accent); }
   transition: border-color 0.2s ease;
 }
 .entry:hover .thumb { border-color: var(--muted); }
+/* research categories: small coloured boxes under the thumbnail */
+.thumb-col { min-width: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; padding: 0; list-style: none; }
+.tag {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font: 400 var(--fs-xs)/1.4 var(--font-text);
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
+}
+.tag-cqed { --c: var(--tag-cqed); }
+.tag-quantum { --c: var(--tag-quantum); }
+.tag-comp { --c: var(--tag-comp); }
 .thumb video, .thumb img {
   display: block;
   width: 100%;
@@ -254,17 +274,6 @@ a.plain:hover { color: var(--accent); }
   font: 400 var(--fs-xs)/1.4 var(--font-text);
 }
 .course-title { font-weight: 700; }
-
-.tag {
-  grid-row: 1;
-  grid-column: 2;
-  padding: 5px 9px;
-  border-radius: 999px;
-  background: var(--tag-bg);
-  color: var(--muted);
-  font: 400 var(--fs-xs)/1 var(--font-text);
-  white-space: nowrap;
-}
 
 /* Compact CV rows: date left, one line right */
 
