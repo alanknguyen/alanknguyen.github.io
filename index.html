@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&amp;family=Noto+Serif+TC:wght@500&amp;text=%E9%98%AE%E9%AD%81%E5%85%83%E3%82%B0%E3%82%A8%E3%83%B3%E3%83%BB%E3%82%B3%E3%82%A4&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=63">
+  <link rel="stylesheet" href="css/site.css?v=64">
   <script>
     // Dark unless the visitor chose light; set before first paint so the page does not flash.
     var t = null; try { t = localStorage.getItem('theme'); } catch (e) {} document.documentElement.dataset.theme = t || 'dark';
@@ -123,10 +123,17 @@
   <section class="section" id="books" aria-labelledby="books-h">
     <h2 id="books-h">Book Manuscripts</h2>
     <ol class="entries">
-      <li class="entry compact">
-        <a class="thumb wide fill" href="notes/engineering-fourier-optics/" tabindex="-1" aria-hidden="true">
-          <img src="img/thumbs/fourier-optics-thumbnail.webp?v=4" data-gif="img/thumbs/fourier-optics-anim.gif?v=4" alt="Light spreading from a multi-slit aperture as it propagates; on hover, the same field as the wavelength sweeps" width="1200" height="630">
-        </a>
+      <li class="entry">
+        <div class="thumb-col">
+          <a class="thumb wide fill" href="notes/engineering-fourier-optics/" tabindex="-1" aria-hidden="true">
+            <img src="img/thumbs/fourier-optics-thumbnail.webp?v=4" data-gif="img/thumbs/fourier-optics-anim.gif?v=4" alt="Light spreading from a multi-slit aperture as it propagates; on hover, the same field as the wavelength sweeps" width="1200" height="630">
+          </a>
+          <ul class="tags" aria-label="Categories">
+            <li class="tag tag-fourier">Fourier Optics</li>
+            <li class="tag tag-diffraction">Diffraction Theory</li>
+            <li class="tag tag-comp">Computational Physics</li>
+          </ul>
+        </div>
         <div class="entry-body">
           <h3><a href="notes/engineering-fourier-optics/">Engineering Fourier Optics</a></h3>
           <p class="authors"><span class="me">NK Nguyen</span>.</p>
@@ -134,22 +141,22 @@
 <!-- stats:engineering-fourier-optics -->
           <p class="venue">268 pages · Third draft · Unfinished</p>
 <!-- /stats:engineering-fourier-optics -->
-        </div>
-        <div class="entry-foot">
-          <div class="foot-row">
           <p class="entry-links">
             <a href="notes/engineering-fourier-optics/">Read</a>
             <a href="#" data-mail-user="nknguyen" data-mail-domain="bu.edu" data-mail-subject="Erratum: Engineering Fourier Optics">Errata</a>
             <button type="button" data-reveal="ec562-info" aria-controls="ec562-info">More info</button>
           </p>
-          </div>
-          <div class="more-info" id="ec562-info" hidden>
-            <p class="info-summary">Linear systems, the angular spectrum and free-space propagation, Fresnel and Fraunhofer diffraction, sampling and numerical propagation, arrays, gratings, Talbot self-imaging, zone plates and scalar diffraction theory, with Python and MATLAB code.</p>
+          <p class="summary">
+            A textbook draft on Fourier optics for engineers: linear systems, the angular spectrum, Fresnel and
+            Fraunhofer diffraction, and numerical propagation, with Python and MATLAB code for every section.
+          </p>
+        </div>
+        <div class="entry-extra more-info" id="ec562-info" hidden>
+          <p class="info-summary">Also covers sampling, arrays, gratings, Talbot self-imaging, zone plates and scalar diffraction theory.</p>
 <!-- info:engineering-fourier-optics -->
-            <dl class="info-list"><div><dt>Pages</dt><dd>268</dd></div><div><dt>Draft</dt><dd>Third draft</dd></div><div><dt>Main source</dt><dd>BU ENG EC 562, Fourier Optics in Engineering</dd></div><div><dt>Also draws on</dt><dd>BU ENG EC 522, Computational Optical Imaging by Lei Tian</dd></div><div><dt>Primary sources</dt><dd>J. W. Goodman, Introduction to Fourier Optics, 4th ed. (W. H. Freeman, 2017)<br>D. G. Voelz, Computational Fourier Optics: A MATLAB Tutorial (SPIE Press, 2011)</dd></div></dl>
-            <p>Part of <i>Engineering Fourier Optics: Theory, Applications and Computation</i>, a draft soon to be submitted to Springer. All text and figures are my own. The draft began as my notes on Luca Dal Negro's EC 562 Fourier Optics in Engineering (Fall 2023) and Lei Tian's EC 522 Computational Optical Imaging (Spring 2024) at Boston University, and has grown well beyond them, with derivations, worked examples, and Python and MATLAB code for each section. Further application chapters, written by senior researchers and PhD students, are in progress and not yet included.</p>
+          <dl class="info-list"><div><dt>Pages</dt><dd>268</dd></div><div><dt>Draft</dt><dd>Third draft</dd></div><div><dt>Main source</dt><dd>BU ENG EC 562, Fourier Optics in Engineering</dd></div><div><dt>Also draws on</dt><dd>BU ENG EC 522, Computational Optical Imaging by Lei Tian</dd></div><div><dt>Primary sources</dt><dd>J. W. Goodman, Introduction to Fourier Optics, 4th ed. (W. H. Freeman, 2017)<br>D. G. Voelz, Computational Fourier Optics: A MATLAB Tutorial (SPIE Press, 2011)</dd></div></dl>
+          <p>Part of <i>Engineering Fourier Optics: Theory, Applications and Computation</i>, a draft soon to be submitted to Springer. All text and figures are my own. The draft began as my notes on Luca Dal Negro's EC 562 Fourier Optics in Engineering (Fall 2023) and Lei Tian's EC 522 Computational Optical Imaging (Spring 2024) at Boston University, and has grown well beyond them, with derivations, worked examples, and Python and MATLAB code for each section. Further application chapters, written by senior researchers and PhD students, are in progress and not yet included.</p>
 <!-- /info:engineering-fourier-optics -->
-          </div>
         </div>
       </li>
     </ol>

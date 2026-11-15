@@ -14,6 +14,8 @@
   --tag-cqed: #b45309;
   --tag-quantum: #7c3aed;
   --tag-comp: #0f766e;
+  --tag-fourier: #1d64d8;
+  --tag-diffraction: #be185d;
   --font-text: Verdana, Geneva, Tahoma, sans-serif;
   --font-mono: "Courier New", Courier, monospace;
   --col: 760px;
@@ -40,6 +42,8 @@
   --tag-cqed: #f5b73b;
   --tag-quantum: #b9a4ff;
   --tag-comp: #4fd1bd;
+  --tag-fourier: #7fb0ff;
+  --tag-diffraction: #f48fbf;
   color-scheme: dark;
 }
 
@@ -228,6 +232,8 @@ a.plain:hover { color: var(--accent); }
 .tag-cqed { --c: var(--tag-cqed); }
 .tag-quantum { --c: var(--tag-quantum); }
 .tag-comp { --c: var(--tag-comp); }
+.tag-fourier { --c: var(--tag-fourier); }
+.tag-diffraction { --c: var(--tag-diffraction); }
 .thumb video, .thumb img {
   display: block;
   width: 100%;
@@ -499,6 +505,7 @@ a.plain:hover { color: var(--accent); }
 .foot-row .note-picker { flex: 1 1 300px; min-width: 0; margin: 0; }
 .foot-row .entry-links { margin: 0; flex-wrap: nowrap; white-space: nowrap; }
 .entry-foot .more-info { margin: 10px 0 0; }
+.entry-extra.more-info { margin: 10px 0 0; }
 .more-info .info-summary { margin: 0 0 10px; color: var(--text-2); }
 @media (max-width: 640px) {   /* after the rules above, so it wins: stack on phones */
   .entry.compact { grid-template-columns: 1fr; }
