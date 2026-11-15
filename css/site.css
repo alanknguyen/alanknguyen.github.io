@@ -15,7 +15,6 @@
   --tag-quantum: #7c3aed;
   --tag-comp: #0f766e;
   --tag-fourier: #1d64d8;
-  --tag-diffraction: #be185d;
   --font-text: Verdana, Geneva, Tahoma, sans-serif;
   --font-mono: "Courier New", Courier, monospace;
   --col: 760px;
@@ -43,7 +42,6 @@
   --tag-quantum: #b9a4ff;
   --tag-comp: #4fd1bd;
   --tag-fourier: #7fb0ff;
-  --tag-diffraction: #f48fbf;
   color-scheme: dark;
 }
 
@@ -233,7 +231,6 @@ a.plain:hover { color: var(--accent); }
 .tag-quantum { --c: var(--tag-quantum); }
 .tag-comp { --c: var(--tag-comp); }
 .tag-fourier { --c: var(--tag-fourier); }
-.tag-diffraction { --c: var(--tag-diffraction); }
 .thumb video, .thumb img {
   display: block;
   width: 100%;
