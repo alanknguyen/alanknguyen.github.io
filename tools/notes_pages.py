@@ -23,7 +23,7 @@ FONT = '/System/Library/Fonts/Supplemental/Verdana.ttf'
 MARK = 'alanknguyen.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
 NOTES = os.path.join(HERE, '..', 'notes')
-VERSIONS = {'css_v': '72', 'js_v': '20', 'notes_v': '12'}
+VERSIONS = {'css_v': '74', 'js_v': '20', 'notes_v': '12'}
 
 
 def watermark(im, alpha=18):
