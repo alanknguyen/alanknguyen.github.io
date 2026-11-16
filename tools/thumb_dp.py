@@ -1,6 +1,6 @@
 """EC 710 thumbnail: dynamic programming on a stochastic maze.
 
-usage: python3 tools/thumb_dp.py   (writes img/thumbs/ec710-dp.webp and .gif)
+usage: python3 tools/thumb_dp.py [--dark]   (writes img/thumbs/ec710-dp.webp and .gif; white unless --dark)
 Each move succeeds with probability P and otherwise the agent stays put (a slip). Value iteration
     J(x) <- min_u [ 1 + P J(f(x, u)) + (1 - P) J(x) ],   J(goal) = 0
 gives the expected number of moves to go; the gif lights the maze up sweep by sweep as values settle, outward from
@@ -8,6 +8,7 @@ the goal, then traces the optimal policy from the start and lets the agent follo
 the gif's first frame.
 """
 import os
+import sys
 from collections import deque
 
 import numpy as np
@@ -90,13 +91,22 @@ def bfs_len(open_):
     return dist
 
 
-BG = (8, 20, 36)
-WALL = (55, 95, 140)
-NEAR, FAR = np.array([255, 200, 110]), np.array([40, 120, 150])   # value tiles: amber near the goal, teal far
-TRAIL = (110, 235, 190)
-AGENT = (240, 255, 248)
-GOALC = (225, 150, 50)       # deeper than it looks: the bloom lightens it
-
+# light (default, white like the research thumbnails) or dark (--dark: navy with additive glow)
+LIGHT = '--dark' not in sys.argv
+if LIGHT:
+    BG = (255, 255, 255)
+    WALL = (71, 85, 105)
+    NEAR, FAR = np.array([245, 158, 11]), np.array([14, 116, 144])   # value tiles: amber near the goal, teal far
+    TRAIL = (16, 163, 120)
+    AGENT = (15, 23, 42)
+    GOALC = (217, 119, 6)
+else:
+    BG = (8, 20, 36)
+    WALL = (55, 95, 140)
+    NEAR, FAR = np.array([255, 200, 110]), np.array([40, 120, 150])   # value tiles: amber near the goal, teal far
+    TRAIL = (110, 235, 190)
+    AGENT = (240, 255, 248)
+    GOALC = (225, 150, 50)       # deeper than it looks: the bloom lightens it
 
 def render(w, h, open_, J, jmax, trail, agent, ss=2, goal_flash=0.0, fade=1.0, front=None):
     W, H = w * ss, h * ss
@@ -104,7 +114,7 @@ def render(w, h, open_, J, jmax, trail, agent, ss=2, goal_flash=0.0, fade=1.0, f
     s = min((W - 2 * pad) / CW, (H - 2 * pad) / CH)
     ox, oy = (W - s * CW) / 2, (H - s * CH) / 2
     C = lambda c: (ox + (c[0] + 0.5) * s, oy + (c[1] + 0.5) * s)
-    lines = Image.new('RGB', (W, H), (0, 0, 0))
+    lines = Image.new('RGBA', (W, H), (0, 0, 0, 0)) if LIGHT else Image.new('RGB', (W, H), (0, 0, 0))
     d = ImageDraw.Draw(lines, 'RGBA')
     base = Image.new('RGB', (W, H), BG)
     b = ImageDraw.Draw(base, 'RGBA')
@@ -119,9 +129,9 @@ def render(w, h, open_, J, jmax, trail, agent, ss=2, goal_flash=0.0, fade=1.0, f
                 continue
             k = 1 - v / jmax
             col = tuple(int(c) for c in FAR + (NEAR - FAR) * k ** 1.5)
-            a = 30 + 55 * k
+            a = (70 + 110 * k) if LIGHT else (30 + 55 * k)
             if front is not None and front[x, y]:
-                a = 170
+                a = 230 if LIGHT else 170
             b.rounded_rectangle([ox + x * s + g, oy + y * s + g, ox + (x + 1) * s - g, oy + (y + 1) * s - g],
                                 radius=s * 0.15, fill=col + (int(a * fade),))
     for (x, y), ds in open_.items():
@@ -143,6 +153,8 @@ def render(w, h, open_, J, jmax, trail, agent, ss=2, goal_flash=0.0, fade=1.0, f
         ax, ay = C(agent)
         r = s * 0.24
         d.ellipse([ax - r, ay - r, ax + r, ay + r], fill=AGENT + (int(255 * fade),))
+    if LIGHT:
+        return Image.alpha_composite(base.convert('RGBA'), lines).convert('RGB').resize((w, h), Image.LANCZOS)
     bloom = lines.filter(ImageFilter.GaussianBlur(lw * 2.5))
     out = np.clip(np.asarray(base, float) + np.asarray(lines, float) + 0.8 * np.asarray(bloom, float), 0, 255)
     return Image.fromarray(out.astype(np.uint8)).resize((w, h), Image.LANCZOS)
@@ -205,8 +217,13 @@ def main():
     for k, f in enumerate(picks):
         sheet.paste(f, (0, 220 * k))
     base = sheet.quantize(colors=96, method=Image.MEDIANCUT).getpalette()[:96 * 3]
-    keep = [(255, 255, 255), (240, 255, 248), (255, 255, 118), (255, 240, 150), (255, 215, 120),
-            (255, 200, 110), (225, 150, 50), (180, 120, 50)]
+    keep = ([(255, 255, 255), (15, 23, 42), (217, 119, 6), (245, 158, 11), (16, 163, 120), (71, 85, 105)] if LIGHT else
+            [(255, 255, 255), (240, 255, 248), (255, 255, 118), (255, 240, 150), (255, 215, 120),
+             (255, 200, 110), (225, 150, 50), (180, 120, 50)])
+    if LIGHT:   # the background must stay pure white: snap the base colour nearest to white onto it
+        rgb = np.array(base).reshape(-1, 3)
+        rgb[(rgb >= 244).all(1)] = 255          # every near-white entry, since the lookup is approximate
+        base = [int(v) for v in rgb.ravel()]
     pal = Image.new('P', (1, 1))
     pal.putpalette(base + [v for c in keep for v in c])
     q = [f.quantize(palette=pal, dither=Image.NONE) for f in frames]

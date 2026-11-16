@@ -1,12 +1,13 @@
 """EC 701 thumbnail: a cart swings a double pendulum up with minimum effort, LQR holds it through a kick, and the
 swing-up run backwards lowers it again, so the gif loops.
 
-usage: python3 tools/thumb_cartpole.py   (writes img/thumbs/ec701-cartpole.webp and .gif)
+usage: python3 tools/thumb_cartpole.py [--dark]   (writes img/thumbs/ec701-cartpole.webp and .gif; white unless --dark)
 Swing-up: trapezoidal collocation minimising the integral of u^2, tracked by time-varying LQR. The model is
 frictionless, so the swing-up played backwards (same states, velocities reversed, u(T - t)) is also a solution;
 it is tracked the same way down to the hanging rest state. Everything is simulated on the nonlinear model.
 """
 import os
+import sys
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -172,20 +173,38 @@ def simulate():
 
 
 # ---- drawing ----
-BG = (8, 20, 36)
-RAIL = (70, 120, 170)
-RAIL_IN = (30, 60, 95)
-CART = (40, 120, 200)
-WHEEL = (24, 52, 82)      # joint centres
-LINK1 = (60, 210, 160)
-LINK2 = (150, 240, 200)
-JOINT = (235, 245, 250)
-LINK = (230, 242, 250)
-TIP = (190, 255, 225)
-TRAIL = (90, 220, 170)
-FORCE = (120, 180, 255)
-KICKC = (255, 200, 110)
-
+# light (default, white like the research thumbnails) or dark (--dark: navy with additive glow)
+LIGHT = '--dark' not in sys.argv
+if LIGHT:
+    BG = (255, 255, 255)
+    RAIL = (120, 138, 160)
+    RAIL_IN = (178, 192, 208)
+    CART = (37, 99, 235)
+    WHEEL = (30, 41, 59)      # joint centres
+    LINK1 = (13, 148, 136)
+    LINK2 = (16, 185, 129)
+    JOINT = (226, 232, 240)
+    LINK = (51, 65, 85)
+    TIP = (234, 88, 12)
+    TRAIL = (249, 115, 22)
+    FORCE = (59, 130, 246)
+    KICKC = (220, 38, 38)
+    TEXT = '#1c1c1c'
+else:
+    BG = (8, 20, 36)
+    RAIL = (70, 120, 170)
+    RAIL_IN = (30, 60, 95)
+    CART = (40, 120, 200)
+    WHEEL = (24, 52, 82)      # joint centres
+    LINK1 = (60, 210, 160)
+    LINK2 = (150, 240, 200)
+    JOINT = (235, 245, 250)
+    LINK = (230, 242, 250)
+    TIP = (190, 255, 225)
+    TRAIL = (90, 220, 170)
+    FORCE = (120, 180, 255)
+    KICKC = (255, 200, 110)
+    TEXT = '#e6f2fa'
 
 def poses(s):
     x, a, b = s[0], s[1], s[2]
@@ -196,8 +215,8 @@ def poses(s):
 
 def frame(w, h, s, trail, u=0.0, kick=0.0, ss=2, glow=False, ghosts=(), dots=(), centre=0.5, rail=1.85, plot=None):
     W, H = w * ss, h * ss
-    lines = Image.new('RGB', (W, H), (0, 0, 0))
-    d = ImageDraw.Draw(lines, 'RGBA')                   # glowing layer
+    lines = Image.new('RGBA', (W, H), (0, 0, 0, 0)) if LIGHT else Image.new('RGB', (W, H), (0, 0, 0))
+    d = ImageDraw.Draw(lines, 'RGBA')                   # glowing layer (plain in light mode)
     solid = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     o = ImageDraw.Draw(solid, 'RGBA')                   # solid parts on top, true colours
     sc = H * 0.38                 # pixels per metre
@@ -290,6 +309,9 @@ def frame(w, h, s, trail, u=0.0, kick=0.0, ss=2, glow=False, ghosts=(), dots=(),
         v = Image.new('L', (W, H), 0)
         ImageDraw.Draw(v).ellipse([W * 0.2, -H * 0.2, W * 0.8, H * 1.1], fill=40)
         im = Image.composite(Image.new('RGB', (W, H), (22, 55, 85)), im, v.filter(ImageFilter.GaussianBlur(W * 0.1)))
+    if LIGHT:
+        out = Image.alpha_composite(Image.alpha_composite(im.convert('RGBA'), lines), solid).convert('RGB')
+        return out.resize((w, h), Image.LANCZOS)
     bloom = lines.filter(ImageFilter.GaussianBlur(lw * 2.5))
     out = np.clip(np.asarray(im, float) + np.asarray(lines, float) + 0.75 * np.asarray(bloom, float), 0, 255)
     out = Image.alpha_composite(Image.fromarray(out.astype(np.uint8)).convert('RGBA'), solid).convert('RGB')
@@ -305,7 +327,7 @@ def still(s0, w=1200, h=630, ss=2):
     W, H = w * ss, h * ss
     fig = plt.figure(figsize=(W / 100, H / 100), dpi=100)
     fig.patch.set_alpha(0)
-    fig.text(0.75, 0.25, r'$\dot{x} = Ax + Bu$', ha='center', va='center', fontsize=H * 0.11 * 72 / 100, color='#e6f2fa')
+    fig.text(0.75, 0.25, r'$\dot{x} = Ax + Bu$', ha='center', va='center', fontsize=H * 0.11 * 72 / 100, color=TEXT)
     fig.canvas.draw()
     text = Image.frombuffer('RGBA', fig.canvas.get_width_height(), fig.canvas.buffer_rgba()).copy()
     plt.close(fig)
@@ -313,7 +335,7 @@ def still(s0, w=1200, h=630, ss=2):
     scene = frame(w, h, s0, [s0], ss=ss).resize((W, H), Image.LANCZOS)
     rgb = np.asarray(text, float)[..., :3] * (np.asarray(text, float)[..., 3:] / 255)
     glow = np.asarray(Image.fromarray(rgb.astype(np.uint8)).filter(ImageFilter.GaussianBlur(W / 250)), float)
-    base = np.clip(np.asarray(scene, float) + 0.5 * glow, 0, 255).astype(np.uint8)
+    base = np.asarray(scene) if LIGHT else np.clip(np.asarray(scene, float) + 0.5 * glow, 0, 255).astype(np.uint8)
     out = Image.alpha_composite(Image.fromarray(base).convert('RGBA'), text).convert('RGB')
     out.resize((w, h), Image.LANCZOS).save(os.path.join(OUT, 'ec701-cartpole.webp'), quality=90, method=6)
 
@@ -331,6 +353,12 @@ def main():
         kick = max(0.0, 1 - dk / 0.5) if dk >= 0 else 0.0
         frames.append(frame(440, 220, S[i], S[max(0, i - 16):i + 1], u=U[i], kick=kick))
     pal = frames[i_top].quantize(colors=96, method=Image.MEDIANCUT)
+    if LIGHT:   # the background must stay pure white: snap the palette colour nearest to white onto it
+        lut = pal.getpalette()[:96 * 3]
+        rgb = np.array(lut).reshape(-1, 3)
+        rgb[(rgb >= 244).all(1)] = 255          # every near-white entry, since the lookup is approximate
+        lut = [int(v) for v in rgb.ravel()]
+        pal.putpalette(lut)
     q = [im.quantize(palette=pal, dither=Image.NONE) for im in frames]
     path = os.path.join(OUT, 'ec701-cartpole.gif')
     q[0].save(path, save_all=True, append_images=q[1:], duration=1000 // FPS, loop=0, optimize=True)
