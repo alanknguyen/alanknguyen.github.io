@@ -46,16 +46,16 @@
   --accent-hover: #b3c4ff;
   --thumb-bg: #222222;
   --tag-bg: #262626;
-  --tag-cqed: #fbbf24;
-  --tag-quantum: #c084fc;
-  --tag-comp: #4ade80;
-  --tag-fourier: #60a5fa;
-  --tag-control: #fb7185;
-  --tag-opt: #818cf8;
-  --tag-dp: #e879f9;
-  --tag-stoch: #22d3ee;
-  --tag-rl: #fb923c;
-  --tag-signal: #f472b6;
+  --tag-cqed: #d6aa62;
+  --tag-quantum: #a99ae0;
+  --tag-comp: #72bf8c;
+  --tag-fourier: #7ea6d8;
+  --tag-control: #d98593;
+  --tag-opt: #9599db;
+  --tag-dp: #c690cf;
+  --tag-stoch: #6db6c6;
+  --tag-rl: #d99d72;
+  --tag-signal: #d690b2;
   color-scheme: dark;
 }
 
@@ -240,6 +240,7 @@ a.plain:hover { color: var(--accent); }
   background: transparent;
   border: 1px solid var(--c);
 }
+:root[data-theme="dark"] .tag { border-color: color-mix(in srgb, var(--c) 50%, transparent); }
 .tag-cqed { --c: var(--tag-cqed); }
 .tag-quantum { --c: var(--tag-quantum); }
 .tag-comp { --c: var(--tag-comp); }
