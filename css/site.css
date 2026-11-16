@@ -146,12 +146,10 @@ a.plain:hover { color: var(--accent); }
   .flip { --flip: 0s; }
 }
 
-.role { margin: 0 0 4px; color: var(--text-2); }
-
 .email {
   margin: 0 0 14px;
   color: var(--text-2);
-  font: 400 var(--fs-small)/1.5 var(--font-mono);
+  font: 400 var(--fs-body)/1.5 var(--font-mono);
 }
 
 .links {
