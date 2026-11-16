@@ -243,7 +243,6 @@ a.plain:hover { color: var(--accent); }
 .entry-body h3 .kind { color: var(--muted); font-weight: 400; font-size: 0.85em; }
 
 .authors { margin: 0 0 2px; color: var(--text-2); font-size: var(--fs-body); }
-.authors .me { color: var(--text); font-weight: 700; }
 
 .venue { margin: 0 0 8px; color: var(--muted); font: 400 var(--fs-small)/1.5 var(--font-text); }
 
