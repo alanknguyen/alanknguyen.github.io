@@ -5,6 +5,7 @@
   --bg-elev: #fafafa;
   --text: #1c1c1c;
   --text-2: #4a4a4a;
+  --name: #000000;
   --muted: #6e6e6e;
   --rule: #dcdcdc;
   --accent: #3760e6;
@@ -32,6 +33,7 @@
   --bg-elev: #1f1f1f;
   --text: #e4e4e4;
   --text-2: #b8b8b8;
+  --name: var(--text);
   --muted: #929292;
   --rule: #2c2c2c;
   --accent: #94adff;
@@ -97,10 +99,11 @@ a.plain:hover { color: var(--accent); }
 
 .masthead h1 {
   margin: 0 0 6px;
+  color: var(--name);
   font: 400 var(--fs-name)/1.2 var(--font-text);
 }
 
-.masthead h1 .aka { color: var(--text-2); white-space: nowrap; }
+.masthead h1 .aka { color: var(--name); white-space: nowrap; }
 /* "(Alan)" flips to the Han-Nôm name on hover, focus or tap.
    The faces swap at the halfway point (card edge-on), so the two names never show together. */
 .flip { --flip: 0.5s; display: inline-block; perspective: 600px; cursor: default; outline: none; }
@@ -149,7 +152,7 @@ a.plain:hover { color: var(--accent); }
 .email {
   margin: 0 0 14px;
   color: var(--text-2);
-  font: 400 var(--fs-body)/1.5 var(--font-mono);
+  font: 400 1rem/1.5 var(--font-mono);
 }
 
 .links {
