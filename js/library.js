@@ -19,21 +19,41 @@
 
   const label = (n) => `Notes ${n.num} · ${n.short}`;
 
+  // ---- library cards: the notes list and more info open full width under the card;
+  // only one notes list is open on the page at a time
+  const setPanel = (panel, open) => {
+    panel.hidden = !open;
+    document.querySelector(`[data-panel="${panel.id}"]`)?.setAttribute('aria-expanded', String(open));
+  };
+  document.querySelectorAll('.lib-toggle').forEach((btn) => {
+    const panel = document.getElementById(btn.dataset.panel);
+    btn.addEventListener('click', () => {
+      const open = panel.hidden;
+      if (open && panel.classList.contains('lib-parts')) {
+        document.querySelectorAll('.lib-parts').forEach((p) => { if (p !== panel) setPanel(p, false); });
+      }
+      setPanel(panel, open);
+    });
+  });
+
   // ---- the rail: every collection, its notes, and the open note's sections
   const groupNum = (num) => num.replace(/[a-z]+$/, '');
   data.forEach((c) => {
     const sec = document.createElement('section');
     sec.className = 'rail-col';
     sec.dataset.col = c.key;
-    sec.innerHTML = `<button type="button" class="rail-col-h" aria-expanded="true"><span></span><small>${c.year}</small></button><ol></ol>`;
+    sec.innerHTML = `<button type="button" class="rail-col-h" aria-expanded="false"><span></span><small>${c.year}</small></button><ol></ol>`;
     sec.querySelector('.rail-col-h span').textContent = c.title;
     const ol = sec.querySelector('ol');
+    ol.hidden = true;
     let lastGroup = null;
     c.notes.forEach((n) => {
       if (n.group && n.group !== lastGroup) {
         const g = document.createElement('li');
         g.className = 'rail-group';
-        g.textContent = `${groupNum(n.num)} · ${n.group}`;
+        g.innerHTML = '<span class="rg-part"></span><span class="rg-t"></span>';
+        g.querySelector('.rg-part').textContent = `Part ${groupNum(n.num)}`;
+        g.querySelector('.rg-t').textContent = n.group;
         ol.appendChild(g);
       }
       lastGroup = n.group;
@@ -49,13 +69,18 @@
       ol.appendChild(li);
     });
     const h = sec.querySelector('.rail-col-h');
-    h.addEventListener('click', () => {
-      const open = h.getAttribute('aria-expanded') !== 'true';
-      h.setAttribute('aria-expanded', String(open));
-      ol.hidden = !open;
-    });
+    h.addEventListener('click', () => showCol(sec, h.getAttribute('aria-expanded') !== 'true'));
     tree.appendChild(sec);
   });
+
+  // the rail's collections fold; one is open at a time
+  function showCol(sec, open) {
+    tree.querySelectorAll('.rail-col').forEach((other) => {
+      const on = other === sec ? open : false;
+      other.querySelector('.rail-col-h').setAttribute('aria-expanded', String(on));
+      other.querySelector(':scope > ol').hidden = !on;
+    });
+  }
 
   // ---- reading
   let current = null; // the open note
@@ -83,10 +108,8 @@
     });
     toc.hidden = !n.toc.length;
     tocLinks = [...toc.querySelectorAll('a')];
-    // the note's collection stays open
-    const sec = link.closest('.rail-col');
-    sec.querySelector('.rail-col-h').setAttribute('aria-expanded', 'true');
-    sec.querySelector(':scope > ol').hidden = false;
+    // the note's collection is the open one
+    showCol(link.closest('.rail-col'), true);
     link.scrollIntoView({ block: 'nearest' });
   };
 

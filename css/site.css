@@ -458,6 +458,7 @@ a.plain:hover { color: var(--accent); }
 .materials-btn:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 3px; }
 .materials-btn::after { content: "▾"; display: inline-block; margin-left: 3px; transition: transform 0.15s ease; }
 .materials-btn[aria-expanded="true"]::after { transform: rotate(180deg); }
+.materials-btn.page-link::after { content: "\2192"; margin-left: 4px; }
 .materials { list-style: none; margin: 4px 0 2px; padding: 4px 0 4px 12px; border-left: 2px solid var(--rule); font-size: var(--fs-small); }
 .materials[hidden] { display: none; }
 .file-kind { color: var(--muted); font: 400 var(--fs-xs)/1.4 var(--font-text); margin-left: 6px; }

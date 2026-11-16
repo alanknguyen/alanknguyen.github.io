@@ -3,7 +3,7 @@ switches between notes in place.
 
 usage: python3 tools/notes_library.py
 Collections (title, year, lecturer, thumbnail, summary) come from tools/notes_collections.json; each note's
-title and summary from tools/notes.json; pages and outline from notes/<collection>/<note>/index.json.
+title and summary from tools/notes.json (short names and part headings from the collection); pages and outline from notes/<collection>/<note>/index.json.
 notes_pages.py runs this after every rebuild, so the page stays in step with the notes.
 """
 import html
@@ -14,7 +14,7 @@ import re
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, '..')
 NOTES = os.path.join(ROOT, 'notes')
-LIB_V = '2'  # library.css and library.js; the site's css and js versions come from notes_pages.VERSIONS
+LIB_V = '4'  # library.css and library.js; the site's css and js versions come from notes_pages.VERSIONS
 DISCLAIMER = ('These are my own notes from courses and reading, written mainly for my own reference. '
               'They&rsquo;re working drafts, so expect gaps and errors.')
 
@@ -37,28 +37,8 @@ def split_title(title):
     return num, None, rest
 
 
-def home_labels():
-    """the short names and part headings already chosen for the note pickers on the home page:
-    {'optimal-robust-control/3a': ('3a', 'Linear System Preliminaries', 'Solving Linear Systems'), ...}"""
-    page = open(os.path.join(ROOT, 'index.html')).read()
-    out = {}
-    for select in re.findall(r'<select[^>]*>(.*?)</select>', page, re.S):
-        group = None
-        for tag in re.finditer(r'<optgroup label="([^"]*)"|</optgroup>|<option[^>]*data-href="notes/([^"]+?)/?"[^>]*>([^<]*)<', select):
-            if tag.group(0).startswith('<optgroup'):
-                group = html.unescape(tag.group(1)).split(' · ', 1)[-1]
-            elif tag.group(0) == '</optgroup>':
-                group = None
-            else:
-                m = re.match(r'Notes (\w+) · (.*)', html.unescape(tag.group(3)).strip())
-                if m:
-                    out[tag.group(2)] = (m.group(1), group, m.group(2))
-    return out
-
-
 def collect():
     info = json.load(open(os.path.join(HERE, 'notes.json')))
-    labels = home_labels()
     out = []
     for c in json.load(open(os.path.join(HERE, 'notes_collections.json'))):
         notes = []
@@ -69,7 +49,11 @@ def collect():
             if not os.path.exists(idx):
                 continue
             ix = json.load(open(idx))
-            num, group, short = labels.get(key) or split_title(meta['title'])
+            num, group, short = split_title(meta['title'])
+            # short names and part headings chosen in notes_collections.json win over the parsed title
+            nid = key.split('/', 1)[1]
+            short = c.get('names', {}).get(nid, short)
+            group = c.get('groups', {}).get(re.sub(r'[a-z]+$', '', nid)) if re.search(r'\d[a-z]$', nid) else None
             notes.append({
                 'key': key, 'id': key.split('/', 1)[1], 'num': num, 'group': group, 'short': short,
                 'title': meta['title'], 'summary': meta.get('summary', ''), 'pages': ix['count'],
@@ -81,22 +65,38 @@ def collect():
 
 
 def parts(c):
-    """the notes of a collection as a list, numbered parts gathered under their shared heading"""
-    rows, last = [], None
+    """the notes of a collection: numbered parts gathered into blocks under their shared heading"""
+    blocks = []  # [(heading or None, [notes])]
     for n in c['notes']:
-        if n['group'] and n['group'] != last:
-            rows.append(f'<li class="lp-group">{e(n["num"].rstrip("abcdefgh"))} · {e(n["group"])}</li>')
-        last = n['group']
-        sub = ' class="lp-sub"' if n['group'] else ''
-        rows.append(
-            f'<li{sub}><a href="#{a(n["key"])}" data-note="{a(n["key"])}" title="{a(n["summary"])}">'
+        if blocks and n['group'] and blocks[-1][0] == n['group']:
+            blocks[-1][1].append(n)
+        else:
+            blocks.append((n['group'], [n]))
+    out = []
+    for group, ns in blocks:
+        head = ''
+        if group:
+            part = ns[0]['num'].rstrip('abcdefgh')
+            head = f'<p class="lp-head"><span class="lp-part">Part {e(part)}</span>{e(group)}</p>'
+        rows = ''.join(
+            f'<li><a href="#{a(n["key"])}" title="{a(n["summary"])}">'
             f'<span class="lp-num">{e(n["num"])}</span><span class="lp-t">{e(n["short"])}</span>'
-            f'<span class="lp-pp">{n["pages"]} pp</span></a></li>')
-    return '\n'.join(f'            {r}' for r in rows)
+            f'<span class="lp-pp">{n["pages"]} pp</span></a></li>' for n in ns)
+        out.append(f'          <div class="lp-block">{head}<ol>{rows}</ol></div>')
+    return '\n'.join(out)
 
 
 def tags(c):
     return '\n'.join(f'            <li class="tag tag-{a(k)}">{e(t)}</li>' for t, k in c.get('tags', []))
+
+
+def info(c):
+    rows = []
+    if c.get('course'):
+        rows.append(('Main source', e(c['course'])))
+    if c.get('sources'):
+        rows.append(('Primary source' if len(c['sources']) == 1 else 'Primary sources', '<br>'.join(e(x) for x in c['sources'])))
+    return ''.join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k, v in rows)
 
 
 def card(c):
@@ -115,11 +115,18 @@ def card(c):
           <p class="authors">NK Nguyen, scribe. Lectures by <a class="plain" href="{a(c['lecturer_url'])}">{e(c['lecturer'])}</a>.</p>
           <p class="venue">{e(c['year'])} · {len(c['notes'])} notes · {c['pages']} pages</p>
           <p class="summary">{c['summary']}</p>
-          <p class="entry-links"><a class="lib-start" href="#{a(first)}">Start reading</a></p>
+          <p class="entry-links">
+            <a class="lib-start" href="#{a(first)}">Start reading</a>
+            <button type="button" class="lib-toggle" data-panel="{a(c['key'])}-notes" aria-controls="{a(c['key'])}-notes" aria-expanded="false">{len(c['notes'])} notes</button>
+            <button type="button" class="lib-toggle" data-panel="{a(c['key'])}-info" aria-controls="{a(c['key'])}-info" aria-expanded="false">More info</button>
+          </p>
         </div>
-        <ol class="lib-parts">
+        <div class="entry-extra lib-panel lib-parts" id="{a(c['key'])}-notes" hidden>
 {parts(c)}
-        </ol>
+        </div>
+        <div class="entry-extra lib-panel more-info" id="{a(c['key'])}-info" hidden>
+          <dl class="info-list">{info(c)}</dl>
+        </div>
       </li>'''
 
 

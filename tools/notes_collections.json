@@ -18,7 +18,27 @@
         "Optimization",
         "opt"
       ]
-    ]
+    ],
+    "course": "BU ENG EC/ME/SE 701, Optimal and Robust Control",
+    "sources": [
+      "D. Liberzon, Calculus of Variations and Optimal Control Theory: A Concise Introduction, Princeton University Press, 2012",
+      "K. Zhou, J. C. Doyle and K. Glover, Robust and Optimal Control, Prentice Hall, 1995",
+      "G. F. Franklin, J. D. Powell and A. Emami-Naeini, Feedback Control of Dynamic Systems, 6th ed., Prentice Hall, 2009"
+    ],
+    "groups": {
+      "3": "Linear System Preliminaries",
+      "4": "Linear Quadratic Regulator"
+    },
+    "names": {
+      "1": "Introduction and Overview",
+      "2": "Linearization",
+      "3a": "Solving Linear Systems",
+      "3b": "Controllability",
+      "3c": "LTI Systems and Optimality",
+      "4a": "The Free End Point",
+      "4b": "Fixed End Point, Fixed End Time",
+      "4c": "Infinite Horizon, Observers and LQG"
+    }
   },
   {
     "key": "dynamic-programming-stochastic-control",
@@ -43,6 +63,42 @@
         "Reinforcement Learning",
         "rl"
       ]
-    ]
+    ],
+    "course": "BU ENG EC/ME/SE 710, Dynamic Programming and Reinforcement Learning",
+    "sources": [
+      "D. P. Bertsekas, Dynamic Programming and Optimal Control, Vols. I and II (particularly Vol. II)",
+      "D. P. Bertsekas, A Course in Reinforcement Learning, 2nd ed., 2025"
+    ],
+    "groups": {
+      "1": "Introduction",
+      "2": "Linear Dynamics, Quadratic Cost (LQ)",
+      "3": "Inventory Control and Asset Selling",
+      "4": "Imperfect State Information"
+    },
+    "names": {
+      "1a": "Sequential Decisions and Static Problems",
+      "1b": "The Backward Recursion",
+      "1c": "The DP Algorithm",
+      "1d": "Definitions and Policies",
+      "1e": "The DP Theorem",
+      "1f": "Perfect State Information Examples",
+      "1g": "Shortest Paths, Critical Paths and Speech Recognition",
+      "1h": "Optimization Step, State Augmentation, Yield Management",
+      "2a": "The LQ Problem and Matrix Differentiation",
+      "2b": "Symmetric Matrices and Quadratic Forms",
+      "2c": "The Finite-Horizon LQ Solution",
+      "2d": "The Infinite-Horizon LQ Problem",
+      "2e": "Stabilizing a Linear System with LQ Design",
+      "2f": "Certainty Equivalence and Random System Matrices",
+      "3a": "Problem Definition and Convexity",
+      "3b": "Base-Stock Policies (No Fixed Cost)",
+      "3c": "(s, S) Policies and K-Convexity",
+      "4a": "The Sufficient Statistic and the Estimator",
+      "4b": "Machine Maintenance with Imperfect Observations",
+      "4c": "Finite State and Control",
+      "4d": "The LQG Problem and the Kalman Filter",
+      "4e": "Unknown Parameters and Dual Control",
+      "4f": "Appendix: Derived Distributions"
+    }
   }
 ]

@@ -12,36 +12,43 @@
 .lib-collections .summary { margin: 0 0 10px; color: var(--text-2); font-size: var(--fs-small); line-height: 1.55; }
 .lib-start::after { content: "\00a0\2192"; }
 
-/* the notes of a collection, under its entry: two columns of numbered parts */
+/* under each card, full width: its notes (one list open on the page at a time) and its more info */
+.lib-panel { grid-column: 1 / -1; margin: 4px 0 0; }
+.lib-panel[hidden] { display: none; }
 .lib-parts {
-  grid-column: 1 / -1;
-  columns: 2;
-  column-gap: 26px;
-  margin: 4px 0 0;
-  padding: 10px 0 0;
-  border-top: 1px solid var(--rule);
-  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 4px 18px;
+  padding: 10px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--bg-elev);
   font-size: var(--fs-small);
+  animation: lib-open 0.15s ease;
 }
-.lib-parts li { break-inside: avoid; }
-.lib-parts .lp-group { margin: 6px 0 2px; color: var(--muted); font-size: var(--fs-xs); }
-.lib-parts .lp-group:first-child { margin-top: 0; }
-.lib-parts a {
+@keyframes lib-open { from { opacity: 0; transform: translateY(-4px); } }
+.lp-block { min-width: 0; padding: 4px 0; }
+.lp-head { display: flex; align-items: baseline; gap: 8px; margin: 0 0 4px; padding: 0 8px; color: var(--text); font-weight: 700; }
+.lp-part { color: var(--muted); font-size: var(--fs-xs); font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+.lp-block ol { margin: 0; padding: 0; list-style: none; }
+.lp-block a {
   display: grid;
   grid-template-columns: 2.4em 1fr auto;
   gap: 8px;
-  padding: 3px 6px;
-  border-radius: 4px;
-  color: var(--text);
+  align-items: baseline;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--text-2);
   line-height: 1.45;
 }
-.lib-parts .lp-sub a { padding-left: 14px; }
-.lib-parts a:hover { background: var(--tag-bg); color: var(--accent); text-decoration: none; }
+.lp-block a:hover { background: var(--tag-bg); color: var(--accent); text-decoration: none; }
+.lp-block a:hover .lp-num { color: var(--accent); }
 .lp-num { color: var(--muted); font-variant-numeric: tabular-nums; }
-.lp-pp { color: var(--muted); font-size: var(--fs-xs); }
+.lp-pp { color: var(--muted); font-size: var(--fs-xs); white-space: nowrap; }
 
 @media (max-width: 640px) {
-  .lib-parts { columns: 1; }
+  .lib-parts { grid-template-columns: 1fr; }
 }
 
 /* ---- reader view: the library hides, the rail and the frame fill the window */
@@ -123,7 +130,8 @@
 .rail-col-h span { flex: 1; }
 .rail-col-h:hover { background: var(--tag-bg); }
 
-.rail-group { margin: 8px 0 2px 8px; color: var(--muted); font-size: 0.72rem; }
+.rail-group { display: flex; align-items: baseline; gap: 6px; margin: 10px 0 2px 8px; color: var(--text); font-weight: 700; font-size: 0.75rem; }
+.rg-part { color: var(--muted); font-size: 0.66rem; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
 .rail-note {
   display: grid;
   grid-template-columns: 2.3em 1fr auto;
