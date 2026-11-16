@@ -1,6 +1,9 @@
 (() => {
   const reader = document.querySelector('.notes-reader');
   if (!reader) return;
+  // inside the notes library the library supplies the contents and note list, so the reader drops its own
+  const host = window.parent !== window ? window.parent : null;
+  if (host) document.documentElement.classList.add('embed');
   const count = Number(reader.dataset.count);
   const bust = reader.dataset.build ? `?v=${reader.dataset.build}` : '';
   const [rw, rh] = reader.dataset.ratio.split('/').map(Number);
@@ -19,7 +22,7 @@
   const spreadBtn = bar.querySelector('.notes-spread');
   const errata = bar.querySelector('.notes-errata');
   let labels = null;
-  const wide = matchMedia('(min-width: 1001px)');
+  const wide = matchMedia(host ? '(min-width: 721px)' : '(min-width: 1001px)');
 
   const ACTUAL = rw * 96 / 72; // 100% = the page at its printed size
   const LEVELS = [0.5, 0.75, 1, 1.25, 1.5, 2, 3];
@@ -223,6 +226,7 @@
     history.replaceState(null, '', n > 1 ? `#p${n}` : location.pathname);
     const here = markToc(n);
     if (wide.matches) reveal(here, false);
+    host?.postMessage({ type: 'notes-page', path: location.pathname, n, count, last: rowStart(count - 1) <= n - 1 }, location.origin);
   }
   let ticking = false;
   scroller.addEventListener('scroll', () => {
@@ -241,6 +245,11 @@
     if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
     if (e.key === '+' || e.key === '=') { e.preventDefault(); zoomBy(1); }
     if (e.key === '-' || e.key === '_') { e.preventDefault(); zoomBy(-1); }
+  });
+  addEventListener('message', (e) => {
+    if (e.origin !== location.origin || e.data?.type !== 'notes-go') return;
+    go(Number(e.data.n) || 1, Number(e.data.y) || 0);
+    scroller.focus({ preventScroll: true });
   });
   addEventListener('popstate', () => {
     const m = location.hash.match(/^#p(\d+)$/);

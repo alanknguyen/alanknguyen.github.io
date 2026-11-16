@@ -172,3 +172,16 @@
   .notes-bar, .notes-toc, .notes-pages { display: none !important; }
   .notes-reader::after { content: "These notes can be read at alanknguyen.com and are not available for printing."; }
 }
+
+/* inside the notes library: the library's rail holds the contents, so the pages take the whole frame */
+.embed .notes-toc, .embed .notes-toc-btn { display: none !important; }
+.embed .notes-pages { left: 0; }
+.embed .notes-bar { left: 50%; }
+@media (min-width: 721px) and (max-width: 1000px) {
+  .embed .notes-pages { padding: 24px 24px 84px; }
+  .embed .notes-sheet { gap: 18px; }
+  .embed .nb-view { display: inline-flex; }
+  .embed .nb-errata { padding-left: 10px; }
+  .embed .notes-errata { padding: 0 10px; }
+  .embed .notes-errata span { display: inline; }
+}

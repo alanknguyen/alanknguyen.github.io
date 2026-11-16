@@ -1,0 +1,22 @@
+# The notes and the book draft are for reading on this site, not for search results or training data.
+# Their pages carry noindex tags; the page images and outlines are not to be fetched at all.
+User-agent: *
+Disallow: /notes/*.webp$
+Disallow: /notes/*.json$
+Disallow: /notes-src/
+
+# AI crawlers: nothing under /notes/
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: PerplexityBot
+User-agent: Bytespider
+User-agent: Meta-ExternalAgent
+User-agent: cohere-ai
+Disallow: /notes/

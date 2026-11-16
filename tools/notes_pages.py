@@ -23,7 +23,7 @@ FONT = '/System/Library/Fonts/Supplemental/Verdana.ttf'
 MARK = 'alanknguyen.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
 NOTES = os.path.join(HERE, '..', 'notes')
-VERSIONS = {'css_v': '68', 'js_v': '20', 'notes_v': '10'}
+VERSIONS = {'css_v': '69', 'js_v': '20', 'notes_v': '12'}
 
 
 def watermark(im, alpha=18):
@@ -171,6 +171,8 @@ def main():
     info = json.load(open(os.path.join(HERE, 'notes.json'))).get(key)
     if info:
         write_home(key, info, meta['count'])
+    import notes_library
+    notes_library.build()
 
 
 if __name__ == '__main__':

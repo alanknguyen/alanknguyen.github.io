@@ -1,0 +1,48 @@
+[
+  {
+    "key": "optimal-robust-control",
+    "title": "Theory of Optimal and Robust Control",
+    "year": "2025",
+    "lecturer": "Sean Andersson",
+    "lecturer_url": "https://www.bu.edu/eng/profile/sean-andersson/",
+    "thumb": "img/thumbs/ec701-cartpole.webp?v=11",
+    "gif": "img/thumbs/ec701-cartpole.gif?v=11",
+    "alt": "A cart balancing a double pendulum upright",
+    "summary": "A rigorous introduction to optimal and robust control. Robust control: model reduction, H<sub>2</sub> and H<sub>&infin;</sub> control, and feedback control of uncertain systems. Optimal control: the linear quadratic regulator, the calculus of variations, the maximum principle and the Hamilton&ndash;Jacobi&ndash;Bellman equation.",
+    "tags": [
+      [
+        "Control Theory",
+        "control"
+      ],
+      [
+        "Optimization",
+        "opt"
+      ]
+    ]
+  },
+  {
+    "key": "dynamic-programming-stochastic-control",
+    "title": "Dynamic Programming and Stochastic Control",
+    "year": "2025",
+    "lecturer": "Michael Caramanis",
+    "lecturer_url": "https://www.bu.edu/eng/profile/michael-caramanis/",
+    "thumb": "img/thumbs/ec710-dp.webp?v=3",
+    "gif": "img/thumbs/ec710-dp.gif?v=3",
+    "alt": "A maze solved by value iteration",
+    "summary": "The theory of dynamic programming for sequential decisions under uncertainty: the DP algorithm and its optimality conditions, linear-quadratic problems, inventory control and asset selling, imperfect state information, and infinite-horizon problems with approximate DP.",
+    "tags": [
+      [
+        "Dynamic Programming",
+        "dp"
+      ],
+      [
+        "Stochastic Control",
+        "stoch"
+      ],
+      [
+        "Reinforcement Learning",
+        "rl"
+      ]
+    ]
+  }
+]
